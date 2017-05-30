@@ -1,8 +1,425 @@
 <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="base.css" />
 </head>
+
 <body>
-  <section>
+  <div class="head" role="contentinfo">
+    <h1 class="title p-name" id="title" property="dcterms:title">Modelling Land Cover Change Using Geographic Information Systems, Remote Sensing, an Urbanization-suitability Layer and
+      SLEUTH-3r for Groningen, the Netherlands</h1>
+    <hr>
+  </div>
+
+  <nav id="toc">
+    <h2 class="introductory" id="table-of-contents" resource="#inhoudsopgave"><span property="xhv:role" resource="xhv:heading">Table of Contents</span></h2>
+    <ol class="toc" role="directory">
+      <li class="tocline"><a href="#abstract" class="tocxref"><span class="secno"></span>Abstract</a></li>
+      <li class="tocline"><a href="#introduction" class="tocxref"><span class="secno">1. </span>Introduction</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#problem-definition" class="tocxref"><span class="secno">1.1 </span>Problem definition</a></li>
+          <li class="tocline"><a href="#scope-of-the-research" class="tocxref"><span class="secno">1.2 </span>Scope of the research</a></li>
+          <li class="tocline"><a href="#research-aims-and-objectives" class="tocxref"><span class="secno">1.3 </span>Research aims and objectives</a></li>
+          <li class="tocline"><a href="#relevance" class="tocxref"><span class="secno">1.4 </span>Relevance</a></li>
+          <li class="tocline"><a href="#research-methodology" class="tocxref"><span class="secno">1.5 </span>Research methodology</a></li>
+          <li class="tocline"><a href="#research-guide" class="tocxref"><span class="secno">1.6 </span>Research guide</a></li>
+        </ol>
+      </li>
+      <li class="tocline"><a href="#theoretical-background" class="tocxref"><span class="secno">2. </span>Theoretical Background</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#complexity-theory" class="tocxref"><span class="secno">2.1 </span>Complexity Theory</a>
+            <ol class="toc">
+              <li class="tocline"><a href="#urbanizacion" class="tocxref">Urbanización</a></li>
+              <li class="tocline"><a href="#evolutionary-paradigm" class="tocxref">Evolutionary Paradigm</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+
+  <section id="abstract">
     <h2>Abstract</h2>
-    <p>As urbanization occurs, cities and villages expand outwards claiming new areas. This process exerts high pressure on the open and natural environment and signifies the importance of urban management and development. However, the driving forces and effects associated with urbanization affect various disciplines, and temporal and spatial scales, which makes understanding and describing them and their interrelations a complex issue (Goldstein, et al. 2004). An urban model could function as a planning support system to obtain said knowledge, because it enables the simplification of urban complexity and allows to combine several disciplines in a multi-disciplinary approach. For studying the urban environment, cellular automata has become a popular and successful modelling method due to its simplicity to replicate the urban complexity.</p>
+    <p>As urbanization occurs, cities and villages expand outwards claiming new areas. This process exerts high pressure on
+      the open and natural environment and signifies the importance of urban management and development. However, the driving
+      forces and effects associated with urbanization affect various disciplines, and temporal and spatial scales, which
+      makes understanding and describing them and their interrelations a complex issue (Goldstein, et al. 2004). An urban
+      model could function as a planning support system to obtain said knowledge, because it enables the simplification of
+      urban complexity and allows to combine several disciplines in a multi-disciplinary approach. For studying the urban
+      environment, cellular automata has become a popular and successful modelling method due to its simplicity to replicate
+      the urban complexity.</p>
+    <p>This master’s thesis was aimed at studying the urban growth patterns in Groningen by applying a planning support system,
+      namely the cellular automaton SLEUTH. The main objective of this research was to calibrate and validate SLEUTH to fit
+      Groningen’s context in an attempt to predict the future land cover change of Groningen up to 2045. It did this with
+      an integrated application of: Geographical Information Systems, remote sensing, and a multicriteria evaluation.
+    </p>
+    <p>The cellular automata method is underpinned by Complexity Theory. A theory that does not have a precise definition, instead,
+      it is described by characteristics, such as self-organizing, dynamical, chaotic and critical nature, non-linearity,
+      emergence and self-similarity. These characteristics are derived from other paradigms that reach back to the 19th century,
+      such as Cerdá’s Theory on Urbanización and Geddes’ Evolutionary Paradigm and Emergence, and other paradigms that have
+      roots in physics and mathematics, such as The General Systems Theory, Chaos Theory and fractal geometry. Wolfram (1984b)
+      showed that the characteristics of these paradigms and theories exist in cellular automata, and cellular automatons
+      were able to capture complex emerging structures based on simple mathematical rules. Couclelis (1985; 1989) developed
+      the first theoretical approaches for the spatial application of cellular automata to cities. After which, Itami (1994)
+      theorized that if cellular automata is applied to a lattice, it could also be integrated into Geographical Information
+      Systems to facilitate visualization and interpretation of the simulation results. Then in the 1990s, the first urban
+      cellular automatons were developed by Batty and Xie (1994), White et al. (1997) and Clarke et al. (1997).</p>
+    <p>In this master’s thesis an overview was presented of fundamental principles of urban modelling, after which two modelling
+      methods were elaborated: agent-based modelling and cellular automata. Five urban models are discussed that can simulate
+      land cover change (UrbanSim, Metronamica, Dinamica EGO, CLUE and SLEUTH), thereafter the SLEUTH model is adopted for
+      this research and explained in detail. The urban extent input data was derived from a land use classification by object-based
+      remote sensing. In addition, the excluded layer is an important input data layer of SLEUTH, as it plays a key role
+      in accommodating for the dispersed urban growth patterns in Groningen. For this study, the excluded layer was an urbanization-suitability
+      layer through a multicriteria evaluation, wherein factors were standardized through fuzzy set theory and weighted by
+      analytical hierarchy process.</p>
+    <p>Further, calibration and validation are essential parts of predictive modelling and become even more important when models
+      are used as planning support systems. Often the schism between these parts is poorly defined (Pontius, et al., 2004).
+      In light of this critique, the validation procedure for his research was separated through time, where the input data
+      from 1973 up to 2006 was part of model calibration through the use of a regular ‘Brute-Force’ calibration with the
+      Optimal SLEUTH metric (Silva & Clarke, 2002), and the urban area and patterns of 2006 up to 2015 was predicted, which
+      were used for model validation by three-map comparison (Pontius, et al., 2008), budgets of components of agreement
+      and disagreement, and multiple resolution comparison (Pontius, et al., 2011; Pontius, et al., 2004).</p>
+    <p>The modelling results of calibration showed that based on the goodness of fit measures that E0 performed below acceptable,
+      which is the regular excluded layer only incorporating constraints. E1 should be considered a questionable result,
+      which is the excluded layer based on a multicriteria evaluation. E2 and E3 achieved sufficient fit, which are the excluded
+      layers based on a multicriteria evaluation that includes the policies of respectively, 1971 and 1978. Validation showed
+      that for none of the excluded layers, the amount correctly predicted change was larger than the sum of the various
+      types of error, i.e. a figure of merit of 50%. In fact, the highest overall figure of merit was only 25%, showing SLEUTH
+      had difficulties in accurately simulating under these circumstances. Further, validation showed that all excluded layers
+      achieved higher fit-score than their random counterpart, yet none were able to achieve higher fit-scores than the null
+      map at the finest resolution (i.e. 30 m). Which suggest that having a map of 2006 is a better predictor of the urban
+      growth patterns in 2015 than any of the excluded layers at the finest resolution. Notwithstanding, allocation disagreement
+      resolved at coarser resolutions and at a resolution of 16 or 32 times the cell side, E2 and E3 were more accurate than
+      the null map and the random map, and achieved a figure of merit up to 30%. This suggests that SLEUTH is able to provide
+      good expression of neighborhood relationship at coarser scales. In addition, based on validation and compared to the
+      FOM of other applications (Pontius, et al., 2008), E2 and E3 could be classified as reasonably accurate, E0 had a low
+      accuracy and E1 had mediocre accuracy at best. Further in-depth analysis showed that SLEUTH lacks mechanism that were
+      found important to the study area. For example, the study area could benefit from a multi-scale or multi-resolution
+      approach, and the inclusion of models that could forecast regional demands regarding real-estate and changes in demographics,
+      to account for regional differences.</p>
+    <p>Concluding, to answer to the main research question, none of the excluded layers were capable of capturing the dispersed
+      urban growth patterns in the study area during simulation or prediction. Hence, the assumption was made that the scenarios
+      used for predicting, would also not be able to produce accurate urban growth patterns, as these are based on the same
+      principles as used in the excluded layers. Despite, the integrated application of Geographical Information Systems,
+      remote sensing, a multicriteria evaluation for urban suitability and SLEUTH, did show (much) higher goodness of fit
+      and (much) higher accuracy for the excluded layers that incorporated an urbanization-suitability layer based on an
+      multicriteria evaluation, as compared to the excluded layer that did not. Thus, SLEUTH’s excluded layer could be further
+      tested and improved to fit Groningen’s context, SLEUTH could be coupled with complementary methods to include demographics
+      or socio-economic variables, or a different urban model could be used that includes more sophisticated mechanics.</p>
+  </section>
+
+  <section id="introduction">
+    <h2>Chapter 1: Introduction</h2>
+    <p>The concentration of population in urban areas and the subsequent urbanization are world-wide phenomena. The various
+      effects of urbanization have been studied since the 19th century and were often considered a problem that could be,
+      and should be, controlled via planning and policies. This kind of approach has its roots in physicalism, a concept
+      that urban problems could be solved by shaping the physical urban environment (Batty & Marshall, 2009). Ever since
+      the 19th century, with the rise of Urbanism as a science (Soria y Puig, 1999), planning and policies aimed at manipulating
+      the physical environment were seen as the solution to controlling the effects caused by urban growth. However, as urbanization
+      is of great complexity, affecting the urban structure at multiple spatial and temporal scales, the effects of policies
+      and urban plans regularly had unforeseen consequence (Batty, 2014). Controlling the city, its effects, problems and
+      inhabitants was not that straightforward.</p>
+    <p>At the end of the 1940s the digital computer appeared, which allowed rapid and large-scale numerical processing. This
+      new technology enabled researchers to operationalize their mathematical theories on spatial systems via urban modelling
+      in an attempt to unravel the urban complexity (Hall, 1996). Consequently, this led to a diverse array of quantitative
+      simulation models that attempted to explore urban growth patterns. A drawback of these spatial models was that they
+      were complicated and heavy-engineering based rather than theory, and failed to capture the urban complexity (Batty,
+      1976). In the 1980s, the field of spatial modelling was revived by, amongst others, Wolfram (1984b) who showed that
+      simple rules in cellular automata (CA) could replicate complex, emerging structures and patterns found in nature, and
+      Couclelis (1985; 1989) who developed the first theoretical approaches for the spatial application of CA to cities.
+      Subsequently, during the last three decades the field of urban modelling evolved rapidly and provided new tools to
+      understand the drivers of change behind urban dynamics. For studying urban dynamics, CA has become a popular and successful
+      modelling method due to its simplicity to replicate complexity. Moreover, as CA is in itself spatial and is applied
+      to a grid of geographical data, it can be integrated in Geographical Information Systems (GIS) to facilitate analysis,
+      visualization and interpretation of the modelling results (White, Engelen, & Uljee, 1997; Itami, 1994; Batty & Xie,
+      1994).
+    </p>
+    <section id="problem-definition">
+      <h3>Problem Definition</h3>
+      <p>Over half of the world population lives in urbanized areas and the number of city dwellers is expected to rise in the
+        coming years (UN, 2014). Generally, the Netherlands is conceived as one of the most densely urbanized areas in the
+        world, and whilst this is true, Dutch cities are relatively small and urban development is dispersed (Broitman &
+        Koomen, 2015). Nonetheless, as urbanization occurs, cities and villages expand outwards claiming new areas. This
+        process exerts high pressure on the open and natural environment and signifies the importance of urban management
+        and development. Therefore, during the last 70 years the Dutch planning concept was to anticipate urban growth and
+        minimize the spatial footprint of the city and preserve the natural environment (Faludi & van der Valk, 1994; Zonneveld,
+        1991). As early as 1972, the city of Groningen has attempted to deal with this urban complexity via the compact city
+        policy, a policy that the city of Groningen continues to operationalize (Schroor, 2009).</p>
+      <p>However, the driving forces and effects associated with urbanization affect various disciplines, and temporal and spatial
+        scales, which makes understanding and describing them and their interrelations a complex issue. This knowledge is
+        required to support local urban planners and decision-makers to evaluate the consequences of their planning policies
+        (Koomen, Rietveld, & de Nijs, 2008). An urban model could function as a planning support system to obtain said knowledge,
+        because it enables the simplification of urban complexity and allows to combine several disciplines in a multi-disciplinary
+        approach (Goldstein, Candau, & Clarke, 2004). They allow the study of interaction between individual entities at
+        a lower level that result in patterns at a higher level. This is useful in urban planning, where the construction
+        of a society by individuals also influences the human activities of society. Through the use of simulations and scenarios,
+        valuable insight into future urban dynamics could be provided to local urban planners and decision-makers.</p>
+    </section>
+    <section id="scope-of-the-research">
+      <h3>Scope of the research</h3>
+      <p>This master’s thesis is an exploratory research that studies the evolution of urban growth and urban patterns of the
+        Groningen region, from here on referred to as Groningen, over different time scales through computer simulations.
+        It does so by applying an urban model to the Dutch context. However, it does not try to build its own urban model,
+        rather, it will be using an existing model that has been frequently applied throughout the world, namely the self-modifying
+        CA SLEUTH (Clarke, Hoppen, & Gaydos, 1997) and the improved version SLEUTH-3r (Jantz, Goetz, Donato, & Clagget, 2010),
+        referred to as SLEUTH unless specifically discussing SLEUTH-3r. This research focusses on the core of the compact
+        city policy, which is minimizing the spatial footprint of the city (Zonneveld, 1991) and urban land cover change.
+        An overview of what is believed to be a relevant theoretical background with regard to CA and urban modelling will
+        be presented, without explicitly attempting to expand underlying theories of complexity or urbanization. Instead,
+        this study is a practical research concerned with land cover changes, with an integrated application of: GIS, remote
+        sensing (RS), multicriteria evaluation (MCE) and an urban growth model (UGM). In that effort, it does not study the
+        correctness of planning policies that have been applied by Groningen in the past, but it attempts to examine the
+        dynamic outcomes of urbanization to support local urban planners and decision-makers. Also, it does not explicitly
+        attempt to allocate urban development that could cope with future human activities or growth, since an urban model
+        will only provide a rough possible indication of land cover change (Timmermans, 2003).</p>
+      <p>Therefore, the scope of the research is limited to testing its hypotheses that: (a) it is possible to calibrate a UGM
+        to Groningen’s context by combining separate tools (i.e. GIS, RS, MCE and UGM) and forecast future urban dynamics
+        under different planning scenarios that fit into the context of Groningen, and (b) that other relevant factors that
+        influence the urban development in Groningen could be incorporated in the UGM with an urbanization-suitability layer
+        based on an MCE.</p>
+      <p>Major advantages of the modelling and simulation approaches adopted by this research are that: the simulation will
+        be based on accurate satellite imagery data by RS, which will reveal the history of urban expansion; the MCE will
+        be able to include more driving forces of urban development that can be integrated into the UGM; and this type of
+        modelling will help in exploring the future urban dynamics through scenarios. Drawbacks of this type of approach
+        are that through the use of RS and MCE, data acquisition will be time-consuming and only a static temporal and spatial
+        change between defined intervals will be recorded. This emphasizes the difficulties in conducting a temporal sensitivity
+        analysis on the simulation results and the difficulties in underpinning the growth process in the study area.</p>
+    </section>
+    <section id="research-aims-and-objectives">
+      <h3>Research aims and objectives</h3>
+      <p>The aim of this master’s thesis is to contribute to the understanding of CA and urban modelling as planning support
+        systems. It attempts to review relevant theories on complexity and to obtain an empirics-based understanding of said
+        theory by applying a CA. Therefore, the main research objectives are:
+        <ul>
+          <li>calibrating and validating a UGM to suit Groningen’s context;</li>
+          <li>simulating and understanding the urban growth patterns produced by the calibration phase;</li>
+          <li>and predicting the future urban dynamics, spatially and temporally, using Groningen.</li>
+        </ul>
+      </p>
+      <p>Accordingly, this leads to the following research question: “What will be the land cover change of Groningen in 2045
+        as compared to 2015 based on three different scenarios, to explore Groningen’s future urban dynamics?”</p>
+      <p>Additional research aims are to apply SLEUTH to a dispersed urban area that is relatively small with a slow absolute
+        urban growth as compared to study areas SLEUTH is commonly applied to (García, Santé, Boullón, & Crecente, 2012).
+        Due to the dispersed character, the area contains a variety of villages and cities of different sizes that all experienced
+        different types of urban growth and show different urban patterns. In that regard, an urbanization-suitability layer
+        would be key to differentiate the various types of urban growth and to capture the growth pattern with an UGM. Furthermore,
+        this research assesses the feasibility of applying SLEUTH to a city with a clear spatial policy to remain compact
+        and minimize urban growth. Generally, the Netherlands has a long tradition of urban planning and since the Second
+        World War, urban planning has always had a strong influence on urban growth. Hence, incorporating policy maps into
+        an urbanization-suitability layer may be desirable in order to accurately model historic and predict future urban
+        dynamics. Although, guiding or masking the model input with policy maps into favoring more likely outcomes, could
+        bias the modelling procedure in to better calibration and forecasting results (Akın, Clarke, & Berberoglu, 2014;
+        Pontius, Huffaker, & Denman, 2004). This leads to the question: at what point is the model guided or biased too much
+        by policies and masking? Accordingly, both additional research goals express the importance of calibrating an UGM
+        to fit Groningen’s context.</p>
+    </section>
+    <section id="relevance">
+      <h3>Relevance</h3>
+      <p>The societal relevance comes from the analysis of spatial expansion patterns and land use changes that could provide
+        insight into future urban dynamics of Groningen, which is of great importance for local urban planners and decision-makers.
+        A CA as a planning support system is a useful tool that could visualize the historical growth patterns and alternative
+        futures that are researched, which helps in exploring and understanding future urban dynamics.</p>
+      <p>The scientific relevance is found in: (a) most examples found in literature apply SLEUTH to rapidly growing, large
+        urban areas, where it is relatively easy to make generalizations and extrapolate processes than in slower growing
+        areas (García, et al., 2012). Whilst Groningen is the second fastest growing city in the Netherlands, it is different
+        from other areas that have been researched with SLEUTH, since it is a much smaller urban area and has not experienced
+        same urban sprawl due to the more modest absolute growth rates and the compact city policies that have been applied
+        to Groningen (Schroor, 2009). (b) Initially SLEUTH had been primarily applied to North-American cities and the application
+        to cities outside of North-American was questioned. However, the last few years this has expanded rapidly to Chinese,
+        Middle-Eastern and European cities. Results have shown that SLEUTH is able to identify local characteristics and
+        predict future urban land change correctly across the globe (Chaudhuri & Clarke, 2013b). As local characteristics
+        are often more similar in nearby regions and delineated by country borders, it would be useful to apply SLEUTH to
+        the Dutch context. Consequently, this could help assess the feasibility of applying SLEUTH to the Netherlands.</p>
+    </section>
+    <section id="research-methodology">
+      <h3>Research methodology</h3>
+      <p>The following section operationalizes the research statement as outlined above. This research consists of a theoretical
+        approach and a practical approach (Figure 1). The theoretical approach adopts the literature review as a method to
+        research Complexity Theory, urbanization and CA. The practical approach consists of a quantitative, empirical research
+        using a computer simulation to gain insight in land cover changes between 2015 and 2045 based on historic data from
+        1973 to 2015 for Groningen. Afterwards, the future urban dynamics are explored through scenarios. The research design
+        consists of the following methods: (a) a literature research trough literature review, and (b) a case study using
+        SLEUTH.
+      </p>
+      <p>The research methods applied in the practical approach will be addressed in more detail in Chapter 3 since the SLEUTH
+        framework requires a considerable amount of pre-processing and when setting up a new application. During the practical
+        research, special attention will be paid to the three phases of the modelling efforts: data acquisition, calibration
+        and validation phases. Ensuring the quality of the input data is one of the most important elements of model calibration
+        (Silva & Clarke, 2002). Therefore, data acquisition and data transformation are key to understanding errors and uncertainties
+        in the input data and a crucial component for a successful simulation and interpretation of results (Yeh & Li, 2006).
+        Similarly, the calibration phase is important, if not the most critical portion of the modelling effort. It is during
+        this phase that an estimate of the parameter values, which describe an urban system, are determined, and upon which
+        all forecasting and scenario simulation is based (Batty, 1976). Validation is an essential part of predictive modelling
+        when models are used as planning support systems, especially since model validation is often poorly defined or even
+        neglected (Pontius, et al., 2004; Pontius, Peethambaram, & Castella, 2011).</p>
+      <figure id="figure-01">
+        <img src="media/research_approach.png"></img>
+        <figcaption>Figure 1: A visualization of the research methodology as applied in this research.</figcaption>
+      </figure>
+    </section>
+    <section id="research-guide">
+      <h3>Research guide</h3>
+      <p>This master’s thesis is divided into six chapters. The second chapter adopts a theoretical approach that aims at discussing
+        the theoretical background of urbanization and urban modelling in an historical context. It focusses on Complexity
+        Theory and various related theories such as: urbanization, the evolutionary paradigm, the General System Theory,
+        emergence, Chaos Theory and fractal geometry. All of these theories include some of the most important characteristics
+        that lay the foundations of Complexity Theory and CA. From there on, more is explained on the origin and general
+        structure of spatial models and in particular CA. The next section provides an overview and brief explanation of
+        spatial models that are currently available and commonly used for the simulation of urban dynamics. Lastly, the chapter
+        end with concluding notes and explaining why SLEUTH was chosen for this study.</p>
+      <p>The third chapter will explain the research methodology in more detail. Initially, the delineation of the study area
+        is shown and a brief historic overview of the study area is given. Afterwards, methods used in this study are discussed
+        as well as the various scales that they are applied to. The next section of the chapter focus on the calibration,
+        based on a SLEUTH-specific calibration procedure. The subsequent validation of SLEUTH is discussed in the following
+        section. Both are discussed in detail, emphasizing the fact that these two processes are crucial to a successful
+        modelling result and to properly define them as two separate phases during urban modelling. The next section explains
+        the prediction procedure as conducted in this study and the three scenarios that were used in prediction. Lastly,
+        the chapter end with concluding notes and a brief overview of the third chapter.</p>
+      <p>The following chapter elaborates on the data pre-processing that was done during this study. This includes the pre-processing
+        of satellite data via RS, the input data for SLEUTH and the various input layers that were needed for an urbanization-suitability
+        layer based on an MCE, to implement in the excluded layer of SLEUTH. The chapter focusses on explaining how the input
+        data was pre-processed and why certain decisions were made, in order to determine the accuracy of the input data,
+        so the subsequent validation could properly assess the accuracy of the modelling results.</p>
+      <p>The fifth chapter will present the calibration, validation and prediction results based on the application of SLEUTH.
+        Lastly, the final chapter will discuss the conclusion based on the whole research and specifically the application
+        of SLEUTH to Groningen.</p>
+    </section>
+
+    <section id="theoretical-background">
+      <h2>Chapter 2: Theoretical Background</h2>
+      <p>This chapter adopts a theoretical approach that aims at discussing the theoretical background of urbanization and urban
+        modelling. It focusses on complexity and various related theories in section 2.1. All of these theories include some
+        of the most important characteristics that lay the foundations of Complexity Theory and CA. From there on, more is
+        explained on the general structure of urban models and in particular the CA and agent-based methods in section 2.2.
+        Section 2.3 provides an overview and brief explanation of five urban models that are currently available and commonly
+        used for the simulation of urban dynamics. Lastly, the chapter concludes in section 2.4.</p>
+      <section id="complexity-theory">
+        <h3>Complexity Theory</h3>
+        <p>CA has become a popular modelling method to understand urban land use change due to its simplicity to replicate emerging
+          and complex patterns. To give meaning to the term CA, the underlying principle of complexity will be discussed.
+          Complexity is a theory that consists of diverse concepts reaching all the way back to the 19th century. Therefore,
+          some relevant concepts and theories will be elaborated: urbanización, the evolutionary paradigm, the General Systems
+          Theory, emergence, Chaos Theory and fractal geometry. The theories and paradigms that will be briefly discussed
+          are merely a portion of the literature that is the basis of Complexity Theory. However, these function as a scope
+          to view Complexity Theory to provide some insight in the origins of CA.</p>
+        <section id="urbanizacion">
+          <h4>Urbanización</h4>
+          <p>The concentration of population in urban areas and the subsequent urban growth are world-wide phenomena. These
+            phenomena have its origins in a time in transition: a transition from a rural to urban society, driven by the
+            industrial revolution. The zeitgeist of this period is portrayed by on one side the fascination of the metropolitan
+            society as described by Simmel (1903). To him the city was an opportunity, one filled with uncertainty, marking
+            the schism between a rural and urban society. It was a place producing conditions that liberated the metropolitan
+            man, as well as overstimulate his senses. This was unfathomable to those living in the country and is what separated
+            the city dweller from his fellow man (Simmel, 1903). The city was a place of luxury, watching and being watched,
+            with a distant yet intensely social-cultural atmosphere (Benjamin, 1935).</p>
+          <p>On the other side there was the rejection of the metropolis, a grim image of the sporadically ever-growing “monster
+            Leviathan, stretching acre upon acre into the far distance”, as Wright (1901) so eloquently phrased in his piece:
+            “The Art and Craft of the Machine”. “Be gently lifted at nightfall to the top of a great down-town office building,
+            and you may see how in the image of material man, at once his glory and menace, is this thing we call a city”
+            (p. 68). This rejection of the city led to the ‘Garden City’ concept by Howard (1902), who showed a similar distaste
+            of the city. “I am always haunted by the awfulness of London: by the great appalling fact of these millions cast
+            down, as it would appear by hazard, on the banks of this noble stream, working each in their own groove and their
+            own cell, without regard or knowledge of each other” (p. 10). Both Howard and Wright were concerned with the
+            well-being of the city dwellers and saw the negative social and health effects cities had on its inhabitants
+            that were most acute in large cities. Therefore, both developed their utopian antithesis of the industrial city,
+            their antidote to the greatest danger of modern existence.</p>
+          <p>The idea that urban growth was a monstrous, uncontrollable growth dominated the origins of urban planning. The
+            growth and various problems a city produced were considered a problem that could be, and should be, controlled
+            via planning and policies. This kind of approach has its roots in physicalism, a concept that is based on the
+            idea that urban problems could be solved, and the behavior of the masses could be controlled by shaping the physical
+            urban environment (Batty & Marshall, 2009).</p>
+          <p>Ever since the 19th century, as a reaction to the urban chaos unraveled by the industrial revolution, centralized
+            planning and policies were seen as the solution to controlling the effects caused by urban growth. Exemplar to
+            the paradigm of physicalism were Haussmann and Cerdá, who both lived in an era where it became important to perform
+            some sort of control over the rapidly growing industrial cities. Between 1852 and 1870, Haussmann was one of
+            the first to attempt this on a large scale by modernizing Paris. His goal was to solve the problems of overcrowding,
+            crime, traffic circulation and the spreading of diseases. He attempted to do this by controlling the city via
+            creating a whole circulatory and respiratory system that would turn the city into an operative whole. Similarly,
+            in 1860 Cerdá attempted to improve the living conditions and infrastructural circulation in Barcelona via his
+            top-down urban expansion plans. However, as urban areas are structures of great complexity, the effects of policies
+            and urban plans regularly had unforeseen consequences. Controlling the city, its effects, problems and inhabitants
+            was not that straightforward.</p>
+          <p>In the 19th century, with the advances of modern civilization, Cerdá predicted that the construction of cities
+            would become a true science. He foresaw the coming of the new science of urbanism and developed the concept of
+            <em>urbanización</em> in ‘Teoría General de la Urbanización’ in 1876. He understood that the industrial revolution
+            and “the harnessing of steam as a driving force had signaled the end of an era for humanity and the beginning
+            of another” (Soria y Puig, 1999, p. 54). With the birth of new infrastructures such as telecommunications, sewage
+            systems and railroads, he foresaw a civilization of movement and communication. A dynamic place where time is
+            counted in seconds and distance in myriametres (i.e. 10 kilometers). He developed an integrated approach to urbanism
+            as “today everything is movement, everything is expansion, everything is communicativeness” (Soria y Puig, 1999,
+            p. 57) and proposed a radical theory that the infrastructure and especially the <em>circulacíon</em>, were fundamental
+            to urbanization. Prior to Cerdá circulation, was used as an analytical framework to do calculations and explain
+            or describe the current state. However, Cerdá envisioned circulacíon being the theoretical grounds on which the
+            current state could be transformed in service of a mobile and alterable urban area and society (Adams, 2014).</p>
+          <p>“Today, everything that matters circulates. Circulation is the central activity through which value is made visible.
+            It is the concrete register of progress. For this reason, infrastructure now appears as the default apparatus
+            by which such a global society mediates its needs. It is the source of our problems as well as the diagram for
+            their solutions” (Adams, 2014, p.13).</p>
+          <p>The question now was, what should Cerdá name this dynamic place? He introduced a new word: <em>urbe</em>. A term
+            closely related to ‘city’, but as Cerdá explains: the difference being that the urban area (urbe) presupposes
+            the city, it disregards the administrative boundaries that confine a city (<em>ciudad</em>). The urbe included
+            townships and hamlets in the periphery, the towns and villages closer to the center, and in the very center,
+            the urban core. These three things, distinct from each other, genuinely form what should be called an urbe (Soria
+            y Puig, 1999). With the term urbe, Cerdá wanted to address the dynamic character of the urban area wherein infrastructure
+            is the physical appearance of circulation, unbounded by borders. It allowed circulation to flow unobstructed
+            and glue all facets and nodes of the urban area together. Cerdá named this infrastructure: <em>vialidad</em>.
+            With this theory he recognized the urbe, with the fundaments of vialadid and circulacíon, as a complex process
+            relying on five bases: technical, political, economic, legal and administrative. These bases were interrelated
+            and to understand them, one would have to study circulacíon, vialidad and the urbe with statistical studies,
+            what Cerdá called an “encyclopedic approach”. Subsequently, bearing all five bases in mind whilst developing
+            an expansion plan for an urbe would yield the highest result, a harmony between “the independence of the family
+            and the enjoyment of sociability” (Soria y Puig, 1999, pp. 64-66).</p>
+          <section id="evolutionary-paradigm">
+            <h4>Evolutionary Paradigm</h4>
+            <p>During that same period, the image of the city as a machine was replaced by that of an organism. The city was
+              often analogous to an organism, such as Howard (1902), who compared settlements to organisms and Burgess (1924),
+              who compared urban growth to the anabolic and catabolic states of the metabolism. Both these analogues have
+              their roots in the evolutionary paradigm, which was underpinned by the work of Geddes (1915). He conceived
+              the city as something organic that would evolve in relation to its environment. “The environment acts, through
+              function, upon the organism and conversely the organism acts, through function, upon the environment” and the
+              “…environment, function and organism are thus no longer viewed apart, but as the elements of a single process…”
+              (Geddes, 1915, p. 198). His work drew loosely upon the Theory of Evolution by Darwin, but emphasized the importance
+              of the cooperation of the individual cells to survive competition. His comparison to evolution implied there
+              is a fixed relation between the parts and the whole of the organism, but since evolution is open-ended and
+              unpredictable, cities would not have an end-state. This is in contrast to traditional city planners such as
+              Haussmann and Cerdá, who endeavored the optima forma of cities by the implementation of their plans.</p>
+            <p>Additionally, Geddes speaks of Greater London that is exceeding its physical boundaries and is uniting neighboring
+              villages and cities. He states that the governmental and administrative boundaries are constantly being outgrown.
+              This growth process demanded a new civic statesmanship. “Constellations we cannot call them; conglomerations
+              is, alas! nearer the mark at present, but it may sound unappreciative; what of Conurbations?” (Geddes, 1915,
+              p. 34). Geddes envisioned a city-region that would function as a whole, an organism flourishing through cooperation,
+              thus the city would only be as good as its city-region. A few decades earlier, that same point was made by
+              Cerdá, when he coined the term urbe. Nonetheless, the term conurbation was picked up by Fawcett (1922) and
+              officially adopted by the United Kingdom. Fawcett changed the definition of the term conurbation slightly,
+              to an area occupied by a continuous series of dwellings, factories and other buildings, which are not separated
+              from each other by rural land, or what he called the “brick-and-mortar unity”. However, it is important to
+              note that both authors saw the region strictly as a physical phenomenon (Hall, 1996).</p>
+            <p>Unfortunately, Geddes’ ideas of the evolutionary paradigm were to some extent misinterpreted. For example, Mumford
+              (1938) tried to extend the organic analogue by arguing that since organisms have a definite boundary and maximum
+              size, so should a city. “Like an organism, cities much achieve stability and continuity …if they are to perform
+              their high function as the cradle and focus of man’s creative activities” (Chapman & Fenyon, 1963). Subsequently,
+              the concentration of activity would undermine its benefits, leading to a formless urban tissue spreading randomly
+              across the countryside, bringing chaos and congestion. Instead, he emphasized stability. Therefore, the limitations
+              on size, density and area were necessary and the most important instruments of civic planning. Cities would
+              have to be understood as a city-region, wherein the city could only thrive if all parts would cooperate (Mumford,
+              1938). This kind of thinking fell in line with the traditional top-down planning approach, wherein the planner
+              knew the intended optima forma of a city and could apply this via his designs.</p>
+            <p>There was a view that Geddes shared with Cerdá, which was the statistical vision they had of the city. The both
+              believed one would have to understand and diagnose the urban landscape through statistical studies before attempting
+              to treat its problems, “survey before plan” (Geddes, 1915). Conversely, Sitte (1889) spoke out against this
+              statistical view of the city and pleaded for city planning according to artistic principles. “To approach everything
+              in a strictly methodical manner and not to waver a hair’s breadth from preconceived patterns, until genius
+              has been strangled to death and joie de vivre stifled by the system, that is the sign of our time” (p. 229).
+              Sitte criticized modern planning and emphasized the need to examine the building units that composed a city,
+              as opposed to examining the whole sanitary drainage or the traffic flows as Haussmann and Cerdá did. He was
+              inspired by old Roman and Greek streets and plazas, the building units, that adapted to local conditions and
+              “developed gradually in natura” (pp. 187-188). He emphasized on the coherent organism of the town achieved
+              through proper correlation of the building units. However, Sitte did not drew an analogue to an organism in
+              the same manner as Howard or Geddes, as his perspective was different. Instead, he was referring to organic
+              consistency of a city due to proper correlation of its building units.</p>
+          </section>
+        </section>
+      </section>
+    </section>
   </section>
 </body>
