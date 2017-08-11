@@ -7,17 +7,10 @@
 <body>
   <div class="head" role="contentinfo">
     <h1 class="title p-name" id="title" property="dcterms:title">Modelling Land Cover Change Using SLEUTH-3r for Groningen, the Netherlands</h1>
-    <h2>Master's Thesis
-      <time property="dcterms:issued" class="dt-published" datetime="">
-        4 august 2016
-      </time>
-    </h2>
     <dl>
       <dt>Full title:</dt>
       <dd>Modelling Land Cover Change Using Geographic Information Systems, Remote Sensing, an Urbanization-suitability Layer
         and SLEUTH-3r for Groningen, the Netherlands</dd>
-      <dt>Keywords:</dt>
-      <dd>SLEUTH, land cover change, cellular automata, urban growth, remote sensing, urban model</dd>
       <dt>Author:</dt>
       <dd>Ir. D.H. Venema</dd>
       <dt>Graduation committee:</dt>
@@ -27,8 +20,6 @@
       <dt>Organization:</dt>
       <dd>Eindhoven University of Technology</dd>
       <dd>Architecture, Building and Planning</dd>
-      <dt>Github</dt>
-      <dd><a href="https://github.com/dhvenema/SLEUTH-Groningen">Repository</a></dd>
     </dl>
     <hr>
   </div>
@@ -39,12 +30,12 @@
       <li class="tocline"><a href="#abstract" class="tocxref"><span class="secno"></span>Abstract</a></li>
       <li class="tocline"><a href="#1-introduction" class="tocxref"><span class="secno">1. </span>Introduction</a>
         <ol class="toc">
-          <li class="tocline"><a href="#11-problem-definition" class="tocxref"><span class="secno">1.1 </span>Problem definition</a></li>
-          <li class="tocline"><a href="#12-scope-of-the-research" class="tocxref"><span class="secno">1.2 </span>Scope of the research</a></li>
-          <li class="tocline"><a href="#13-research-aims-and-objectives" class="tocxref"><span class="secno">1.3 </span>Research aims and objectives</a></li>
+          <li class="tocline"><a href="#11-problem-definition" class="tocxref"><span class="secno">1.1 </span>Problem Definition</a></li>
+          <li class="tocline"><a href="#12-scope-of-the-research" class="tocxref"><span class="secno">1.2 </span>Scope of the Research</a></li>
+          <li class="tocline"><a href="#13-research-aims-and-objectives" class="tocxref"><span class="secno">1.3 </span>Research Aims and Objectives</a></li>
           <li class="tocline"><a href="#14-relevance" class="tocxref"><span class="secno">1.4 </span>Relevance</a></li>
-          <li class="tocline"><a href="#15-research-methodology" class="tocxref"><span class="secno">1.5 </span>Research methodology</a></li>
-          <li class="tocline"><a href="#16-research-guide" class="tocxref"><span class="secno">1.6 </span>Research guide</a></li>
+          <li class="tocline"><a href="#15-research-methodology" class="tocxref"><span class="secno">1.5 </span>Research Methodology</a></li>
+          <li class="tocline"><a href="#16-research-guide" class="tocxref"><span class="secno">1.6 </span>Research Guide</a></li>
         </ol>
       </li>
       <li class="tocline"><a href="#2-theoretical-background" class="tocxref"><span class="secno">2. </span>Theoretical Background</a>
@@ -77,6 +68,22 @@
             </ol -->
           </li>
           <li class="tocline"><a href="#24-section-conclusions" class="tocxref"><span class="secno">2.4 </span>Section Conclusions</a></li>
+        </ol>
+      </li>
+      <li class="tocline"><a href="#3-research-methods" class="tocxref"><span class="secno">3. </span>Research Methods</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#31-study-area" class="tocxref"><span class="secno">3.1 </span>Study Area</a></li>
+          <li class="tocline"><a href="#32-scale" class="tocxref"><span class="secno">3.2 </span>Scale</a></li>
+          <li class="tocline"><a href="#33-sleuth" class="tocxref"><span class="secno">3.3 </span>SLEUTH</a></li>
+          <li class="tocline"><a href="#34-calibration" class="tocxref"><span class="secno">3.4 </span>Calibration</a></li>
+          <li class="tocline"><a href="#35-validation" class="tocxref"><span class="secno">3.5 </span>Validation</a></li>
+          <li class="tocline"><a href="#36-prediction" class="tocxref"><span class="secno">3.6 </span>Prediction</a></li>
+          <li class="tocline"><a href="#37-section-conclusions" class="tocxref"><span class="secno">3.7 </span>Section Conclusions</a></li>
+        </ol>
+      </li>
+      <li class="tocline"><a href="#4-data-pre-processing" class="tocxref"><span class="secno">4. </span>Data Pre-processing</a>
+        <ol class="toc">
+          <li class="tocline"><a href="#41-satellite-data" class="tocxref"><span class="secno">4.1 </span>Satellite Data</a></li>
         </ol>
       </li>
       <li class="tocline"><a href="#bibliography" class="tocxref">Bibliography</a></li>
@@ -202,7 +209,7 @@
         valuable insight into future urban dynamics could be provided to local urban planners and decision-makers.</p>
     </section>
     <section id="12-scope-of-the-research">
-      <h3>1.2 Scope of the research</h3>
+      <h3>1.2 Scope of the Research</h3>
       <p>This master’s thesis is an exploratory research that studies the evolution of urban growth and urban patterns of the
         Groningen region, from here on referred to as Groningen, over different time scales through computer simulations.
         It does so by applying an urban model to the Dutch context. However, it does not try to build its own urban model,
@@ -233,7 +240,7 @@
       </p>
     </section>
     <section id="13-research-aims-and-objectives">
-      <h3>1.3 Research aims and objectives</h3>
+      <h3>1.3 Research Aims and Objectives</h3>
       <p>The aim of this master’s thesis is to contribute to the understanding of CA and urban modelling as planning support
         systems. It attempts to review relevant theories on complexity and to obtain an empirics-based understanding of said
         theory by applying a CA. Therefore, the main research objectives are:
@@ -279,7 +286,7 @@
         the Dutch context. Consequently, this could help assess the feasibility of applying SLEUTH to the Netherlands.</p>
     </section>
     <section id="15-research-methodology">
-      <h3>1.5 Research methodology</h3>
+      <h3>1.5 Research Methodology</h3>
       <p>The following section operationalizes the research statement as outlined above. This research consists of a theoretical
         approach and a practical approach (<a href="#figure-01">Figure 1</a>). The theoretical approach adopts the literature
         review as a method to research Complexity Theory, urbanization and CA. The practical approach consists of a quantitative,
@@ -305,7 +312,7 @@
       </figure>
     </section>
     <section id="16-research-guide">
-      <h3>1.6 Research guide</h3>
+      <h3>1.6 Research Guide</h3>
       <p>This master’s thesis is divided into six chapters. The <a href="#2-theoretical-background">second chapter</a> adopts
         a theoretical approach that aims at discussing the theoretical background of urbanization and urban modelling in
         an historical context. It focusses on Complexity Theory and various related theories such as: urbanization, the evolutionary
@@ -908,10 +915,405 @@
       <h3>2.3 Urban Models</h3>
       <p>The following section comprises a review of several urban models. This review aims at discussing what is currently
         available and commonly used. It is not attempting to provide a thorough comparative analysis of various urban models.
-        The models that are reviewed are: UrbanSim, Dinamica EGO, Metronamica, CLUE and SLEUTH, the urban model that was
-        used in this study. All of the aforementioned models explained in this section are designed to model urban development.
-        However, each model adopts a different approach, therefore, in this next section for each model a brief overview
-        is presented describing the model structure, data requirements and allocation mechanism.</p>
+        The models that are reviewed are: <a href="#231-urbansim">UrbanSim</a>, <a href="#232-metronamica">Metronamica</a>,
+        <a href="#233-dinamica-ego">Dinamica EGO</a>, <a href="#234-clue">CLUE</a> and <a href="#235-sleuth">SLEUTH</a>,
+        the urban model that was used in this study. All of the aforementioned models explained in this section are designed
+        to model urban development. However, each model adopts a different approach, therefore, in this next section for
+        each model a brief overview is presented describing the model structure, data requirements and allocation mechanism.</p>
+      <section id="231-urbansim">
+        <h4>UrbanSIM</h4>
+        <p>UrbanSim is an open source urban model written in JAVA and designed by Waddell as a planning support system for land
+          use, transportation and environmental planning. The model was specifically designed to address policy analysis
+          requirements of metropolitan growth management. The first application of the model was to Eugene-Springfield, Oregon
+          in the United States. Later, there were several application to cities in the United States and some applications
+          to European cities (Waddell, 2000; Waddell, et al., 2014).</p>
+        <h5>Data requirements</h5>
+        <p>UrbanSim is a data driven modelling approach. It takes in large amounts of explicit spatial and non-spatial data
+          about the city and the region down to the parcel and building level of detail, a combination of vector data and
+          150x150 m raster data. The backbone of UrbanSim is a relational database, ordinarily in MySQL, that contains exogenous
+          data, primary data (regarding households, jobs, buildings, etc.), model coefficients, and model specifications.
+          Due to the amount of data going in, UrbanSim requires extensive calibration to derive coefficients for several
+          model components: land price model, developer model, residential location model, employment location model, and
+          mobility rate model.</p>
+        <h5>Model structure</h5>
+        <p>UrbanSim is not a single model. It is essentially a simulation system consisting of a software architecture to couple
+          models and implemented models that interact with this environment. UrbanSim consists of the models depicted in
+          <a href="#figure-04">Figure 4</a>. The model coordinator schedules the various models to run and notifies them
+          when data of interest has changed. The model components represent the major actors, i.e. agents, in the urban system:
+          the households, businesses and real estate developers, all subject to the influence of governmental policies and
+          environment constraints. The model components attempt to simulate the key choices of these major actors and their
+          interactions with regard to when and where they would move. UrbanSim is based on the assumption that the behavioral
+          simulation of these major actors in the real estate market leads to an aggregate order on a greater scale, i.e.
+          urban development. Its primary goal is to assess the impact of governmental planning on urban development in certain
+          regions through scenarios (Waddell, et al., 2014). Furthermore, the model relies on two external model systems:
+          a macroeconomic model to predict future macroeconomic conditions and a travel demand model system to predict travel
+          conditions.
+          <figure id="figure-04">
+            <img src="media/urbansim_model.png"></img>
+            <figcaption>Figure 4: A visualization of the UrbanSim structure (Waddell, et al., 2014).</figcaption>
+          </figure>
+        </p>
+        <p>In addition the various model components UrbanSim encompasses, it also includes an option to input user-specified
+          events. User-specified events hold information that is outside of the range of predictions of simulation. This
+          option is useful to explore the effects of a planned major corporate relocation or a large development project
+          such as a shopping mall. The user defines these events, indicating the cells that are affected, the date at which
+          it should occur, and other relevant attributes of development, employment of policy event.</p>
+        <p>Moreover, UrbanSim is calibrated with data from three time periods. The simulation runs from the first time period
+          to the second, during which simulation results are compared to the observed data. Validation is conducted from
+          the second period to third, thus its calibration and validation are two distinct processes in UrbanSim, each with
+          their own set of data.</p>
+        <h5>Allocation mechanism</h5>
+        <p>Allocation starts with the transition model, which is a non-spatial model that simulates how many households of each
+          type must be either added or removed from the database. It is based on information from the external macroeconomic
+          model that projects population, household size and income distribution. The mobility model predicts the probability
+          that jobs or household will move from their current location or stay during a particular time period. Subsequently,
+          the location choice model predicts the probability a household or job that is new (from the transition model) or
+          has decided to move (from the mobility model), will choose a specific location defined by a raster cell. Afterwards,
+          the development model simulates real-estate developer’s choices about where to undertake new development or redevelopment.
+          Herein, the model iterates of the grid cells and creates a list of possible transitions, based on current use,
+          policy constraints, the proximity to the highway and accessibility to the population. The next model, land price
+          model, values the cells based on attributes of the cells and its environment, which influence location choices
+          of households, businesses and real-estate developers. Lastly, the export model, which can export the simulation
+          data to GIS formats (Waddell, et al., 2014; Waddell, 2000).</p>
+      </section>
+      <section id="232-metronamica">
+        <h4>Metronamica</h4>
+        <p>Metronamica is a CA-based land use change model developed by the Research Institute of Knowledge Systems (RIKS).
+          The model is built upon the work of White and Engelen (1993) and White et al. (1997), who developed an integrated
+          and constrained cellular automaton. Metronamica is a planning support system to simulate and assess the effects
+          of planning policies on urban and regional development. The model simulates the impact of various exogenous factors
+          (e.g. macro-economic changes, demographic changes) and policy measures (e.g. land use zoning, densification policies,
+          preservation policies) on a city, region, country or continent. To date Metronamica has been applied all over the
+          world, with its first application being to Cincinnati in the United States (RIKS, 2005).</p>
+        <h5>Data requirements</h5>
+        <p>The data requirements depend on the configuration of Metronamica and include three possibilities: Metronamica SL,
+          Metronamica ML and Metronamica LUT. The most data is required for Metronamica LUT and the least for Metronamica
+          SL. For each configuration the type of data required varies: spatial data for the land use model at a local level;
+          non-spatial, statistical data for the regional model; and additional information for the transportation model at
+          a regional level (RIKS, 2005). In the next section, only the basic data requirements are elaborated.</p>
+        <p>The spatial data consists of four input layers: land use, suitability, zoning and accessibility. Firstly, land use
+          maps, which are required for the beginning and the end of the calibration period, and cell sizes is ordinarily
+          between 50 m and 1000 m. The land use classes are divided into three categories: features, functions and vacant
+          classes. Features are land use classes that are not supposed to change in the simulation, such as water bodies.
+          Functions are land use classes that actively participate in the simulation and affect the transition potential
+          of other classes, such as residential or commercial land uses. Vacant classes are classes that only change as a
+          result of other land use dynamics, such as abandoned lands that result of the disappearance of other land use classes.
+          Secondly, the suitability map, which is a map containing the urbanization-suitability score for certain land use
+          function. It is a composite measure based on factor maps that are found relevant to the model user and determines
+          the physical, environmental and ecological appropriateness of a cell. Thirdly, zoning, like suitability is also
+          implemented for each land use function and based on actual master plans or other policy plans that are used for
+          imposing constraints or stimulating particular trends. It is a composite score that includes protected areas or
+          buffer zones that are allowed to change to a certain land use function. It is possible to include a temporal component
+          up to three time periods. Hereby an area may be constrained for a certain land use function for a defined time
+          period, after that period the function may be allowed. Lastly, accessibility, which takes the infrastructure into
+          account: road network, rail network and other network types. This map displays the importance of transportation
+          for certain land use activities and functions, and allows for the relative importance and quality of infrastructural
+          elements for specific land use functions. The accessibility value for each cell depends on the importance of an
+          infrastructural element in the neighborhood and its distance to said element based on distance-decay (RIKS, 2005).</p>
+        <h5>Modelling structure</h5>
+        <p>The core component of Metronamica is a dynamic land use-transportation model, thus a land use model and transportation
+          model are coupled to simulate urban change. In order to represent the changes that take place within an area, the
+          model is layered at three geographical levels: global, regional and local (<a href="#figure-05">Figure 5</a>).
+          The global level consists of the entire modeled area, which computes global trend lines and takes in economic,
+          demographic and environmental growth scenarios. At the regional level population, employment and productivity are
+          calculated based on the exogenous variables from the global level. A dynamic gravity based model accounts for regional
+          differences, resulting in certain regions being more attractive than others. This model allocates national growth
+          as well as inter-regional migration of activities and residents, i.e. transportation. During this process regions
+          compete with each other for people and economic activities. Subsequently, the output of the regional level is converted
+          to a cell-state at the local level by means of a CA-based land use model. Hence, the local level allocates people,
+          jobs and land use based on regional demands. The output of the CA on the local level in turn influences the regional
+          attractiveness regarding population and economic growth (RIKS, 2005).</p>
+        <figure id="figure-05">
+          <img src="media/metronamica_model.png"></img>
+          <figcaption>Figure 5: Metronamica model structure (RIKS, 2005, p. 8).</figcaption>
+        </figure>
+        <h5>Allocation mechanism</h5>
+        <p>Allocation takes place on a local level based on a constrained CA. A set of rules determines whether or not a cell
+          changes, depending on its neighborhood. The default neighborhood configuration is a 196-cell concentric neighborhood
+          with an 8-cell radius, unlike traditional CA that often use a 4-cell von Neumann or 8-cell Moore neighborhood configuration.
+          With an 8-cell radius neighbor the cell is not only affected by its immediate neighbors, but also by features in
+          more remote locations. The strength of the relationship between more distant cells diminishes, thus implying distance
+          decay. Therefore, the weight of each cell in the neighborhood differs and may have an either positive or negative
+          influence on the core cell. Depending on the neighborhood, a cell changes to a land use function for which it has
+          the highest transition potential, until regional demands are satisfied. Additionally, Metronamica accounts for
+          local constraints via the described suitability, zoning and accessibility. <a href="#figure-06">Figure 6</a> shows
+          this in the Metronamica’s time loop (RIKS, 2005).</p>
+        <figure id="figure-06">
+          <img src="media/metronamica_structure.png"></img>
+          <figcaption>Figure 6: The Metronamica allocation time loop (RIKS, 2005, p. 11).</figcaption>
+        </figure>
+      </section>
+      <section id="233-dinamica-ego">
+        <h4>Dinamica EGO</h4>
+        <p>Dinamica EGO (Environment for Geoprocessing Objects), from here on Dinamica, is an open-source, hybrid platform for
+          environmental modelling, which consists of simple static spatial models up to dynamic, complex spatial models.
+          It is based on the first application of the CA Dinamica (Soares-Filho, Cerqueira, & Pennachin, 2002). Since then,
+          the model has been reengineered to become a modelling environment that contains a variety of submodels, calibration
+          and validation procedures. Dinamica has been applied in a variety of studies, to a variety of disciplines all around
+          the world (DINAMICA, 2016).</p>
+        <h5>Data requirements</h5>
+        <p>For producing land use simulations, Dinamica uses two landscape maps as its main input. Also, the model uses, what
+          is referred to as static and dynamic spatial input layers that contain any spatial information the model-user desires.
+          For example, static layers would be factors that only change slowly or are based on exogenous variables, such as:
+          soil type or slope. The dynamic layers are derived from endogenous variables, for example, distance to deforestation
+          or the urban area. For dynamic layers first the frontier cells are identified. After transitions have taken place,
+          temporary maps are recalculated to reflect the new Euclidean distances to the dynamic features (Soares-Filho, et
+          al., 2002). Therefore, dynamic maps are updated throughout the simulation and could be considered as a dynamic
+          feedback mechanism.</p>
+        <h5>Model structure</h5>
+        <p>Dinamica is a framework that supports the development of geomodelling applications and is written in C++. It runs
+          on DinamicaVM, a virtual machine written in JAVA that holds the EGO programming language. In essence, Dinamica
+          is a model-builder and comprises of a series of algorithms called functors, which represent typical cartographic
+          operations. Each functor has a number of inputs and produces a number of outputs. The model-user connects the functors
+          in the EGO Graphical User Interface and determines how the data flows in the model. Additionally, through the use
+          of other functors the model-user can specify the model and how it simulates, by using conditional execution functions
+          such as: if, then, and while. Essentially, with EGO script language a model-user could create any submodel through
+          the use of Dinamica’s functors (Soared-Filho, et al., 2002; Ferreira, Soares-Filho, & Pereira, 2015).</p>
+        <h5>Allocation mechanism</h5>
+        <p>Despite Dinamica’s flexibility, there is a main allocation mechanism regarding land use modelling (<a href="#figure-07">Figure 7</a>).
+          For producing land use change, the model computes: a transition matrix, the static and dynamic variables, the spatial
+          transitional probabilities, and the transitional functions.</p>
+        <figure id="figure-07">
+          <img src="media/dinamica_ego_model.png"></img>
+          <figcaption>Figure 7: A flowchart of Dinamica (Soares-Filho, et al., 2002, p. 220).</figcaption>
+        </figure>
+        <p>First a transition matrix is calculated, which is obtained by a using Markov chain matrix to determine the quantity
+          of change between categories in the landscape maps of two time periods. Therefrom, dynamic distances are calculated
+          and the dynamic variables are updated. Next, Dinamica computes the spatial transition probabilities for each cell
+          as a function of different driving factors that come from the static and dynamic variables, based on weight of
+          evidence and genetic algorithms. Afterwards, two CA-based transitional functions are initiated that use a stochastic
+          selection algorithm, the Expander Functor and the Patcher Functor. The Expander Functor is dedicated to the expansion
+          and contraction of existing patches of a certain class. The second function, the Patcher Functor, is an algorithm
+          that generates new patches through a seeding mechanism, which can be defined as spontaneous growth. During the
+          two CA methods the user can specify a number of items that can influence the model behavior, such as: mean patch
+          sizes, isometry or neighborhood search window sizes. The last step in the allocation mechanism is to propagate
+          changes in the selected cells. During calibration Kappa statistics, fraction correct, fuzzy Kappa and fuzzy fraction
+          correct are used to fit the model, as well as to validate the simulation results (DINAMICA, 2016; Soares-Filho,
+          et al., 2002).</p>
+        <p>Dinamica also has the option to divide the study area into regions with specific parameter settings or specifications.
+          A difference between Dinamica and other models, is that it is able to run subregion-based models with interactions
+          between the subregions, thus enabling certain variables to have an effect on a specific subregion or all other
+          subregions, as well as running them simultaneously.</p>
+      </section>
+      <section id="234-clue">
+        <h4>CLUE</h4>
+        <p>The CLUE modelling framework (Conversion of Land Use and its Effects) is based on a CA model, of which the first
+          version was developed by Veldkamp and Fresco (1996) and applied to Costa Rica. The various versions of CLEU (CLUE,
+          CLUE-s, Dyna-CLUE and CLUE-Scanner) are amongst the most frequently applied land use models. The original version
+          simulated the effects of demographics and biophysical conditions on land use and land cover changes, including
+          a local and regional feedback mechanism from those driving forces. Subsequently, a multi-scale approach allows
+          the model to simulate the urban dynamics related to the top-down and bottom-up effects and constraints.</p>
+        <h5>Data requirements</h5>
+        <p>The data requirement depends on the version of CLUE that is used and the data needed for a successful application.
+          Generally, it could be said that the model requires non-spatial and spatial data inputs. The non-spatial data could
+          comprise population and associated demographic, or various socio-economic factors. In CLUE it is possible to use
+          simple extrapolation methods or complex economic models to project future dynamics of the non-spatial data. The
+          spatial data requires two raster files for preferably two time periods with a number of land use classes. Typically,
+          further physical aspects are including related to spatial policies or constraints, land use type specific conversion
+          settings, land use demands and local characteristics (Verburg & Overmars, 2009).</p>
+        <h5>Model structure</h5>
+        <p>Even though, each CLUE version is slightly different, CLUE consists of two main modules: a non-spatial demand module
+          and a spatially explicit allocation module, shown in <a href="figure-08">Figure 8</a>. The demand module calculates
+          the demand for a land use type on a national scale, based on changes in various, user-defined, socio-economic and
+          demographic factors. The calculations are based on historic trends derived from the input data, which are projected
+          to account for future demand. From a regional or national level, the demand module influences the spatial allocation
+          and distribution of various land use types and associated productions (Verburg, Veldkamp, & Fresco, 1999).</p>
+        <p>Interesting in the model structure is the multi-resolution approach. Conversely to other CA approaches, where land
+          use is determined by the one land use type, presumably the most dominant, in CLUE it is determined by the relative
+          cover of each land use type in each cell. For example, CLUE uses two raster, both contain the same land use types,
+          but one is much coarser. A coarse cell could contain 25% urban area, 25% agricultural lands and 50% rangelands.
+          The constituent cells of a finer scale reflect those same proportions when accumulated (Verburg, et al., 1999).</p>
+        <p>The allocation itself is based upon a variety of historic spatial analyses of the interaction between land use, socio-economic
+          conditions and biophysical constraints. Multiple regression models are calculated to quantify this relationship
+          between the various conditions and the allocation of land use. The aforementioned scales determine the structure
+          of the land use patterns. The coarse scale is used for general trends and relationships between land use and its
+          driving factors, whilst the fine scale is to identify variability within regions. Therefore, the spatial analyses
+          are conducted on two scales, allowing for variation within the influences of determining factors (Verburg, et al.,
+          1999; Veldkamp & Fresco, 1996).</p>
+        <figure id="figure-08">
+          <img src="media/clue_model.png"></img>
+          <figcaption>Figure 8: Structure of the CLUE modelling framework (Verburg, et al., 1999, p. 215).</figcaption>
+        </figure>
+        <h5>Allocation mechanism</h5>
+        <p><a href="figure-09">Figure 9</a> shows the basic allocation procedure, although each CLUE version has a slightly
+          different process. Spatial analysis groups the land use types into two categories: those that are demand driven
+          at a regional scale, and those for which no demand at a regional scale could be determined. The allocation module
+          allocates regional demands to individual cells, until the demand has been satisfied by iterative comparison between
+          individual allocated land use types to neighborhood demand. In this process each cell is affected by location suitability
+          and neighborhood suitability, such as biophysical limitations. Moreover, there is a component related to land use
+          specific conditions, such as conversion elasticity (i.e. the cost of converting to a land use type, either monetary
+          or institutional), and comparative advantage, when land use types are below their regional demand (Verburg & Overmars,
+          2009).
+        </p>
+        <p>For each cell, the land use type with the highest probability is checked against a conversion matrix. This matrix,
+          constraints certain type of transitions under certain circumstances, e.g. the conversion from agriculture to forest
+          would not be possible in one time step. Afterwards, the allocated land use type is checked against regional and
+          neighborhood demands, if deemed acceptable, the cell is updated (Verburg & Overmars, 2009).</p>
+      </section>
+      <figure id="figure-09">
+        <img src="media/clue_allocation.png"></img>
+        <figcaption>Figure 9: A flowchart of the allocation procedure in Dyna-CLUE (Verburg & Overmars, 2009, p. 1170).</figcaption>
+      </figure>
+      <section id="235-sleuth">
+        <h4>SLEUTH</h4>
+        <p>SLEUTH is a scale-independent, open source, 2D CA based model that simulates urban growth and land use changes that
+          are caused by urbanization. Therefore, SLEUTH has become a popular tool to evaluate policies and scenario planning
+          (Chaudhuri & Clarke, 2013b). The application of SLEUTH to the San Francisco Bay Area by Clarke et al. (1997) was
+          the first major application of the SLEUTH model. This paper documents the details of the model, describing the
+          necessary data layers, the five growth coefficients, what they control and the four types of urban growth. In addition
+          to these fundamental principles of SLEUTH, the concept of self-modification was introduced. It is a descriptive
+          model, meaning it does not explain the land cover and land use changes of the urban structure. Same shape and changes
+          could be derived of sets with different initial conditions and boundaries, and different parameters. It also does
+          not explicitly deal with population, policies or economic impacts of land use change, although it could be integrated
+          via the excluded layer (Mahiny & Clarke, 2012; Onsted & Chowdhury, 2014; Jantz, Drzyzga, & Maret, 2014) or via
+          the self-modification module (Liu, et al., 2012).</p>
+        <h5>Data requirements</h5>
+        <p>SLEUTH stands for Slope, Land use, Excluded, Urban, Transportation, Hillshade, which is the input data for the model.
+          The model uses a raster grid based on a GIF-image in gray scale with a consistent resolution and spatial extent.
+          The Slope layer uses elevation data and requires only one time period with the percent slope, commonly derived
+          from a digital elevation map. The Land use layer is an optional layer that uses any number of land use categories,
+          as long as they are consistent. It requires at least two time periods and is used to calculate a class-to-class
+          transition probability matrix among the different land use categories. The excluded layer defines all areas that
+          are resistant to urbanization, this could be a location where it’s impossible to develop or where development is
+          unlikely. For this layer it is possible to include the likeliness a location is available for development, from
+          0 (available) to 100 (not available). The Urban layer consists of a raster in which a cell is either urban or non-urban.
+          In this layer the earliest year is known as the seed, which is used for the initialization of the model. Subsequent
+          years are the control years, which are used to calculate goodness of fit statistics. The Transportation layer needs
+          at least two time periods and has the option to include weighting to represent the relative importance of roads,
+          and to determine the probability of urban development according to the accessibility of a location. The last layer,
+          Hillshade is needed to give spatial context to the urban extent data and is only used for visualization purposes
+          (Clarke, et al., 1997; Candau, 2002).</p>
+        <h5>Model structure</h5>
+        <p>SLEUTH is constituted of two sub-models (<a href="#figure-10">Figure 10</a>): the Urban Growth Model (UGM) and Land
+          Cover Deltatron Model (LCDM). The UGM simulates the effects of the topographic slope, transportation network and
+          resistance to urbanization on the urbanization patterns through time. It uses a Boolean logic, it is either urbanized
+          or not urbanized. The LCD uses typical CA-based rules, such as discrete state transitions, class transition probabilities
+          (Markov matrix) and a Moore neighborhood to define land use changes through time (Clarke, 1997; Candau, 2002).</p>
+        <figure id="figure-10">
+          <img src="media/sleuth_model.png"></img>
+          <figcaption>Figure 10: The structure of the SLEUTH and SLEUTH-3r models.</figcaption>
+        </figure>
+        <p>The essence of the SLEUTH is the growth cycle, which is its basic unit and represent the time step of one year. It
+          uses the initial condition of the cells, which is determined by the input data, and the setting of five controlling
+          coefficients (<a href="#table-02">Table 2</a>) to a unique value. Each of the growth rules (from the UGM and LCD)
+          is applied, which is then evaluated by the self-modification module. The simulation is repeated a user-specified
+          number of times during the Monte Carlo (MC) method. The MC method is used to evaluate and average the output results
+          of all the basic simulations that were completed. During each MC iteration descriptive statistics are calculated,
+          which after each growth cycle are averaged across all MC iterations (Clarke, et al., 1997; Candau, 2002). From
+          this basic simulation the UGM defines urban growth dynamics through four types of growth: spontaneous growth, spreading
+          center growth, edge growth and road-influenced growth. Each type of growth is applied sequentially during each
+          cycle and is controlled by five parameters: dispersion, spread, breed, slope resistance and road gravity. The coefficients
+          are integers that can range from 0 to 100 and represent the relative contribution of each corresponding variable.
+          The model-user controls these via the scenario-file, wherein the demol-user can specify parameter values and statistical
+          and graphical output SLEUTH ought to produce (Clarke, et al., 1997; Candau, 2002).The essence of the SLEUTH is
+          the growth cycle, which is its basic unit and represent the time step of one year. It uses the initial condition
+          of the cells, which is determined by the input data, and the setting of five controlling coefficients (<a href="#table-02">Table 2</a>)
+          to a unique value. Each of the growth rules (from the UGM and LCD) is applied, which is then evaluated by the self-modification
+          module. The simulation is repeated a user-specified number of times during the Monte Carlo (MC) method. The MC
+          method is used to evaluate and average the output results of all the basic simulations that were completed. During
+          each MC iteration descriptive statistics are calculated, which after each growth cycle are averaged across all
+          MC iterations (Clarke, et al., 1997; Candau, 2002). From this basic simulation the UGM defines urban growth dynamics
+          through four types of growth: spontaneous growth, spreading center growth, edge growth and road-influenced growth.
+          Each type of growth is applied sequentially during each cycle and is controlled by five parameters: dispersion,
+          spread, breed, slope resistance and road gravity. The coefficients are integers that can range from 0 to 100 and
+          represent the relative contribution of each corresponding variable. The model-user controls these via the scenario-file,
+          wherein the demol-user can specify parameter values and statistical and graphical output SLEUTH ought to produce
+          (Clarke, et al., 1997; Candau, 2002).</p>
+        <table id="table-02">
+          <caption>Table 2: The types of growth and their controlling coefficients.</caption>
+          <tr>
+            <th>Type of growth</th>
+            <th>Description</th>
+            <th>Controlling coefficients</th>
+          </tr>
+          <tr>
+            <td>Spontaneous</td>
+            <td>Simulates the occurrence of a random cell being urbanized</td>
+            <td>Diffusion, slope</td>
+          </tr>
+          <tr>
+            <td>New spreading centers</td>
+            <td>Determines whether a spontaneously urbanized cell becomes a new spreading center</td>
+            <td>Breed, slope</td>
+          </tr>
+          <tr>
+            <td>Edge</td>
+            <td>Simulates the growth that comes from existing or new spreading centers</td>
+            <td>Spread, slope</td>
+          </tr>
+          <tr>
+            <td>Road-influenced</td>
+            <td>Simulates new urbanized cells along the existing transportation infrastructure</td>
+            <td>Road gravity, diffusion, breed, slope</td>
+          </tr>
+        </table>
+        <h5>Allocation mechanism</h5>
+        <p>As is shown in <a href="#figure-10">Figure 10</a>, the UGM is the first of the two models that is applied in SLEUTH.
+          <a href="#figure-11">Figure 11</a> shows the four growth rules as applied in the UGM, for each of the four growth
+          types that are applied sequentially.</p>
+        <figure id="figure-11">
+          <img src="media/sleuth_model.png"></img>
+          <figcaption>Figure 11: Allocation mechanism for the UGM.</figcaption>
+        </figure>
+        <p>The first of these is spontaneous growth, which is controlled by the slope and diffusion growth coefficient. Based
+          on the size of the input data, i.e. number of rows and columns, a certain amount of pixels is randomly chosen for
+          urbanization. These pixels are matched against the slope resistance, as defined by the slope layer and the urbanization
+          resistance, as defined by the excluded layer, in both cases by generating a random integer. Afterwards, the spontaneous
+          growth has a chance of becoming a new spreading center, which is defined by the slope and breed growth coefficient.
+          Based on a randomly generated integer, a spontaneous growth cell can become a new spreading center, given two randomly
+          selected neighboring cells are available for urbanization. If the cell passes both tests, the two neighboring cells
+          are matched against the slope resistance and the urbanization resistance.</p>
+        <p>The third phase is edge growth and is controlled by the slope and spread growth coefficient. This growth stems from
+          existing urban cells, from the previous two phases, as well existing urban cells. If a non-urban cell has at least
+          three neighboring urban cells, it has a chance of becoming an urban cell. Again, this chance is based on the slope
+          resistance and the urbanization resistance. The last phase is road-influenced growth, which is controlled by the
+          slope, road gravity, diffusion, breed growth coefficients. It is determined by the transportation layer and existing
+          urban cells as well as generated urban cells from the previous phases. With a probability defined by the breed
+          coefficient, newly urbanized cells are selected, therefrom the existence of the road is sought in the neighborhood,
+          as defined by the road gravity coefficient. A temporary cell is placed at the nearest cell to the road, from there
+          the cell randomly moves along the road a certain amount of steps, as defined by the diffusion coefficient. Once
+          it arrives at its final location, two neighboring cells are randomly selected. If they are available for urbanization,
+          they are matched against the slope resistance and the urbanization resistance to determine if they are urbanized
+          (Clarke, et al., 1997; Candau, 2002).</p>
+        <p>The LCDM is the land use cellular automaton incorporated in SLEUTH and consists of deltatrons that act as independent
+          agents of change based on historical data. Before the LCD module cycle starts two calculations are made. For two
+          time periods the land use input is used to calculate a class transition matrix. Then for each class the corresponding
+          average slope is calculated, so that steep sloped lands exclude certain land use categories. Afterwards, the LCDM
+          starts, which consists of two phases: create change and propagate change. Phase one is driven by the number of
+          newly urbanized cells from the UGM. A cell at a random location is chosen for which the transition suitability
+          is calculated. Two random land use categories are selected, the one with the average slope most similar to that
+          of the cell, is chosen. This land use category is then matched against the class transition matrix. Afterwards,
+          a random number is generated that determines whether the cell’s land class is changed and the changed cell attempts
+          to randomly spread to its neighbors and form a cluster. Thereafter, deltatrons are born in deltaspace on the locations
+          that changed. During phase two, standard CA rules are used and deltatrons try to initiate change onto neighboring
+          cells. If a cell has two or three neighboring deltatrons with the same land use category, that cell is selected
+          for transition. This cell is matched against a random number, if successful the change is enforced on the map.
+          The LCD iterates through this process until all the deltatrons have decayed (Clarke & Candau, 2000; Candau, 2002).
+          A variety of studies have used the Deltatron module of SLEUTH for predicting and analyzing land use changes (Dietzel
+          & Clarke, 2004a; Al-shalabi, et al 2013; Mahiny & Clarke, 2012; KantaKumar, Sawant, & Kuma, 2011; Dietzel & Clarke,
+          2006).
+        </p>
+        <p>After the UGM and LCDM modules have applied their growth rules, a last optional phase of self-modification calculates
+          the sums up the combined growth rate of the four growth types. There are three categories: rapid growth, normal
+          growth and no growth (<a href="#figure-12">Figure 12</a>). The growth rate falls into one of these categories and
+          subsequently the controlling coefficients are multiplied by a constant to simulate an accelerated or depressed
+          growth, i.e. during rapid growth, diffusion, breed and spread are multiplied by a constant greater than one to
+          simulate the tendency of an expanding system to grow even more rapidly.</p>
+        <figure id="figure-12">
+          <img src="media/sleuth_selfmodification.png"></img>
+          <figcaption>Figure 12: The three possible phases of the self-modification module.</figcaption>
+        </figure>
+        <p>The self-modification module consists of the limits CRITICAL_HIGH and CRITICAL_LOW that determine the boundaries
+          at which the urban growth would be multiplied by respectively the BOOM or BUST value. The CRITICAL_SLOPE determines
+          at what slope degree cells would no longer be available for urbanization. The last two values are ROAD_GRAV_SENSITIVITY
+          and SLOPE_SENSITIVITY. During the boom-cycle, the road-gravity factor becomes larger, prompting a wider band of
+          urbanization around the roads, and a decrease in the slope resistance factor to permit expansion onto steeper slopes.
+          During the bust-cycle the opposite occurs. These seven self-modification values can all be specified by the user
+          in the scenario-file (Clarke, et al., 1997; Candau, 2002). Liu et al. (2012) have adjusted these parameters to
+          incorporate macro trends, but they have concluded that their attempt had failed to improve SLEUTH and further research
+          is needed. Others, have successfully predicted, whilst adjust parameter values in the self-modification module
+          (Jantz, et al., 2010; Jantz, et al., 2014).</p>
+      </section>
     </section>
     <section id="24-section-conclusions">
       <h3>2.3 Section Conclusions</h3>
@@ -973,6 +1375,1311 @@
         this research focusses on the core of the compact city policy, which is minimizing the urban footprint. Therefore,
         this research focusses on what SLEUTH does best, land cover change (Chaudhuri & Clarke, 2013b), whilst acknowledging
         other relevant components of the compact city policy exist, but are not researched in this study.</p>
+    </section>
+  </section>
+
+  <section id="3-research-methods">
+    <h2>3. Research Methods</h2>
+    <p>This chapter elaborates on the research methods used for the practical approach of this research, the case study using
+      SLEUTH. First, an historical overview and the physical location of the study area is presented. Afterwards, specific
+      components related to SLEUTH are addressed: types of scale, the excluded layer, calibration, validation and prediction.
+      Therein, a key component is the excluded layer, as it can substantially influence the modelling results. In this study
+      the excluded layer is an urbanization-suitability layer based on an MCE, whereby the MCE factors are combined through
+      fuzzy set theory and given a weighting score through Analytical Hierarchy Process. Moreover, in <a href="#34-calibration">section 3.4</a>,
+      <a href="#35-validation">section 3.5</a> and <a href="#36-prediction">section 3.6</a>, respectively the calibration,
+      validation and prediction procedures are discussed.</p>
+    <section id="31-study-area">
+      <h3>3.1 Study Area</h3>
+      <p>The study area is spanned over a region of 1,181.33 km² and comprises the administrative boundaries of the municipality
+        of Groningen, the capitol city of the province of Groningen and is located in the northern part of the Netherlands
+        (see <a href="#figure-13">Figure 13</a>). According to the CBS Statistics Netherlands (2016), the city of Groningen
+        has a population of 200,336 (per 1-1-2016) and is the second, relatively, fastest growing city, after Utrecht. Groningen
+        has a relatively large sphere of influence as it is one of the few large cities in the region, which makes it an
+        meaningful city to the northern part of the Netherlands.</p>
+      <figure id="figure-13">
+        <img src="media/study_area.png"></img>
+        <figcaption>Figure 13: A visualization of the study area, the city of Groningen and neighboring cities and villages.</figcaption>
+      </figure>
+      <h4>Historical overview</h4>
+      <p>Groningen has a long history reaching back until at least 1040, although it is believed it has been a city long before.
+        It was founded on the Hondsrug, a ridge of sand reaching far into lower-lying parts of marine clay and fertile moorlands,
+        which made the city to a certain extent inaccessible. It was the most northern city in the diocese of Utrecht, far
+        from other cities and amidst the Friezen from the lordless countryside, the ‘Ommelanden’. A small river leading alongside
+        the Hondsrug made it possible for Groningen and the surround countryside the ‘Ommelanden’ to transport and trade
+        via water. This unique location made Groningen an important trade node for the population, where they would trade
+        products of the sand ridges (wood and rye) with products of the coastal regions (butter, hides and fish). The diocese
+        of Utrecht needed Groningen as this was their only influence in the area and the Friezen needed Groningen as this
+        was their only safe marketplace (Schroor, 2009; RHC Groninger Archieven, 2016).</p>
+      <p>In the 13th century Groningen joined the trade union ‘Hanseatic League’ and its merchants started trading with cities
+        alongside coasts of the North and Baltic Sea. With the trade connections across the seas, Groningen was by far the
+        strongest party in the region. Groningen took full advantage of this position and further developed their city and
+        strived towards becoming an independent city. Groningen expanded its influence by purchasing lands and concluding
+        agreements between the city and the Ommelanden. The connections via the rivers were improved and canals were dug
+        so the rivers would reach the city ramparts. These were the glory years of Groningen, as the population grew and
+        the economy thrived. It became an independent city with a large military force, educated civilians and large ambitions.
+        To express their ambition and power, Groningen built churches in gothic style with tall towers to show the Ommelanden
+        and nearby cities where the true power in the north resided. This did not go unnoticed and soon the Dukes of Burgundy
+        to the south and also the city of Hamburg to the east were looking to overpower Groningen and exploit their strong
+        position. In 1536 after 40 years of conflict, Groningen was subdued by Karel of Burgundy. Now Groningen was no longer
+        independent and for the first time, part of a central government run from Brussels (RHC Groninger Archieven, 2016).</p>
+      <p>In the 16th century the Dutch provinces, including the Ommelanden, revolted against Philip II of Spain during the Eighty
+        Years' War. However, the city of Groningen did not, as they were satisfied with their current status. In fact, in
+        1580 under the lead of its Stadtholder Rennenberg, Groningen joined Philips II of Spain, which would become known
+        as the treason of Rennenberg. Due to the strategic position of the city of Groningen the Spanish could still influence
+        the northern part of the Netherlands, which weakened the position of the Dutch Republic and led to internal conflicts
+        between the Ommelanden and the city of Groningen. Friend and foe plundered the area, leaving destruction in its path.
+        Friesland and the Ommelanden insisted the siege of the city of Groningen, which eventually the Republic did. This
+        led to the ‘Reduction of Groningen’, which meant the city of Groningen and the Ommelanden were merged into one province
+        named ‘Stad en Lande’. The province then joined the Republic of Seven United Netherlands as the seventh province,
+        against the will of the city of Groningen (RHC Groninger Archieven, 2016).</p>
+      <p>Eventually, the war settled down during the interbellum of the war. The walls of the city of Groningen were reinforced,
+        fearing an impending Spanish invasion. In 1648 the war was officially ended. However, in 1672 the four largest powers
+        focused on the rebellious nation. The French, English, archbishops of Münster and Köln invaded the Republic of Seven
+        United Netherlands. They did not account for the strong position of Groningen. Therefore, on the 26th of July 1672
+        the archbishops focused on the city and sieged it up to the 28th of August, when their armies suddenly retreated,
+        leaving Groningen undefeated. After the Eighty Years’ War, the city of Groningen wanted to restore their old status
+        as an independent city. The Ommelanden were against this and wanted to pursue their liberal ideas of equality. Yet
+        again, this led to much conflict within the Province that wouldn’t settle down until Napoleon enforced his ideas
+        of liberté, egalité and fraternité. During this period, the liberals had a chance to practice their modern ideas
+        and the province of Groningen was truly formed (RHC Groninger Archieven, 2016).</p>
+      <p>Up to 1795 the amount of inhabitants of the city of Groningen was relatively stable at 24,000. During the 19th century
+        the population of the city grew rapidly as new paved roads, tram lines, railways and the university were constructed.
+        The city was no longer isolated and could not house all its new inhabitants within the fortified walls. Therefore,
+        in 1876 plans were made to dismantle the fortifications so new residents could live inside and nearby Groningen.
+        During the next decades the urban fringe changed as the city expanded. Due to the ‘Woningwet’ in 1901, a law that
+        was aimed at improving living conditions, cities with more than 10,000 inhabitants were obligated to develop expansion
+        plans every 10 years. This has led to many new expansion plans in Groningen, the first of these was in 1903 ‘Plan
+        van Uitleg’ (Schroor, 2009).</p>
+      <p>After the Second World War up to 1970, the population grew rapidly and it was expected it would grow even more in coming
+        decades, up to 500,000 inhabitants by the year 2000. To cope with these projections, Groningen developed the ‘Structuurplan
+        1961’ and ‘Structuurplan 1969’. The city of Groningen designated many new future urban expansion areas, and in the
+        process annexed neighboring villages. In the 1970s, it was found that the population projections were far too optimistic
+        and Groningen adjusted their spatial expansion plans accordingly. Whilst Groningen did not officially adopt a new
+        policy, it radically diverted and aimed at being a compact city that minimized urban expansion and created a multifunctional
+        city center. Old pauperized neighborhoods in the city center were renovated, local facilities were improved and traffic
+        was averted from the city center. Some of the old expansion areas were still constructed, albeit in an adjusted,
+        smaller form (Schroor, 2009).</p>
+      <p>In the 1980s the compact city policy was officially embraced. Due to the economic recession, the housing market of
+        Groningen collapsed and investors went elsewhere. Consequently, to reduce the pauperization and to preserve the city
+        center, the local government chose five areas within its boundaries that needed to be improved. In the scope of the
+        compact city policy, this indicated a further densification of the urban fabric and improvement of facilities. This
+        policy was also about open space preservation, increasing the basis for facilities, multi-functional land use and
+        high frequency transportation (Zonneveld, 1991). The next decades the accent slightly shifted. Groningen broadened
+        its scope and aimed at creating coherence in the region. From the 1990s onwards, the city was viewed as part of the
+        Groningen-Assen region and no longer as a solitary city. Over the years, urban development was still primarily within
+        the city boundaries, but new plans were created to improve the infrastructure and public transit to create stronger
+        regional network. An example is Meerstad, a large urban expansion plan to the east of Groningen, which was developed
+        and financed by various partners in the region. This controversial plan, due to its size and financial model, was
+        expected to finish by 2025. However, due to disappointing sales figures and the controversy, this prognoses was adjusted
+        and the plan was trimmed down. Up to date, Groningen is still mostly developing and executing urban plans, such as
+        Meerstad, that were initiated around the year 2000 (Schroor, 2009).</p>
+      <h4>Choosing Groningen</h4>
+      <p>The reasons for choosing Groningen are: (a) it is more isolated than other Dutch cities, which could ensure external
+        influences are less than elsewhere in the country. This could presumably increase the accuracy of simulation and
+        predictions made via urban modelling. (b) The Netherlands has easily accessible open geo-data available and the author
+        is familiar with this geo-data as well as the urban structure and growth of Dutch cities. (c) Groningen has had a
+        clear spatial policy, the compact city, and it will continue to operationalize this policy in the future, which again
+        could increase the accuracy of the predictions that would be made. (d) Groningen is one of the fastest growing cities
+        in the Netherlands, which means local city planners could use insights into future urban dynamics with the help of
+        a planning support system.</p>
+    </section>
+    <section id="32-scale">
+      <h3>3.2 Scale</h3>
+      <p>The choice of scale influences the modelling results and choosing the appropriate scales is an important part of modelling
+        (Benenson, 2007). In an effort to define scale, Wu and Li (2006) constructed a conceptual theory with layers about
+        scale. The first layer distinguishes three primary dimensions of scale: the spatial scale, temporal scale and the
+        organizational scale. The spatial scale is measured in resolution (such as meters), the temporal scale in time steps
+        (such as years) and the organizational scale is measured in institutions (such as countries). The secondary layer
+        consists of four kinds of scale: the intrinsic scale, observation scale, analysis or modelling scale and the policy
+        scale. The intrinsic scale refers to the scale at which a process or pattern actually operates. This process is observed,
+        measured or sampled on an observation scale. When the process is observed, it is modeled or analyzed on an analysis
+        or modelling scale. Afterwards, the results of the model or analysis are then looked at by policymakers on a policy
+        scale.
+      </p>
+      <p>Scale defines what is left out of the model, meaning what occurs on the intrinsic scale over distances and times that
+        are less than the observation or modelling scale. Consequently, the intrinsic scale, the measurements made on the
+        observation scale, the modelling efforts on the modelling scale and the results looked at by policymakers on the
+        policy scale, all need to be of a similar and appropriate scale. For example, a certain cell size would be more appropriate
+        to capture certain spatial patterns, and a certain spatial extent would be more appropriate to capture the scale
+        being researched. Moreover, observing a process via remote sensing with satellite imagery limits the model to the
+        resolution of the imagery, limiting the processes that can be measured. Therefore, the scale of the cell size, the
+        spatial extent and timeframe are data dependent.</p>
+      <h4>Spatial scale</h4>
+      <p>For SLEUTH, Jantz and Goetz (2005) researched the impact of spatial resolution on SLEUTH’s overall performance and
+        concluded that the scale at which land use data is represented, can impact the quantification of land use patterns
+        and the ability of SLEUTH to discern spatial patterns. They emphasized the importance of considering scale as an
+        integral issue during each phase of the modelling effort. Another research was conducted by Dietzel and Clarke (2004b)
+        and showed similar scale sensitivity in SLEUTH, but they also proposed guidelines for appropriate spatial resolutions
+        and scales. For the city of Groningen, which has a spatial footprint of less than 1000 km², this would mean it should
+        be accompanied by a spatial resolution of 30 m² to as small as 10 m². If the smaller villages surrounding Groningen
+        that function together in a region would be included (Tordoir, Poorthuis, & Renooy, 2015), the organizational scale
+        would encompass an area of approximately 1000 km².</p>
+      <p>Furthermore, the data sources that are used are partly vector-based and partly raster-based with a spatial resolution
+        of 30 m, therefore, the cell size would be limited to 30 m. In the Netherlands a 25 m is a common spatial resolution
+        to capture urban dynamics on city level, because this is similar to the parcel size which is an important element
+        regarding urban dynamics (Koomen & Borsboom, 2011). This spatial resolution in combination with the aforementioned
+        spatial extent, are similar to what Dietzel and Clarke (2004b) have proposed as guidelines regarding spatial scale.
+        Additionally, others have used a similar spatial scale and extent (Mahiny & Clarke, 2012; Rienow & Goetzke, 2015;
+        Dezhkam, et al., 2013). Therefore, a spatial extent of 1181.33 km² with a spatial resolution of 30 m seems appropriate
+        and thus the area would be comprised of 1250 pixels by 1050 pixels or a total of 1,312,500 pixels.</p>
+      <h4>Temporal scale</h4>
+      <p>Regarding the timeframe, some researchers have used data from 1930 to 2001 covering 70 years (Herold, Goldstein, &
+        Clarke, 2003), whilst others have used data from 1988 to 1996 covering 8 years (Dietzel & Clarke, 2004a). It depends
+        on the context, the goals and what data is available. This research is considering the compact city policy of Groningen,
+        which started in 1970s and Landsat data is available for this region from 1973 onwards. Therefore, this study will
+        use data from 1973 up to 2015. The second factor to the timeframe is related to the prediction period. For SLEUTH,
+        20 years is the default time period. Research has shown that during the first 5 to 10 years of the prediction, the
+        predicted urban dynamics stays close to the real urban dynamics and beyond 10 years the prediction becomes increasingly
+        uncertain (Goldstein, et al., 2004; Chaudhuri & Clarke, 2014). Nevertheless, for this research it was chosen to predict
+        up to 30 years in the future, as this could potentially put the 20 year prediction into a different perspective.</p>
+    </section>
+    <section id="33-sleuth">
+      <h3>3.3 SLEUTH</h3>
+      <p>The excluded layer defines all areas that are resistant to urbanization, this could be a location where it’s impossible
+        to develop or where development is unlikely. It is an imperative feature of SLEUTH, since it can substantially influence
+        the simulation results. Therefore, the next sections will elaborate on the excluded layer in SLEUTH and the methods
+        involved in its construction.</p>
+      <h4>Excluded layer</h4>
+      <p>The excluded layer SLEUTH can be influenced substantially, e.g. by model-coupling, an urbanization-suitability layer
+        by MCE (Mahiny & Clarke, 2012), machine learning (Rienow & Stenger, 2013; Rienow & Goetzke, 2015), or an attraction/exclusion
+        layer (Jantz, et al., 2010). In this study, the excluded layer is an urbanization-suitability assessment through
+        an MCE as done by Mahiny and Clarke (2012) and Sakieh et al. (2015b). Both researches demonstrated the enhancement
+        of the simulation and prediction results from the MCE-incorporated SLEUTH-model. The reasons to use a MCE are: (a)
+        there exist a large number of spatial factors that are impractical to manually analyze; (b) there are often conflicting
+        criteria that vary across space; and (c) the relation between suitability and available data are subject to some
+        kind of uncertainty. Furthermore, the attraction/exclusion layer introduced by SLEUTH-3r (Jantz, et al., 2010) will
+        not be used, as the MCE will presumably already differentiate between more and less attractive areas. The reason
+        that machine learning algorithms or other methods using artificial intelligence were not used is due to their complexity
+        to incorporate in SLEUTH.</p>
+      <p>With fuzzy set theory the MCE layers were standardized to allow for uncertainty and tolerance of imprecise data (Zadeh,
+        1965), as it was unclear where exactly the limits/cut-offs of suitability were of each criteria, i.e. at what points
+        the criteria stops affecting urban suitability or stops affecting urban suitability further. The fuzzying of the
+        layers was done in GRASS with r.fuzzy set, its fuzzy set definition is shown in Figure 14. The fuzzy set definitions
+        for the MCE factors is not perfectly known by the model-user, inevitably, this will lead assumptions being made,
+        albeit informed assumptions. To reduce this uncertainty, the control points were based on statistical analyses in
+        Python, by comparison of the type of areas the urban growth has taken place between 1973 and 2015, and from individual
+        perception and interpretation. Additionally, sets of parameter values were tested in SLEUTH based on the Optimal
+        SLEUTH Metric and fractional difference metrics (see: section 3.4), to examine what fuzzy set definitions were fitting.</p>
+      <figure id="figure-14">
+        <img src="media/fuzzy_membership.png"></img>
+        <figcaption>Figure 14: The fuzzy set definition with control points (A, B, C, D), shape parameter and two membership functions
+          from fuzzy set theory as defined in GRASS.</figcaption>
+      </figure>
+      <p>Onsted and Chowdhury (2014) noted critically that if a model-user incorporates zoning categories, many simply guess
+        the values. Thus, they used <a href="#equation-01">Equation 1</a> to calculate the rate of urban growth that had
+        taken place in each of these zones. In this research, this equation was used as a guide for the user-defined fuzzy
+        values:
+      </p>
+      <math id="equation-01" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <msub>
+            <mi>G</mi>
+            <mrow>
+              <mn>n</mn>
+            </mrow>
+          </msub>
+          <mo>=</mo>
+          <mi>1</mi>
+          <mo>-</mo>
+          <mfenced open="[" close="]">
+            <mrow>
+              <mfenced open="(" close=")">
+                <mrow>
+                  <mi>1</mi>
+                  <mo>-</mo>
+                  <mfrac>
+                    <mrow>
+                      <msub>
+                        <mi>D</mi>
+                        <mrow>
+                          <mn>n</mn>
+                        </mrow>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mn>A</mn>
+                    </mrow>
+                  </mfrac>
+                </mrow>
+              </mfenced>
+              <msup>
+                <mrow>
+                  <mi></mi>
+                </mrow>
+                <mrow>
+                  <mfrac>
+                    <mrow>
+                      <mi>1</mi>
+                    </mrow>
+                    <mrow>
+                      <mn>t</mn>
+                    </mrow>
+                  </mfrac>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfenced>
+        </mrow>
+      </math>
+      <p>where G<sub>n</sub> is the rate of urban growth in the zoning category n</b>
+        </i>, D<sub>n</sub></b>
+        </i>
+        is the total actual urban growth in zoning category n</b>
+        </i>, A</b>
+        </i> is all available land for developing in a zone and t</b>
+        </i> is the number of years of growth. Jantz et al. (2014) noted that <a href="#equation-01">Equation 1</a> is highly
+        dependent upon how zoning categories are defined or aggregated. It is based on the assumption that across the entire
+        zone, policies are applied uniformly. It also means that non-conforming land uses are distributed evenly, although,
+        in this study that is not an issue as this study focuses on a binary classification. Furthermore, they note that
+        using <a href="#equation-01">Equation 1</a>, seems most suitable for areas where zoning data is temporally consistent.
+        This is a key point, since policies have changed over the last 40 years in the study area and hence, they are not
+        always consistent. But, this could also be attributed to the lack of functionality of SLEUTH, since it does not support
+        multiple excluded layers or dynamic excluded layers. Despite this criticism, <a href="#equation-01">Equation 1</a>        functioned as an indication as to what the user-defined fuzzy values could be for the MCE factors and for that it
+        seems sufficiently capable. With G<sub>n</sub></b>
+        </i>
+        from <a href="#equation-01">Equation 1</a> the resistance to urban growth was calculated for each zone by:</p>
+      <math id="equation-02" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow>
+          <msub>
+            <mi>R</mi>
+            <mrow>
+              <mn>n</mn>
+            </mrow>
+          </msub>
+          <mo>=</mo>
+          <mi>1</mi>
+          <mo>-</mo>
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>G</mi>
+                <mrow>
+                  <mn>n</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <mrow>
+              <msub>
+                <mi>G</mi>
+                <mrow>
+                  <mn>max</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </math>
+      <p>where R<sub>n</sub></b>
+        </i> is the urban growth resistance value of each land category, G<sub>n</sub></b>
+        </i>
+        is the rate of land lost to urban growth in land category n</b>
+        </i> and G<sub>max</sub></b>
+        </i> is the G
+        </b>
+        </i> of the land category with the greatest urban growth rate.
+      </p>
+      <p>Another method used is the Analytical Hierarchy Process (AHP), which allows pairwise comparison of the fuzzy layers
+        and assigns weights to the fuzzy layers based on matrix calculations. AHP was used for weighting the seventeen layers
+        using general knowledge of the area and tests performed on the input data (Saaty, 1980). AHP was used since it has
+        the capability to weight elements when these are difficult to compare by cognitive evaluation, e.g. equal important,
+        moderate important, strong plus or extreme importance. Determining the weights was done by trial-and-error and by
+        comparing calibration test outputs of various factor weight combinations. The consistency of the matrix is evaluated
+        by dividing the consistency ratio with a random consistency ratio (Alonso & Lamata, 2006). In this case, the measured
+        consistency ratio of the AHP weighting was 0.07, which is below 0.1 and thus within acceptable limits. A detailed
+        description of how AHP works and is executed can be found in Saaty (1980).</p>
+      <p>Furthermore, another group of digital map layers was used in the MCE that depict the unsuitability, called the constraint
+        layers. These consist of layers excluding pixels for urban growth based on the water mask and road and railways buffers.
+        The water mask is excluding all water elements. A 50 m buffer around the highway and regional roads and 30 m buffer
+        around the railway are excluded from urbanization. The fuzzified layers were combined through weighted linear combination
+        and multiplied by he constraint layers, which leads to the MCE for urban suitability (S<sub>n</sub></b>
+        </i>) being given by:</p>
+      <math id="equation-03" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mfenced open="(" close=")">
+          <mrow>
+            <munderover>
+              <mo>&sum;</mo>
+              <mrow>
+                <mi>i</mi>
+                <mo>=</mo>
+                <mn>1</mn>
+              </mrow>
+              <mi>I</mi>
+            </munderover>
+            <msub>
+              <mi>W</mi>
+              <mrow>
+                <mn>i</mn>
+              </mrow>
+            </msub>
+            <mo>&CenterDot;</mo>
+            <msub>
+              <mi>X</mi>
+              <mrow>
+                <mn>i</mn>
+              </mrow>
+            </msub>
+          </mrow>
+        </mfenced>
+        <munderover>
+          <mo>&prod;</mo>
+          <mrow>
+            <mi>j</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mi>J</mi>
+        </munderover>
+        <msub>
+          <mi>C</mi>
+          <mrow>
+            <mn>nj</mn>
+          </mrow>
+        </msub>
+      </math>
+      <p>where S<sub>n</sub></b>
+        </i> is the urban suitability score for cell n</b>
+        </i>, X<sub>i</sub></b>
+        </i>
+        is the fuzzified criterion score for factor i</b>
+        </i>, W<sub>i</sub></b>
+        </i> is the weight assigned to factor i</b>
+        </i>, I</b>
+        </i> is the number of factors, C<sub>nj</sub></b>
+        </i> is the score of cell n
+        </b>
+        </i>
+        on constraint j</b>
+        </i> , and J</b>
+        </i> is the number of constraints.</p>
+      <h4>Choosing MCE factors</h4>
+      <p>Using an urbanization-suitability layer in the exclusion layer could accommodate for other relevant factors that influence
+        the urban development in the Netherlands. For the MCE, raster layers were prepared of criteria that are believed
+        to affect the urban growth in Groningen and were available for analysis. The list of factors used in this research
+        is not an extensive list and there are probably other factors that influence urban growth. The relevant factors that
+        were included in this multi-criteria evaluation were: proximity to the city center, proximity to railway stations
+        (Koopmans, Rietveld, & Huijg, 2012), proximity to the highway exits, protected areas such as Natura 2000-areas (Borzacchiello,
+        Nijkamp, & Koomen, 2010; Irwin & Bockstael, 2004), zoning policies (Onsted & Chowdhury, 2014), proximity to industrial
+        sites, proximity to city edges, land use or land cover, and ground suitability (Mahiny & Clarke, 2012; Verburg, et
+        al., 2004; Leao, Bishop, & Evans, 2004). For this study, proximity to the city center was interpreted as the proximity
+        to the public facilities, and shops and restaurants.</p>
+      <p>The distance to public facilities, shopping facilities and restaurants, industrials, but also borders and public transit
+        stations were split into two variants. These factors were divided into a regional component and a more local component.
+        The reason for doing this was to emphasize the differences between rural and urban areas. If all public facilities
+        were included and received an equal weighing score, facilities in smaller cities would be equally influential as
+        the main hospital or university in the city of Groningen, which does not reflect reality. Hence, the least important
+        facilities were excluded, and the more decisive local and regional facilities were split into two categories. Moreover,
+        there is a relation to factors that are outside the scope of the spatial extent, such as industrial sites just outside
+        the boundaries of the study area that could influence the urban growth in the area of interest. To accommodate this
+        issue the study area was buffered to 5000 m, to include these areas of interest.</p>
+      <p>The Groningen is characterized by a dispersed urban growth pattern, wherein various zones have distinct urban growth
+        patterns. One way to take in these distinct zones and allocate appropriate amounts of growth to these areas, would
+        be by including policy maps. However, Goetz, Jantz, Bockstael and Towe (2007) have pointed to the lack of policy
+        variables in SLEUTH. Poelmans and Van Rompaey (2009) have suggested that it is actually impossible to take in local
+        policy and other local conditions during the modelling efforts. Withal, Onsted and Chowdhury (2014) showed that it
+        is feasible and may produce better results. They are critical of others who included policy zones and elaborated
+        on the most common ways excluded layers are created in SLEUTH: ignoring zones as many urban modelers do or merely
+        guessing the impact of zoning. Thus, they introduced two methods to compute the urban resistance of each zone, based
+        on the (historical) input data. Additionally, local knowledge is an essential source of qualitative information to
+        determine these resistances.</p>
+      <p>Notwithstanding, it can be a dangerous practice to mask out areas or restrict urbanization in zones (Akın, et al.,
+        2014; Pontius, et al., 2004), which could lead to bias when modelling or forecasting. For example, in Groningen some
+        water bodies transformed to other land use categories. By restricting water bodies from urbanization, the model would
+        not be able to simulate these changes. Similarly, by including zones that encourage urbanization, more urban growth
+        will be simulated or forecasted in those zones. These zones are based on policies for future urban development for
+        the next 10 to 20 years, hence, the model would be biased into urbanizing those areas first and achieving higher
+        goodness of fit results in the process. Nonetheless, the opposite could also be argued, that policy is an influential
+        factor in the study area and that these zones should be included. In fact, the excluded layer may be the only way
+        to incorporate policies in SLEUTH (Chaudhuri & Clarke, 2013a).</p>
+      <p>To minimize the bias of masking, the policy zones were included in the MCE as factors, not as constraints, and as coarse
+        categories. Additionally, the policy maps of 1970 and 1978 were used, as presumably these would produce the least
+        bias in masking, since they are nearby the start year of the simulation. Moreover, from an analysis of the policy
+        maps, it was found that between 1970 and 1980 the policy drastically changed. In the beginning of the 1970s, local
+        municipalities anticipated substantial population growth, thus, large amount of areas was allocated to urban expansion.
+        From 1978 onwards, the policy changed to a compact city policy and urban expansion areas became smaller. Since the
+        time period for this research was set to 1973 and falls between these two different policies, both were included
+        in the calibration and assigned a separate excluded layer.</p>
+    </section>
+    <section id="34-calibration">
+      <h3>3.4 Calibration</h3>
+      <p>Calibration is one of the most important, if not the most critical portion of the modelling effort. It is during this
+        phase that estimates of the parameter values, which describe an urban system, are determined, and upon which all
+        forecasting and scenario simulation is based (Batty, 1976). For SLEUTH, the calibration was standardized by Silva
+        and Clarke (2002), although other methods of calibration have been tested, including genetic algorithms (Goldstein,
+        2005; Clarke-Lauer & Clarke, 2011), ant colony optimization and subregional calibration (Liu, et al., 2012). A similar
+        use of artificial intelligence to improve calibration can be found in other CA applications (Wu & Silva, 2010; Feng,
+        Liu, & Batty, 2015). The regular ‘Brute-Force’ calibration (Silva & Clarke, 2002) was performed in this study, even
+        though, ant colony optimization and calibration through genetic algorithms would presumably produce better results
+        and are computational more efficient. However, ant colony optimization was not readily available and whilst GA-SLEUTH
+        is, which uses genetic algorithms for calibration, it does not use the improved functionality of SLEUTH-3r. Therefore,
+        SLEUTH combined with a standard calibration procedure was conducted, which is shown in <a href="#figure-15">Figure 15</a>.
+        This modelling approach is of a similar structure as outlined in <a href="#22-urban-modelling">section 2.2</a>: verification,
+        calibration, validation and prediction. In the following sections the various phases will be elaborated.</p>
+      <figure id="figure-15">
+        <img src="media/calibration.png"></img>
+        <figcaption>Figure 15: A visualization of the phases in model calibration.</figcaption>
+      </figure>
+      <h4>Input data preperation</h4>
+      <p>CA are subject to errors and uncertainties when they are applied to real urban environments, due to human errors, technical
+        limitations and the complexity of nature. This is because current CA are quite different from Wolfram’s deterministic
+        models (Wolfram, 1984b) which used limited data and had strict definitions. Instead, current CA require large amounts
+        of input data to produce realistic modelling results. Inevitably, these data layers will contain errors and uncertainties
+        that can alter simulation results during the iterative processes involved in CA. Ensuring the quality of the input
+        data is an essential element of model calibration (Silva & Clarke, 2002). Therefore, understanding these errors and
+        uncertainties in the input data is a crucial component for a successful simulation and interpretation of the modelling
+        results (Yeh & Li, 2006). For this research, the input data preparation consists of three stages: data gathering,
+        data pre-processing and data standardization. A brief overview will be given in the next sections and a more detailed
+        description on these three stages will be presented in <a href="#4-data-pre-processing">Chapter 4</a>.</p>
+      <p>Data gathering entails the accumulation of input data from various sources and data storage in databases. For this
+        research, a variety of datasets were collected: satellite data, topographic maps, digital elevation map, vector data
+        of the road infrastructure, and various other spatial and non-spatial raster and vector data for the urbanization-suitability
+        layer. Whether data is useable depends on the accuracy of the data and the credibility of the data supplier, therefore
+        reading associated documentation is useful to understand its limitations. Frequently, datasets were open-source or
+        web-scraped of websites. The exceptions were policy maps of the years between 1970 and 2000, these were collected
+        via archival research. Most of the open-source data came as large country-wide datasets or database-dumps of the
+        Netherlands. Hence, it was found useful to store these datasets in a PostgreSQL database. Consequently, this ensured
+        a proper data structure and standards and a means to rapidly process data.</p>
+      <p>Afterwards, the ‘raw’ data needed to be transformed into meaningful information by giving it some degree of interpretation,
+        which is commonly referred to as data pre-processing. In reality, the data was not raw. In this study it was usually
+        pre-processed in some manner by the data provider, as became evident from related documentation. Nonetheless, the
+        data is often inconsistent, incomplete or contains errors. Hence, it needed to be transformed into understandable
+        and useable data. Generally, data pre-processing involves data cleaning and data transformation (Longley, et al.,
+        2010).
+      </p>
+      <p>For this study, two general points can be made regarding data pre-processing. First, to avoid future confusion on the
+        spatial characteristic of the study area, a control-file was created. This raster file was used as a reference to
+        all other raster data, so all raster data used the same spatial resolution (30 m), spatial extent (i.e. bounding
+        box), spatial projection (EPSG: 28992), file formats (GeoTIFF and GIF) and file data type (32Float and 8Byte). Secondly,
+        the database stored a collection of raster and vector data types. Map transformations applied to data can lead to
+        loss of data and uncertainty. Specifically, the conversion of vector data to raster data will usually lead to a loss
+        of spatial information (Yeh & Li, 2006). In that case, the default choice was to convert all cells touched by vector
+        objects and to use the appropriate algorithm for interpolation, often cubic convolution. Consequently, the data feature
+        will be overestimated, but it will also ensure it is consistently present in the raster data. Furthermore, for the
+        interpretation of various factors in the MCE a variety of GIS-operations were used, which may generate new errors
+        due to imperfect user knowledge and inaccurate data. To cope with the described data uncertainty, fuzzy set theory
+        was used as explained in more detail in <a href="#33-sleuth">section 3.3</a>. The validation of data, if necessary,
+        is described in more detail in <a href="#4-data-pre-processing">Chapter 4</a>.</p>
+      <p>Lastly, all data was standardized in conformity with SLEUTH specifications. The model required six grayscale GIF images
+        (i.e. 8Byte). For all layers, 0 is a non-existent or null value, and values larger than 0 are considered existing.
+        All raster images required the same number of rows and columns, same spatial projection and spatial resolution, hence
+        the control-file that was created. Moreover, the images ought to follow a specific naming convention: &lt;location&gt;.&lt;layername&gt;.[&lt;data&gt;].[&lt;user
+        info&gt;].gif, details can be found in the scenario-file that comes with SLEUTH.</p>
+      <h4>Verification</h4>
+      <p>After data preparation, the first stage in model calibration was to set up the simulation environment correctly. In
+        this case: a Cygwin environment with the Open MPI library to enable parallel processing. Afterwards, the scenario-file
+        was prepared and SLEUTH was run in test-mode to test if the input data was compatible with the model specifications
+        and to confirm the model worked correctly. As Silva and Clarke (2002) have pointed out: “it is prudent to first run
+        the model in test mode… and to verify the statistical files as well as the different GIF images produced” (p. 531).</p>
+      <h4>Pre-calibration</h4>
+      <p>The second stage in the calibration of SLEUTH-3r is pre-calibration, which is to determine (a) appropriate auxiliary
+        values and (b) determine appropriate self-modification values. After this phase, the regular ‘Brute Force’ calibration
+        phases as described by Silva and Clarke (2002) can proceed.</p>
+      <p>The initial auxiliary diffusion coefficient, auxiliary breed coefficient and auxiliary diffusion multiplier were introduced
+        by Jantz et al. (2010) in SLEUTH-3r. The default setting is so these would not have any effect on computation and
+        would be the same as in the original SLEUTH model. Therefore, to use these key features of SLEUTH-3r, the model would
+        have to be calibrated to find the appropriate values. Further, the self-modification module was implemented in the
+        original SLEUTH model by Clarke et al. (1997).</p>
+      <p>The initial auxiliary diffusion coefficient and auxiliary breed coefficient were implemented in SLEUTH-3r to deal with
+        the instability of the road gravity coefficient. As Jantz and Goetz (2005) explained, they were unable to identify
+        the best-fit value for the road gravity coefficient across various spatial resolutions, as this coefficient did not
+        converge to a specific range during calibration. This is mainly due to road-influenced growth always being applied
+        last in the growth cycle, which can significantly limit the number of cells available for urbanization. Withal, it
+        is not the road growth coefficient itself that has a significant impact on road-influenced growth, but rather the
+        breed and dispersion coefficients. Accordingly, the breed coefficient influences the amount of road growth attempts
+        and the dispersion coefficient determines the range of the road growth attempt, i.e. how far away a cell can be urbanized
+        from the road cells. Thus, Jantz et al. (2010) introduced the auxiliary diffusion coefficient and auxiliary breed
+        coefficient, which specifically alter the breed and dispersion coefficients that are used in road influenced growth.
+        However, currently it is unclear how to calibrate these two auxiliary values correctly, therefore these were left
+        at the default setting.</p>
+      <p>The third auxiliary value introduced in SLEUTH-3r is the initial auxiliary diffusion multiplier, which is a multiplier
+        that along with the diffusion coefficients and the amount of pixels in the input image diagonal, determines the number
+        of spontaneous urban growth attempts:</p>
+      <math id="equation-04" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <msub>
+          <mi>D</mi>
+          <mrow>
+            <mn>v</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>D</mi>
+          <mrow>
+            <mn>c</mn>
+          </mrow>
+        </msub>
+        <mo>&CenterDot;</mo>
+        <msub>
+          <mi>D</mi>
+          <mrow>
+            <mn>m</mn>
+          </mrow>
+        </msub>
+        <mo>&CenterDot;</mo>
+        <msqrt>
+          <mrow>
+            <msup>
+              <mrow>
+                <mi>R</mi>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+              </mrow>
+            </msup>
+            <mo>+</mo>
+            <msup>
+              <mrow>
+                <mi>C</mi>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mrow>
+        </msqrt>
+      </math>
+      <p>where D<sub>v</sub></b>
+        </i> is the dispersion value, D<sub>c</sub></b>
+        </i> is the diffusion coefficient, D
+        <sub>m</sub></b>
+        </i> is the diffusion coefficient multiplier, R</b>
+        </i> is the number of rows in the image and C
+        </b>
+        </i> is the number of columns in the image.</p>
+      <p>With the auxiliary diffusion multiplier Jantz et al. (2010) attempted to address SLEUTH’s inability to capture dispersed
+        urban patterns and its tendency to allow edge growth to dominate the urban system. This calibration ensured that
+        SLEUTH-3r would be able to simulate the appropriate level of diffusive growth, which is imperative in an area with
+        dispersed urban patterns, as is the case in Groningen. In the original SLEUTH code, this multiplier was a constant
+        set to 0.005. In SLEUTH-3r, the user can interactively change it from the scenario-file. In order to use this key
+        feature of SLEUTH-3r, the appropriate multiplier value must be discovered. Therefrom, SLEUTH-3r’s growth coefficients
+        were set to produce the maximum level of spontaneous growth (i.e. the diffusion coefficient was set to 100 and all
+        other coefficients were set to 0). With 25 Monte Carlo iterations several simulations were performed in calibration-mode
+        to determine to best fitting auxiliary diffusion multiplier value. The pixel or population fractional difference
+        (PFD) and cluster fractional difference (CFD) were used to identify at what values the model would slightly (by 30%)
+        over-estimate the amount of urban clusters (Jantz, et al., 2010).</p>
+      <p>The self-modification module is often recognized as an important component of SLEUTH, as it would allow SLEUTH to simulate
+        dynamic growth rates over time, so that growth rates replicate the typical S-curve of urbanization and population
+        growth (Silva & Clarke, 2002). Candau (2002) states that the self-modification module was not able to reproduce the
+        boom and bust phases experienced in her study area. This is because the default self-modification values are inherited
+        from calibration of an earlier SLEUTH version applied to a different study area (Clarke, et al., 1997). Additionally,
+        it may be likely that due to changes made in the transition rules in the newer versions of SLEUTH and SLEUTH, the
+        default self-modification values may not always be fitting. Unfortunately, there is no calibration procedure to determine
+        the values associated with the self-modification module (Jantz, et al., 2014; Candau, 2002). However, Candau (2002)
+        proposed to perform a coarse calibration without self-modification and use the best-fit set of coefficients as a
+        baseline, to compare to coarse calibration results with self-modification.</p>
+      <h4>Coarse, fine and final calibration</h4>
+      <p>The value of a model’s prediction is only as good as the model’s ability to be effectively calibrated. Therefore, calibration
+        is said to be the most decisive step in the modelling effort (Silva & Clarke, 2002). It determines “given a starting
+        image of urban extent, which set of initial control parameters leads to a model run which best fits the observed
+        historical data” (Clarke & Gaydos, 1998, p. 706). In SLEUTH-3, the goal of calibration is to find a set of growth
+        coefficient values that can accurately reproduce the historical urban growth that has taken place within the study
+        area. Testing the simulated land cover change against known prior data is known as an effective calibration method
+        (Dietzel & Clarke, 2007), because it is based on the assumption that past land cover change is the best predictor
+        for future land cover change.</p>
+      <h5>Goodness-of-fit statistics</h5>
+      <p>As explained in <a href="#22-urban-modelling">section 2.2</a>, the choice of appropriate goodness of fit statistics
+        is crucial, since it determines how a model will simulate urban growth and patterns, and how the model will predict
+        future urban growth and patterns. Thus far, there is no clear consensus on which best-fit statistics to use in SLEUTH.
+        The model produces thirteen r²-statistics to calculate the goodness-of-fit (Table 3), of these thirteen, Clarke et
+        al. (1997) relied primarily on four statistics: population, edges, clusters and the Lee-Sallee statistics. Others
+        have relied on a weighted sum of all statistical measures (Yang & Lo, 2006) or an unweighted score of several best-fit
+        metrics (Silva & Clarke, 2002; Candau, 2002). Moreover, Dietzel and Clarke (2007) introduced a new metric, the Optimal
+        SLEUTH Metric (OSM), a composite score of the best goodness of fit metrics: compare, pop, edges, clusters, average
+        slope, x-mean and y-mean, and f-match if land use categories are included. Others have successfully used this composite
+        metric for calibration (Onsted & Chowdhury, 2014; Chaudhuri & Clarke, 2013a; Bihamta, Soffianian, Fakheran, & Gholamalifard,
+        2015; Mahiny & Clarke, 2012; Sakieh, et al., 2015b; Sakieh, et al., 2015b).</p>
+      <p>Jantz et al. (2010) noted the potential difficulty in evaluating the fit of the model using a composite score. Additionally,
+        they stated that the r²-statistics used to evaluate the goodness of fit of SLEUTH could result in an under- or over-fitting
+        of the model. Consequently, SLEUTH-3r introduced new calibration statistics to enhance the calibration procedure.
+        For each of the fit-statistics (<a href="#table-03">Table 3</a>), SLEUTH-3r calculates (a) the algebraic difference
+        between the observed and the modeled value, (b) the ratio of the modeled value to the observed value and (c) the
+        fractional change in the modeled value relative to the observed value. This is calculated for each run and for each
+        year. Of these statistics, Jantz et al. (2010) used the PFD and CFD, and selected parameter sets that were able to
+        match these fit-metrics within ±5-10%.
+      </p>
+      <p>Achieving an accurate fit for the PFD metric would ensure that the overall amount of development is matched. The CFD
+        is a pattern metric that captures an important component of urban form, i.e. clustered vs. dispersed patterns. In
+        later research, Jantz et al. (2014) also used the edges fractional difference (EFD), which compares the number of
+        edge pixels between the simulation and control years. The EFD is a shape metric that captures a component of the
+        shapes of the clusters. Other researchers that used SLEUTH-3r applied this approach (Han, et al., 2015) or expanded
+        it with the OSM (Jawarneh et al., 2015).</p>
+      <p>In this research, the approach of Jawarneh et al. (2015) will be used. However in this case, OSM will be the leading
+        metric and PFD, CFD and EFD will facilitate in evaluating the best-fit scores in terms of over- and underestimating.
+        From various testing in this research, it was found that the OSM was the most successful in this study area and produced
+        credible modelling results. Using the PFD, CFD and EFD as complementary metrics could provide more insight into the
+        parameter values.</p>
+      <table id="table-03">
+        <caption>Table 3: The thirteen metrics used in SLEUTH to calculate the goodness-of-fit.</caption>
+        <tr>
+          <th>Fit statistic</th>
+          <th>Definition</th>
+        </tr>
+        <tr>
+          <td>Product</td>
+          <td>A composite score of all the other scores combines</td>
+        </tr>
+        <tr>
+          <td>Compare</td>
+          <td>The modeled population of the final year compared to the actual population of the input data</td>
+        </tr>
+        <tr>
+          <td>Population</td>
+          <td>The least square regression score for the modeled urbanization compared to the actual urbanization of the control
+            years
+          </td>
+        </tr>
+        <tr>
+          <td>Edges</td>
+          <td>Least square regression score of the modeled urban edge count compared to the actual urban edge of the control
+            years
+          </td>
+        </tr>
+        <tr>
+          <td>Clusters</td>
+          <td>Least square regression score for the modeled cluster count compared to the actual cluster count of the control
+            years. Urban clusters are single or multiple contiguous urban pixels, determined by using an eight-neighborhood
+            rule.
+          </td>
+        </tr>
+        <tr>
+          <td>Cluster size</td>
+          <td>Least square regression score for the modeled averaged cluster size compared to the actual average cluster size
+            of the control years </td>
+        </tr>
+        <tr>
+          <td>Lee-Salee</td>
+          <td>A shape index, measures the spatial fit of the modeled urban extent compared to the actual urban extent of the
+            control years
+          </td>
+        </tr>
+        <tr>
+          <td>Average slope</td>
+          <td>Least square regression score of the modeled average slope of urbanized cells compared to the actual average slope
+            of the control years</td>
+        </tr>
+        <tr>
+          <td>% Urban </td>
+          <td>Least square regression score of the percentage of available urban cells compared to the actual urbanized cells
+            of control years</td>
+        </tr>
+        <tr>
+          <td>X-mean</td>
+          <td>Least square regression score of the average x-values for the modeled urbanized cells compared to the actual x-values
+            of the control years</td>
+        </tr>
+        <tr>
+          <td>Y-mean</td>
+          <td>Least square regression score of the average y-values for the modeled urbanized cells compared to the actual y-values
+            of the control years</td>
+        </tr>
+        <tr>
+          <td>Radius</td>
+          <td>Least square regression score of the averaged radius of the circle that encloses the simulated urban pixels compared
+            to the actual urban pixels for each control year.</td>
+        </tr>
+        <tr>
+          <td>F-match</td>
+          <td>A proportion of goodness of fit across land use classes</td>
+        </tr>
+      </table>
+      <h5>Brute Force calibration</h5>
+      <p>SLEUTH is commonly calibrated via a ‘Brute Force’ methodology, during which a large number of combinations of parameter
+        values are tested automatically (Silva & Clarke, 2002; Clarke, Hoppen, & Gaydos, 1996). With the help of statistical
+        and graphical metrics that are produced during the growth cycle, the goodness of fit is calculated for each set of
+        growth coefficients. Each growth cycle is iterated, a user-specified number of times, during the MC simulation to
+        reduce the spatial variability resulting from random processes. Afterwards, the averages across the multiple MC iterations
+        are computed to produce the final best-fit statistics. Accordingly, the user evaluates the results, seeking the parameter
+        values with the highest best-fit statistics to find the optimal set of estimates of values for the growth coefficients.</p>
+      <p>The values of each of the five growth coefficients can range from 1 to 100 with incremental steps as small as one.
+        If all combinations of the five coefficients would be computed with the smallest incremental steps possible, the
+        model would run 1005 combinations. This would be highly inefficient. To reduce computational requirements, calibration
+        is generally divided into three sequential phases: coarse calibration, fine calibration and final calibration (Silva
+        & Clarke, 2002). Between the phases, the user attempts to narrow down the range of the parameter values that best
+        fit the five growth coefficients. At the final phase the user averages the top three results to extract the estimates
+        of the growth coefficient values used for forecasting. If the self-modification module is used, the estimates of
+        the growth coefficient values are used from the avg.log file for prediction.</p>
+      <p>Generally, for coarse calibration all five growth coefficients are set to their widest range of 0-25-100 as START,
+        STEP and STOP values respectively, resulting in 5<sup>5</sup> combinations. SLEUTH is stochastic, so, during calibration
+        it is common practice to increase the MC iterations to reduce random processes, from approximately 4 to 7, up to
+        10. For coarse calibration a small number of MC iterations (4) was used to reduce computational requirements. Using
+        the best-fit values found from coarse calibration the coefficient value range is narrowed for fine calibration. Ideally,
+        ranges will be narrowed so that incremental steps of five to ten could be used, whilst using five to six values per
+        coefficient. For fine calibration a larger number of MC iterations (7) was used. Using the best-fit values found
+        from fine calibration the coefficient value range is narrowed for final calibration. Ideally, the coefficient value
+        range is narrowed further and incremental steps are smaller than in fine calibration. For final calibration a larger
+        number of MC iterations (10) was used. The growth coefficient values of top three best-fit results are averaged to
+        produce the estimates of the growth coefficient values for prediction.</p>
+      <p>Jantz and Goetz (2005) found that any gains in performance achieved by testing additional growth coefficient values
+        beyond coarse calibration (i.e. increments of 25) were minimal, particularly given the substantial increase in computing
+        time. Hence, they had only performed coarse calibration, where all growth coefficient values ranged from 0 to 100
+        with increments of 25. From tests conducted during this research and based on other similar research (Liu, et al.,
+        2012; Sakieh, et al., 2015b; Silva & Clarke, 2002), fine and final calibration can have additional value. Therefore,
+        regular calibration will be conducted in this research.</p>
+      <p>SLEUTH is a stochastic urban model and utilizes the MC iteration method for simulating urban growth patterns for each
+        set of coefficients. The goodness-of-fit statistics that SLEUTH calculates are averaged over the MC iterations. To
+        ensure robust calibration, for each of calibration phases, the top five best-fit results were run in test-mode with
+        25 MC iterations in order to validate the best-fit score visually and statistically, as this would be sufficient
+        for quantifying the spatial variability resulting from the random processes (Goldstein, Dietzel, & Clarke, 2005;
+        Jantz, et al., 2010; Clarke, et al., 1996). Similarly, after final calibration, the top three best-fit values for
+        each growth coefficient were averaged and the model was run once more in test mode with 25 Monte Carlo iterations
+        to validate the modelling results. By combining testing with calibration the computational efficiency is maintained,
+        as well as a rigorous calibration procedure.</p>
+      <h5>Scale</h5>
+      <p>Silva and Clarke (2002) suggested that calibration should involve a multistage optimization of all controlling coefficients
+        across various spatial resolutions to adapt to local characteristics. For instance, calibration was also used to
+        find the correct factors and weights in MCE, appropriate layer for ambiguous features and calibration of the self-modification
+        parameters. Moreover, scale should be an integral issue during each phase of the modelling effort (Jantz & Goetz,
+        2005). Accordingly, all input data has been rescaled to a 60 m (625 by 525 pixels) and 150 m (250 by 210 pixels)
+        spatial resolution for testing purposes. Silva and Clarke (2002) also stated, that during this effort: “each calibration
+        phase corresponds to a multistage selection that depends both on the increased spatial resolution and the control
+        values that the previous calibration phase identified” (p. 531). Increasing the spatial resolution during each calibration
+        phase (coarse, fine and final) has been applied in other research (Akın, et al., 2014; Bihamta, et al.2015; KantaKumar,
+        Sawant, & Kuma, 2011). However, scale influences the growth coefficients differently in the model (Jantz & Goetz,
+        2005; Candau, 2002; Dietzel & Clarke, 2004b). To avoid inaccuracies resulting from cell size sensitivity, the highest
+        spatial resolution of 30 m was used for all calibration phases and the coarser resolutions were strictly used for
+        testing purposes.</p>
+      <h5>Excluded layer</h5>
+      <p>Ordinarily, coarse calibration uses one excluded layer, although there are exceptions (Onsted & Chowdhury, 2014; Akın,
+        et al., 2014; Onsted & Clarke, 2012). As stated by Onsted and Chowdhury (2014): “The dearth of research devoted to
+        improving excluded layer construction is surprising, since different excluded layers will cause SLEUTH… to derive
+        very different coefficients of growth to explain past development patterns and forecast future growth” (p. 6). For
+        this study, four excluded layers were used from the beginning of calibration to explore the sensitivity to local
+        conditions by using an MCE. Moreover, by using multiple exclusion layers, comparisons could be made regarding the
+        performance of said exclusion layers. One of these excluded layers was a standard excluded layer (E0) that functioned
+        as a null map, only excluding water bodies and protected natural areas (Mahiny & Clarke, 2012). One excluded layer
+        included an MCE (E1) and the last two excluded layers included an MCE with an additional factor: the policy maps
+        of 1971 (E2) and the policy maps of 1978 (E3). The reason to included two different policy layers is because, these
+        two were the closest two policy maps to the start date of 1973, and they both reflect a different policy. As stated
+        in <a href="#31-study-area">section 3.1</a>, in 1971 the municipalities in the study area forecasted large population
+        growth and spatial expansion, whereas in 1978 they more explicitly aimed a compact city policy to reduce urban sprawl.</p>
+    </section>
+    <section id="35-validation">
+      <h3>3.5 Validation</h3>
+      <p>Validation is an essential part of predictive modelling and becomes even more important when models are used as planning
+        support systems. The validation of an UGM is usually carried out by comparing the simulated map to the observed map
+        to determine the predictably of the model. However, often model validation is poorly defined (Pontius, et al., 2004).
+        In light of this critique, the validation procedure for his research will be separated through time, where the input
+        data from 1973 up to 2006 was part of model calibration from which the urban area and patterns of 2006 up to 2015
+        were predicted. For the validation, each excluded layer was reprocessed to update the MCE factors and constraints
+        of 2006 to reflect new water bodies, natural areas, roads and urban areas. The resultant estimates of the parameter
+        values were derived from calibration and used for model validation. Therefrom, the model was initialized in 2006
+        and run in predict to 2015 with 100 MC iterations. The reason to run the model in predict-mode from 2006 is due to
+        that predict-mode differentiates between probabilities a cell is urbanized. With 100 MC iterations, it is possible
+        to differentiate the probability a cell is urbanized up to single percentages, according to SLEUTH. Each cell that
+        is urbanized in 50 or more MC iterations is used for model validation. This resulted in simulated urban area and
+        patterns of 2015, which were compared to the observed urban area and patterns of 2015 to validate the time series
+        on a known historic sequence. Also, SLEUTH does not output image files with a coordinate system, hence the previously
+        mentioned control-file (section 3.4) was used to project the output images to a valid coordinate system.</p>
+      <p>During validation there should be an objective way to compare the prediction map to a reference map (Pontius, et al.,
+        2004). Hence, it is useful to use a validation technique that: (a) quantifies the budgets of error, (b) compares
+        to a null map, (c), compares to a random map, and (d) performs the analyses at multiple scales. Knowing the budgets
+        of error is useful for improving the model, as these errors will likely have the largest potential for improvement.
+        Comparing the predicted map to a null map, i.e. no change, and a randomly generated map with the same class sizes,
+        enables the model-user to assess the additional predictive power of the model. And, analyzing across multiple scales,
+        provides insight in to the scale sensitivity of the prediction map.</p>
+      <p>There are multiple methods that have been used to compare the predicted maps to the observed maps (Hagen-Zanker & Martens,
+        2008; Hagen, 2002; Pontius & Millones, 2011; Van Vliet, Bregt, & Hagen-Zanker, 2011), a review is presented by Van
+        Vliet et al. (2016). For SLEUTH, Chaudhuri and Clarke (2014) have used Kappa statistics to test the validity of the
+        simulation results, such usage of supplement statistics to validate the simulation results has been applied in various
+        other applications of SLEUTH (Wu, et al., 2009; Rienow & Goetzke, 2015; Sakieh, et al., 2015a). However, Kappa statistics
+        often provide information that is misleading and redundant, as noted by Pontius and Millones (Pontius & Millones,
+        2011). In addition, certain Kappa statistics are difficult to interpret correctly, e.g. Kappa simulation and its
+        variations. Herold et al. (2003) proposed to use pattern analysis and successfully simulated using SLEUTH, which
+        others have used as well (Wu, et al., 2009; Sakieh, et al., 2015b; Mahiny & Clarke, 2012; Chaudhuri & Clarke, 2013a;
+        Goldstein, et al. 2004). However, pattern analysis in itself is a poor validation technique since it cannot specifically
+        account for quantity disagreement (Pontius, et al., 2008).</p>
+      <p>Therefore, to provide assessments of accuracy, this study used a variety of validation techniques to objectively compare
+        the predicted maps to the observed map: three-map comparison (Pontius, et al., 2008), budgets of components of agreement
+        and disagreement, and multiple resolution comparison (Pontius, et al., 2011; Pontius, et al., 2004). In the following
+        sections these techniques will be addressed in more detail. All the model validation techniques were performed with
+        the GDAL software library, written in python-code and visually checked in QGIS.</p>
+      <h4>Three-map comparison</h4>
+      <p>A three-map comparison considers the overlay of three maps: (a) the reference map of time one, (b) the reference map
+        of time two, and (c) the prediction map for time two (Pontius, et al., 2008; Pontius et al., 2011). This map comparison
+        method allows the model-user to differentiate pixels that are correct due to persistence vs. the pixels that are
+        correct due to change. This is a useful comparison method as it focuses on the amount of correctly predicted changed
+        pixels, as opposed to comparing the entire predicted map to the entire observed map. The latter option tends to produce
+        misleading results that often overestimate the predictive power of a model, since the pixels that are persistence
+        would also be included in the overall accuracy.</p>
+      <p>For further analysis, the sources of percent correct and percent error were identified, by computing the: figure of
+        merit, producer’s accuracy, user’s accuracy and overall accuracy. The figure of merit (FOM) is the ratio of the intersection
+        of the observed change and the predicted change to the union of the observed change and the predicted change. The
+        FOM can range from 0% to 100%, meaning no overlap to perfect overlap between the observed change and predicted change.
+        This is given by:</p>
+      <math id="equation-05" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>FOM</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>B</mi>
+          </mrow>
+          <mrow>
+            <mi>A</mi>
+            <mo>+</mo>
+            <mi>B</mi>
+            <mo>+</mo>
+            <mi>C</mi>
+            <mo>+</mo>
+            <mi>D</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where, A is the area of error due to observed change predicted as persistence; B is the area of correct due to observed
+        change predicted as change; C is the area of error due to observed change predicted as wrong gaining category, which
+        can only occur when multiple land use categories are used; and D is the error of area due to observed persistence
+        predicted as change.</p>
+      <p>Three supplementary types of accuracy can be calculated from a three-map comparison: the producer’s accuracy, which
+        is the proportion of pixels that the model predicts accurately as change, given that the reference maps indicate
+        observed change. The user’s accuracy which is the proportion of pixels that the model predicts accurately as change,
+        given that the model predicts change. And the overall accuracy, which is the proportion of agreement between the
+        observed map and predicted map. The producer’s accuracy (PA) is given by:</p>
+      <math id="equation-06" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>PA</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>B</mi>
+          </mrow>
+          <mrow>
+            <mi>A</mi>
+            <mo>+</mo>
+            <mi>B</mi>
+            <mo>+</mo>
+            <mi>C</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>The user’s accuracy (UA) is given by:</p>
+      <math id="equation-07" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>UA</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>B</mi>
+          </mrow>
+          <mrow>
+            <mi>B</mi>
+            <mo>+</mo>
+            <mi>C</mi>
+            <mo>+</mo>
+            <mi>D</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>And the overall accuracy (OA) is given by:</p>
+      <math id="equation-08" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>OA</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>B</mi>
+            <mo>+</mo>
+            <mi>E</mi>
+          </mrow>
+          <mrow>
+            <mi>A</mi>
+            <mo>+</mo>
+            <mi>B</mi>
+            <mo>+</mo>
+            <mi>C</mi>
+            <mo>+</mo>
+            <mi>D</mi>
+            <mo>+</mo>
+            <mi>E</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where, E is the area of correct due to observed persistence predicted as persistence.</p>
+      <h4>Quantity disagreement and allocation disagreement</h4>
+      <p>To validate the accuracy of the prediction, Pontius and Millones (2011) developed the quantity disagreement and allocation
+        disagreement, which are computed from a confusion matrix derived from a cell-by-cell comparison of the observed map
+        and the predicted map. These two measures differentiate the sources of error due to difference in the relative category
+        size between the observed map and the predicted map, and the error due to a difference in the spatial allocation
+        of the category given the category sizes. They are both parts of the components agreement and disagreement, which
+        in addition to the types of disagreement, also differentiate between three types of agreement: agreement due to chance,
+        due to quantity and due to allocation. The quantity and allocation disagreement is explained by Pontius and Millones
+        (2011), and the types of agreement are discussed in Pontius et al. (2004).</p>
+      <p>Quantity and allocation disagreement are used in this study, because they are easy to compute and easy to understand.
+        If the disagreement between the simulated and the observed map is high, then these two disagreements provide the
+        model-user with information on where the simulation is falling short. However, the values of the agreement and disagreement
+        cannot be interpreted on their own, since a low disagreement could also be attributed to low observed change. Hence,
+        the various types of agreement and disagreement are a complementary validation method to the three-map comparison,
+        wherein the disagreement can be visualized and further differentiated.</p>
+      <h4>Multiple resolution comparison</h4>
+      <p>Multiple resolution comparison is a complementary method to three-map comparison and types of agreement and disagreement.
+        It is rescales the observed and predicted maps by coarsening the spatial resolution. Therefrom, on multiple scale
+        the three-map comparison and the budgets of components of agreement and disagreement can be applied to assess the
+        accuracy of the predicted on multiple scales.</p>
+      <p>Multiple resolution comparison will be able to deal with the scale sensitivity of the prediction map, as opposed to
+        when a pixel-by-pixel comparison is performed. For example, a pixel is considered incorrect when the reference map
+        disagrees with the category of said pixel in prediction map, regardless of whether the correct category is found
+        in a neighboring pixel. To address this scale sensitivity, the prediction map was compared to the reference map on
+        multiple resolutions, to distinguish the sources of agreement and disagreement on multiple scales and the components
+        of a three-map comparison. To accommodate the variations in categories that would occur at coarser scales, a geometric
+        progression procedure is used that produces pixels with partial membership. The various formulae for fuzzy membership
+        and a geometric progression procedure are given by Pontius et al. (2004) and Pontius et al. (2011).</p>
+    </section>
+    <section id="36-prediction">
+      <h3>3.6 Prediction</h3>
+      <p>Prediction is the last of the process flow. After the calibration and validation of the modelling results, a set of
+        estimates of growth coefficients was produced (Appendix D; Appendix E). These coefficients were used as input for
+        the prediction. Dezkham, Amiri, Darvishsefat and Sakiek (2013) mention there are three ways to predict in SLEUTH:
+        via the exclusion layer, i.e. scenarios (Xiang & Clarke, 2003), via the self-modification module and with changing
+        the parameters values. For this research, only the exclusion layer was used, due to the limitations and complexity
+        associated with the self-modification module. The growth coefficient values were used from calibration and not altered
+        for prediction, as minimal changes in the growth coefficients would not change the prediction outcome much (Jantz
+        & Goetz, 2005) and drastic changes to the growth coefficient values would undermine the calibration procedure. Hence,
+        three scenarios were created based on the validation procedure.</p>
+      <ul>
+        <li>S1: a regular MCE excluded layer, as has been applied throughout this study, referred to as the E1 excluded layer.
+          For this scenarios, each constraint and each factor in the MCE will be updated to reflect the situation of 2015.
+          This scenario depicts a future without policy constraints, what would happen if urban growth in Groningen would
+          be unconstrained.</li>
+        <li>S2: a ‘regular’ policy excluded layer with MCE, as has been applied throughout this study, referred to as the E2
+          or E3 excluded layers. The basis of this excluded layer is the most recent policy of the Province of Groningen,
+          which includes zones that specifically restrict urbanization in agricultural lands and natural areas, and encourages
+          urbanization in urban expansion areas. This scenario reflects the future based on the current zoning policies of
+          local governments.</li>
+        <li>S3: a nature protection excluded layer with MCE, which is also a policy layer like the previous scenario, however,
+          this from the perspective of protecting natural areas. It is based on the Natuurnetwerk Nederland, which is aimed
+          at protecting natural areas and the biodiversity.</li>
+      </ul>
+      <p>Ordinarily, for prediction, a start date is set, the last control year, and an end date is set, typically up to 20
+        years in the future. Research has shown that prediction beyond 10 years becomes increasingly uncertain, but could
+        stay well within acceptable norms (Chaudhuri & Clarke, 2014). Despite that, for this research the prediction time
+        period was 30 years, from 2015 up to 2045, as this could presumably put the 20 years default prediction time period
+        into a different perspective.</p>
+      <p>Furthermore, during prediction, the urban growth is converted to a probability that a certain cell would be urbanized,
+        based on how many times a cell is urbanized during the MC iterations. If 100 MC iterations are used (Candau, 2002;
+        Clarke, et al., 1997), it would be possible to differentiate the probability a cell would be urbanized with incremental
+        steps of 1%, in addition of dealing with the stochastic nature of SLEUTH. For forecasting into the future, this approach
+        is used and a distinction is made between cells that have a higher than 50% chance of being urbanized and cells that
+        have a lower than 50% chance of being urbanized, according to SLEUTH.</p>
+    </section>
+    <section id="37-section-conclusions">
+      <h3>3.7 Section Conclusions</h3>
+      <p><a href="#31-study-area">Section 3.1</a> depicted the study area, which is spanned over a region of 1,181.33 km² and
+        comprises the city of Groningen that is located in the north of the Netherlands. The city is a, relatively, fast
+        growing city in the Netherlands and is one of the few large cities in the region, which makes it a meaningful city
+        to the northern part of the Netherlands. In this section a brief historical overview is presented. Key in that overview
+        in light of this study, is the long tradition of planning urban growth via urban expansion plans, which led to less
+        organic growth. Since the 1970s the expansion plans were based on the compact city policy, which aims at minimizing
+        the urban footprint and preserving open space. Regarding this, it would be interesting to explore how SLEUTH copes
+        with such an area.</p>
+      <p><a href="#32-scale">Section 3.2</a> addressed the spatial and temporal scale as used in this study. The choice of scale
+        influences the modelling results and choosing the appropriate scales is a crucial to modelling (Benenson, 2007).
+        This section justified the spatial, temporal and organizational scales that were used and why. Primarily, by reason
+        of limitations in available data, since the satellite imagery came in a spatial resolution of 30 m2 and the earliest
+        record is from 1973. Moreover, since Groningen does not function in isolation, the organizational scale was set to
+        include neighboring cities and villages, thus the spatial extent was set to 1,183.33 km2. The temporal scale was
+        set to calibration and validation from 1973 up to 2015, and prediction from 2015 up to 2045.</p>
+      <p><a href="#33-sleuth">Section 3.3</a> discussed the excluded layer. It is an imperative feature of SLEUTH, since it
+        can substantially influence the simulation results by incorporating other relevant factors that are ordinarily not
+        included in SLEUTH. Thus, in this study, the excluded layer is an urbanization-suitability assessment through an
+        MCE as done by Mahiny and Clarke (2012) and Sakieh et al. (2015b). Both researches demonstrated the enhancement of
+        the simulation and prediction results from the MCE-incorporated SLEUTH-model. With fuzzy set theory the MCE layers
+        were standardized to allow for uncertainty and tolerance of imprecise data (Zadeh, 1965), and weights were assigned
+        via AHP. Moreover, this section discussed what MCE factors were used and why. An important component of the MCE is
+        the policy layer. Goetz, Jantz, Bockstael and Towe (2007) have pointed to the lack of policy variables in SLEUTH
+        and Onsted and Chowdhury (2014) showed that it is feasible to include it in the excluded layer. However, it can be
+        a dangerous practice to mask out areas or restrict urbanization in zones (Akın, et al., 2014; Pontius, et al., 2004),
+        as it could lead to bias when modelling or forecasting. To minimize the bias of masking, zones were aggregated into
+        the MCE as factors, not constraints, and in coarse categories. Additionally, the policy maps of 1970 and 1978 were
+        used, presumably these would produce the least bias in masking as they are nearby the start year of the simulation.</p>
+      <p>The next sections (<a href="#34-calibration">3.4</a> and <a href="#35-validation">3.5</a>) described the calibration
+        of SLEUTH, verification, calibration, validation and prediction processes that were executed. The verification of
+        the input data and the model, the calibration to acquire the most fitting estimates of parameters, and the validation
+        to assess the accuracy of the model results, are key to a successful modelling result (Batty, 1976; Silva & Clarke,
+        2002). For calibration choosing the appropriate goodness of fit statistics is crucial, therefore OSM was used in
+        combination with PFD, CFD and EFD. To ensure robust calibration, for each of calibration phases, the top five best-fit
+        results were run in test-mode with 25 MC iterations in order to validate the best-fit score visually and statistically.
+        Further, since validation is often poorly defined, the validation procedure for his research was separated through
+        time, where the input data from 1973 up to 2006 was used for model calibration wherefrom the urban area and patterns
+        of 2006 up to 2015 was predicted. Three validation methods were used that (a) quantify the budgets of error, (b)
+        compare to a null map, (c), compare to a random map, and (d) perform the analyses at multiple scales. These methods
+        were: budgets of components of agreement and disagreement, three-map comparison and multiple resolution comparison.</p>
+      <p><a href="#36-prediction">Section 3.6</a> elaborated on the prediction process as executed in this study, which was
+        done with three scenarios: the S1 MCE excluded layer, the S2 MCE excluded layer including the policy of 2014, and
+        the S3 MCE excluded layer including a nature preservation policy.</p>
+    </section>
+  </section>
+
+  <section id="4-data-pre-processing">
+    <h2>4. Data Pre-processing</h2>
+    <p>The following section describes the pre-processing that was done for this research. Data pre-processing involves the
+      transformation of raw data into meaningful information by giving it some degree of interpretation. Often raw data is
+      inconsistent, incomplete or it contains errors. Thus, the raw data needs to be transformed into understandable and
+      useable data. Generally, data pre-processing involves data cleaning, such as: filling in missing values, smoothing
+      noisy data and resolving inconsistencies; and data transformation, such as: data normalization, aggregation or generalization
+      (Longley, et al., 2010). In this section the data pre-processing that have been undertaken will be explained in more
+      detail, which are the pre-processing of: the satellite data up to the land use classification, the SLEUTH input data
+      and the data for the excluded layer. For all the data pre-processing efforts, testing and validation, the following
+      software has been used: SLEUTH, QGIS, GRASS GIS, GDAL, PostgreSQL, eCognition and Python.</p>
+    <section id="41-satellite-data">
+      <h3>4.1 Satellite Data</h3>
+      <p>Satellite based Earth observation is a technique to monitor land cover changes. In a time series analysis it holds
+        potential to uncover long term land cover dynamics. One of these observations is made by the Landsat mission, the
+        longest continuous record of satellite-based observations of the Earth’s surface, which makes it an invaluable resource
+        for monitoring land cover changes (Roy, Kovalskyy, Zhang, Yan, & Kommareddy, 2015). This master’s thesis is aimed
+        at a long-term directional trend of land cover change for Groningen which required imagery for a period of several
+        decades. Therefore, the Landsat satellite images of the years 1973, 1984, 1990, 1998, 2006 and 2015 were acquired
+        from USGS Landsat (2016a). For each of the years, as many images as available were collected, between 4 and 8 images.
+        The reason for this is that by combining the same bands of multiple Landsat images, each pixel’s value can be averaged
+        to come closer to the true value of the pixel which increases the accuracy. Collecting the images between the months
+        of May and October ensured the least amount of barren exposure, which made differentiating urban from other land
+        cover categories easier.</p>
+      <p>The oldest high-quality, cloud-free image from the Landsat database (USGS, 2016a) for the city of Groningen was collected
+        from the Landsat 1 Multispectral Scanner (LS1 MSS). It was acquired on the 22nd of March 1973 (path 212 and row 23)
+        with a spatial resolution of 60 m. The other Landsat data came at a spatial resolution of 30 m from Landsat 5 Thematic
+        Mapper (LS5 TM) for the years 1984, 1990, 1998, 2006 and from Landsat 8 Operational Land Imager (LS8 OLI) for the
+        year 2015. The LS1 MSS comes with 4 spectral bands, the LS5 TM comes with 7 spectral bands and the LS8 OLI comes
+        with 11 spectral bands. For further information on the spectral bands, see the USGS Landsat website (2016a). The
+        table below (<a href="#table-04">Table 4</a>) shows the wavelength in μm of the spectral bands of the three Landsat
+        missions that were used in this study, and how these compare to the other Landsat missions. The table contains the
+        following spectral bands: blue, green, red, near infrared (NIR), shortwave infrared (SWIR) and thermal infrared (TIRS).
+        The NIR of LS1 MSS is composed of two separate bands, but since these two bands are similar, they were used as one.
+        Moreover, LS1 MSS does not have the same amount of bands as the other Landsat missions and it comes at a spatial
+        resolution of 60 m, which made the land use classification harder for the year 1973. Rescaling the L1 MSS to 30 m
+        was necessary to be able to simulate from the 1970s, when the compact city policy was adopted by Groningen. Therefore,
+        LS1 MSS required most of the manual corrections made to the classification.</p>
+      <table id="table-04">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Blue (µm)</th>
+          <th>Green (µm)</th>
+          <th>Red (µm)</th>
+          <th>NIR (µm)</th>
+          <th>SWIR1 (µm)</th>
+          <th>SWIR2 (µm)</th>
+          <th>TIRS (µm)</th>
+        </tr>
+        <tr>
+          <td>LS1 MSS</td>
+          <td>&nbsp;</td>
+          <td>0.50 – 0.60</td>
+          <td>0.60 – 0.70</td>
+          <td>0.70 – 1.10</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>LS5 TM</td>
+          <td>0.45 – 0.52</td>
+          <td>0.52 – 0.60</td>
+          <td>0.63 – 0.69</td>
+          <td>0.76 – 0.90</td>
+          <td>1.55 – 1.75</td>
+          <td>2.08 – 2.35</td>
+          <td>10.40 – 12.50</td>
+        </tr>
+        <tr>
+          <td>LS8 OLI</td>
+          <td>0.45 – 0.51</td>
+          <td>0.53 – 0.59</td>
+          <td>0.64 – 0.67</td>
+          <td>0.85 – 0.88</td>
+          <td>1.57 – 1.65</td>
+          <td>2.11 – 2.29</td>
+          <td>11.50 – 12.50</td>
+        </tr>
+      </table>
+      <p>The ability to detect and quantify land cover and land use changes on the Earth’s surface depends on sensor that can
+        provide calibrated (known accuracy and precision) and consistent measurements. Geometric, radiometric and atmospheric
+        correction are a prerequisite for creating high-quality science data. It ensures the data is consistently measured
+        throughout the time series and becomes comparable, which is crucial to remote sensing of a time series (Chander,
+        Markhem, & Helder, 2009). By that reason, all bands for all the years were geometrically, radiometrically and atmospherically
+        corrected. Afterwards, the spectral bands were improved by image enhancement techniques that aid the visual and digital
+        interpretation of the images. A representation of this process is shown in <a href="#figure-16">Figure 16</a>. All
+        the operations were performed with the GDAL software library and written in python-code due to the large amount of
+        bands that needed to be corrected, enhanced and stacked together. The result were visually checked and compared in
+        QGIS.
+      </p>
+      <figure id="figure-16">
+        <img src="media/landsat_correction.png"></img>
+        <figcaption>Figure 16: A simplified visualization of pre-processing involved in the Landsat imagery.</figcaption>
+      </figure>
+      <h4>Geometric correction</h4>
+      <p>In order to align the cells of all the Landsat imagery’s bands, the raster data was geometrically corrected. This means
+        that all the data was transformed to the same coordinate system, in this case from WGS 84 UTM Zone 31 or WGS 84 UTM
+        Zone 32 to RD New, which is the Dutch national projection. Some of the images did not have a valid projection, so
+        these the images were geo-referenced with a cubic convolution algorithm. Geo-referencing is the process of assigning
+        a spatial coordinates to data that has no explicit coordinate system. Images are georeferenced by linking spatially
+        distributed control points in the satellite image to a base map with a known coordinate system (Longley, et al.,
+        2010). To assess the accuracy of the geo-referenced image the root mean square error is a commonly used statistic.
+        It measures the difference between locations that are known and locations that are digitized. The geo-referenced
+        images had a root mean square error of between 11 and 15, which is less than half of the pixel size and indicates
+        the images were relocated with an accuracy of less than one pixel. Also, it involved clipping the raster dataset
+        to the same spatial extent and resampling the data with a cubic convolution algorithm to the same spatial resolution,
+        in this case 30 m.</p>
+      <h4>Radiometric correction</h4>
+      <p>The sensors at the Landsat satellites capture reflected solar energy, which is converted to radiance and rescaled into
+        an 8-bit digital number (DN) ranging from 0 (low intensity) to 255 (high intensity). Depending on the solar angle
+        and satellite angle the intensity of radiation coming from a surface that is captured at the Landsat sensor varies
+        between dates. Thus, the uncalibrated DN needs to be corrected (Chander, et al., 2009). The first step of this procedure
+        is radiometric correction, which entails the conversion of the DN back to spectral radiance (L<sub>𝝀</sub>). The
+        spectral radiance at the sensor’s aperture is measured in watts per square meter per steradian (solid angle) per
+        micrometer (W·m<sup>2</sup>·sr·μm) and given by:</p>
+      <math id="equation-09" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <msub>
+          <mi>L</mi>
+          <mrow>
+            <mn>𝝀</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <msub>
+              <mi>LMAX</mi>
+              <mrow>
+                <mn>𝝀</mn>
+              </mrow>
+            </msub>
+            <mo>-</mo>
+            <msub>
+              <mi>LMIN</mi>
+              <mrow>
+                <mn>𝝀</mn>
+              </mrow>
+            </msub>
+          </mrow>
+          <mrow>
+            <mi>QCALMAX</mi>
+            <mo>-</mo>
+            <mi>QCALMIN</mi>
+          </mrow>
+        </mfrac>
+        <mo>&CenterDot;</mo>
+        <mfenced open="(" close=")">
+          <mrow>
+            <mi>QCAL</mi>
+            <mo>-</mo>
+            <mi>QCALMIN</mi>
+          </mrow>
+        </mfenced>
+        <mo>+</mo>
+        <msub>
+          <mi>LMIN</mi>
+          <mrow>
+            <mn>𝝀</mn>
+          </mrow>
+        </msub>
+      </math>
+      <p>where LMAX<sub>𝝀</sub> is the maximum spectral radiance of a band that is scaled in W·m<sup>2</sup>·sr·μm, LMIN
+        <sub>𝝀</sub> is the minimum spectral radiance of a band that is scaled in W·m<sup>2</sup>·sr·μm, QCALMAX is the
+        maximum quantized calibrated pixel value of a band in DN, QCALMIN is the minimum quantized calibrated pixel value
+        of a band in DN and QCAL is the quantized calibrated pixel value in DN.</p>
+      <p>For LS8 OLI Equation 9 is slightly different as the metadata contains a pre-calculated offset, the band-specific multiplicative
+        rescaling factor (M<sub>L</sub>) and gain, the band-specific additive rescaling factor (A<sub>L</sub>). More information
+        on the calibration procedure for LS8 can be found in the Landsat 8 handbook (USGS, 2016b).</p>
+      <h4>Atmospheric correction</h4>
+      <p>The second step is atmospheric correction, for which the spectral radiance was converted to surface reflectance (ρ).
+        This was done by calculating the path radiance (L<sub>p</sub>) based on Dark Object Subtraction (DOS), which is a
+        family for image-based atmospheric correction techniques. Chavez (1996, p. 1027) states that “the basic assumption
+        is that within the image some pixels are in complete shadow”, such as deep water and deep shadow. “Their radiances
+        received at the satellite are due to atmospheric scattering (path radiance)”, hence these areas should have almost
+        no reflective properties. “This assumption is combined with the fact that very few targets on the Earth’s surface
+        are absolute black, so an assumed one-percent minimum reflectance is better than zero percent”. In this case DOS1
+        was calculated by determining the DN at the lowest one-percent of the image histogram (DN<sub>min</sub>), therefore
+        the path radiance is given by:</p>
+      <math id="equation-10" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <msub>
+          <mi>L</mi>
+          <mrow>
+            <mn>p</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>M</mi>
+          <mrow>
+            <mn>L</mn>
+          </mrow>
+        </msub>
+        <mo>&CenterDot;</mo>
+        <msub>
+          <mi>DN</mi>
+          <mrow>
+            <mn>min</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow>
+            <mn>L</mn>
+          </mrow>
+        </msub>
+        <mo>-</mo>
+        <mfrac>
+          <mrow>
+            <mi>0.01</mi>
+            <mo>&CenterDot;</mo>
+            <mfenced open="[" close="]">
+              <mrow>
+                <mfenced open="(" close=")">
+                  <mrow>
+                    <msub>
+                      <mi>ESUN</mi>
+                      <mrow>
+                        <mn>𝝀</mn>
+                      </mrow>
+                    </msub>
+                    <mo>&CenterDot;</mo>
+                    <msub>
+                      <mi>cosθ</mi>
+                      <mrow>
+                        <mn>s</mn>
+                      </mrow>
+                    </msub>
+                    <mo>&CenterDot;</mo>
+                    <msub>
+                      <mi>T</mi>
+                      <mrow>
+                        <mn>z</mn>
+                      </mrow>
+                    </msub>
+                  </mrow>
+                </mfenced>
+                <mo>+</mo>
+                <msub>
+                  <mi>E</mi>
+                  <mrow>
+                    <mn>down</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+            </mfenced>
+            <mo>&CenterDot;</mo>
+            <msub>
+              <mi>T</mi>
+              <mrow>
+                <mn>v</mn>
+              </mrow>
+            </msub>
+          </mrow>
+          <mrow>
+            <mi>π</mi>
+            <mo>&CenterDot;</mo>
+            <msup>
+              <mrow>
+                <mi>d</mi>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where M<sub>L</sub> is a band-specific multiplicative rescaling factor from Landsat metadata, DN<sub>min</sub> is the
+        DN at the lowest 1% of the image’s histogram, ESUN<sub>𝝀</sub> is the mean solar exo-atmospheric irradiances in
+        W·m
+        <sup>2</sup>·μm from Chander et al. (2009), θ<sub>s</sub> is the angle of incidence of the direct solar flux unto
+        the Earth’s surface in degrees from the Landsat metadata and d is the Earth-sun distance in astronomical units from
+        Chander et al. (2009). Additionally, the following assumptions were made based on Moran et al. (1992): T<sub>v</sub>        is the atmospheric transmittance along the path from the ground surface to the sensor, set at 1; T<sub>z</sub> is
+        the atmospheric transmittance along the path from the sun to the ground surface, also set at 1; and E<sub>down</sub>        is the downwelling spectral irradiance at the surface due to scattered solar flux in the atmosphere, set at 0.
+      </p>
     </section>
   </section>
 
