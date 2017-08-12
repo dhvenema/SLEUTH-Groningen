@@ -1,16 +1,21 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="content-type">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="base.css" />
+  <meta name="author" content="Ir. D.H. Venema">
+  <meta name="description" content="Modelling land cover change using Geographic Information Systems, Remote Sensing, an Urbanization-suitability Layer and SLEUTH-3r for Groningen, the Netherlands.">
+  <link rel="stylesheet" type="text/css" href="base.css">
+  <link rel="canonical" href="https://dhvenema.github.io/SLEUTH-Groningen/">
 </head>
 
 <body>
+  <div id="cover"></div>
+
   <div class="head" role="contentinfo">
     <h1 class="title p-name" id="title" property="dcterms:title">Modelling Land Cover Change Using SLEUTH-3r for Groningen, the Netherlands</h1>
     <dl>
       <dt>Full title:</dt>
       <dd>Modelling Land Cover Change Using Geographic Information Systems, Remote Sensing, an Urbanization-suitability Layer
-        and SLEUTH-3r for Groningen, the Netherlands</dd>
+        and SLEUTH-3r for Groningen, the Netherlands.</dd>
       <dt>Author:</dt>
       <dd>Ir. D.H. Venema</dd>
       <dt>Graduation committee:</dt>
@@ -791,7 +796,7 @@
               can result in stability, stochastic instability or chaos” (Clarke & Gaydos, 1998, p. 700). These are properties
               of chaotic and dynamical system that evolve through self-organized criticality, which means they evolve to
               a critical point between order and disorder, holding themselves at this critical level until certain conditions
-              emerge, which could abruptly redirect the system to a new threshold. A good example of this is the Glider Gun,
+              emerge, which could abruptly redirect the system to a new threshold. A good example of this is the <a href="#animation-01">Glider Gun</a>,
               which is a cellular configuration in Conway’s Game of Life. In this a cellular configuration two objects, i.e.
               clusters of pixels that are alive, exist in homogenous cellular space of pixels that are dead. Due to transition
               rules, these two objects move through cellular space in stability. However, when these two objects collide,
@@ -800,6 +805,10 @@
               with static objects in cellular space. In that case new alive pixels emerge, but quickly dissipate. Overall,
               this pattern repeats endlessly, therefore this spatial configuration is stable, whilst periodically being chaotic
               and abruptly redirecting to new thresholds.</p>
+            <figure id="animation-01">
+              <img src="media/glider_gun.gif">
+              <figcaption>Animation 1: GIF-animation of the Glider Gun.</figcaption>
+            </figure>
             <p>Some examples of CA will be discussed in <a href="#23-urban-models">section 2.3</a> Metronamica, Dinamica EGO,
               CLUE and SLEUTH. Besides these four models, Sante et al. (2010) provided an overview of urban CA models applied
               to real-world cases, along with an analysis of their capabilities and limitations.</p>
@@ -2705,12 +2714,1046 @@
         Chander et al. (2009). Additionally, the following assumptions were made based on Moran et al. (1992): T<sub>v</sub>        is the atmospheric transmittance along the path from the ground surface to the sensor, set at 1; T<sub>z</sub> is
         the atmospheric transmittance along the path from the sun to the ground surface, also set at 1; and E<sub>down</sub>        is the downwelling spectral irradiance at the surface due to scattered solar flux in the atmosphere, set at 0.
       </p>
+      <p>From the path radiance the surface reflectance was calculated. Surface reflectance is the reflectance of the surface
+        of the Earth, thereby clouds and other atmospheric components do not affect the reflectance spectra. This is given
+        by:
+      </p>
+      <math id="equation-11" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>ρ</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>π</mi>
+            <mo>&CenterDot;</mo>
+            <mfenced open="(" close=")">
+              <mrow>
+                <msub>
+                  <mi>L</mi>
+                  <mrow>
+                    <mn>𝝀</mn>
+                  </mrow>
+                </msub>
+                <mo>-</mo>
+                <msub>
+                  <mi>L</mi>
+                  <mrow>
+                    <mn>p</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+            </mfenced>
+            <mo>&CenterDot;</mo>
+            <msup>
+              <mrow>
+                <mi>d</mi>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mrow>
+          <mrow>
+            <msub>
+              <mi>ESUN</mi>
+              <mrow>
+                <mn>𝝀</mn>
+              </mrow>
+            </msub>
+            <mo>&CenterDot;</mo>
+            <msub>
+              <mi>cosθ</mi>
+              <mrow>
+                <mn>s</mn>
+              </mrow>
+            </msub>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>The Landsat TM and OLI also contain thermal bands for which the temperature was calculated by converting the spectral
+        radiance to at-satellite brightness temperature in Kelvin. This is given by:</p>
+      <math id="equation-12" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>T</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>K2</mi>
+          </mrow>
+          <mrow>
+            <mi>ln</mi>
+            <mfenced open="(" close=")">
+              <mrow>
+                <mfrac>
+                  <mrow>
+                    <mi>K1</mi>
+                  </mrow>
+                  <mrow>
+                    <msub>
+                      <mi>L</mi>
+                      <mrow>
+                        <mn>𝝀</mn>
+                      </mrow>
+                    </msub>
+                  </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mi>1</mi>
+              </mrow>
+            </mfenced>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where K1 is a band-specific thermal conversion constant in W&CenterDot;m<sup>2</sup>&CenterDot;sr&CenterDot;μm and
+        K2 is a band-specific thermal conversion constant in Kelvin, both are from Chander et al. (2009).</p>
+      <h4>Image enhancement</h4>
+      <p>Once all the individual bands for each Landsat raster dataset were converted to surface reflectance or at-satellite
+        brightness temperature, the bands were improved to aid visual and digital interpretation with image enhancement techniques.
+        There are a variety of image enhancement techniques and the ones used in this research were: contrast enhancement
+        performed in QGIS and principal component analysis (PCA), image transformation and band rationing performed in Python
+        (Lillesand & Kiefer, 2015).</p>
+      <p>Contrast enhancement entails enhancing the image by applying a standard deviation contrast stretch. This does not change
+        the value of the pixels, it merely improves the visual representation. This is useful when interpreting the Landsat
+        imagery for selecting training pixels during classification or whilst selecting sample pixels for an accuracy analysis
+        of the classification. The PCA is a mathematical method that is used to create another uncorrelated dataset with
+        principal component images to accommodate for the high correlation between the individual bands. Image transformation
+        involves the manipulation of the same bands of multiple Landsat datasets of the same area acquired at different times,
+        i.e. multi-temporal image data. The pixels were averaged to come closer to the true value of the pixel and thereby
+        improving the accuracy of the image. To these pixel values band rationing was applied to calculate the following
+        indices: the Normalized Difference Vegetation Index (NDVI), which is given by:</p>
+      <math id="equation-13" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>NDVI</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>NIR</mi>
+            <mo>-</mo>
+            <mi>Red</mi>
+          </mrow>
+          <mrow>
+            <mi>NIR</mi>
+            <mo>+</mo>
+            <mi>Red</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>The Normalized Difference Built-up Index (NDBI), which is given by:</p>
+      <math id="equation-14" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>NDBI</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>SWIR</mi>
+            <mo>-</mo>
+            <mi>NIR</mi>
+          </mrow>
+          <mrow>
+            <mi>SWIR</mi>
+            <mo>+</mo>
+            <mi>NIR</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>The Modified Normalized Difference Water Index (MNDWI), which is given by:</p>
+      <math id="equation-15" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mi>MNDWI</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>Green</mi>
+            <mo>-</mo>
+            <mi>SWIR</mi>
+          </mrow>
+          <mrow>
+            <mi>Green</mi>
+            <mo>+</mo>
+            <mi>SWIR</mi>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where NIR corresponds to the near infrared spectral band in the 0.70 μm – 1.10 μm wavelength range, Red corresponds
+        to the red spectral band in the 0.60 μm – 0.70 μm wavelength range, SWIR corresponds to the shortwave infrared spectral
+        band in the 1.20 μm – 1.75 μm wavelength range and Green corresponds to the green spectral band in the 0.50 μm –
+        0.60 μm wavelength range.</p>
+      <p>The calculation of these indices is based on specific properties of the features of interest in terms of strong absorption
+        or reflection in certain spectral bands (Lillesand & Kiefer, 2015). The NDVI is commonly used for the extraction
+        of vegetation. This index is based on the fact that plants absorb visible light for photosynthesis in the 0.40 μm
+        – 0.70 μm wavelength range and reflect the near infrared light in the 0.70 μm – 1.10 μm wavelength range, which is
+        divided by the total light coming in. The NDBI is based on the fact that built-up areas have a high reflectance in
+        1.55 – 1.75 μm wavelength range and low reflectance in the 0.76 – 0.90 μm wavelength range, which is then also divided
+        by the total light coming in. Similarly, the MNDWI absorbs the light in the 1.20 – 1.70 μm wavelength range and reflects
+        the light in the 0.50 – 0.60 μm wavelength range. Zha et al., (2003) showed that the NDVI combined with the NDBI
+        is a useful to extract built-up areas. The MNDWI is used to reduce spectral confusion between built-up areas and
+        bare areas, as Ogashaware and Bastos (2012) suggested that bare areas contain more water than built-up areas. Therefore,
+        in this research these three indices were used to extract urban areas from the imagery. Afterwards, all the bands
+        and indices were stacked together into a single TIF-file. <a href="#figure-17">Figure 17</a> shows the resulting
+        satellite image and three the spectral band combinations from the stacked TIF-file.</p>
+      <figure id="figure-17">
+        <img src="media/remote_sensing.png"></img>
+        <figcaption>Figure 17: The resulting satellite images for the LS8 OLI for the year 2015 after the various corrections.</figcaption>
+      </figure>
+      <h4>Remote sensing</h4>
+      <p>Remote sensing is the science of acquiring information about the Earth’s surface through sensing and recording reflected
+        or emitted energy and processing, analyzing and applying that information. Several studies have been conducted that
+        combine SLEUTH with remote sensing and geographic information systems (Sakieh, et al., 2015a; Qi, 2012; Amin, 2007;
+        Pan, et al., 2010; Liu, et al., 2012). There are primarily two techniques for remote sensing: pixel-based remote
+        sensing and object-based remote sensing (Lillesand & Kiefer, 2015). Pixel-based remote sensing is concerned with
+        individual pixels and their spectral values, whilst object-based remote sensing combines homogenous regions in an
+        image into new objects. Object-based remote sensing is based on the assumption that important semantic information
+        is not represented in single pixels, but image objects and their relations. The image content is represented in a
+        network of image objects and act as building blocks for subsequent image analyses. Image objects carry more useful
+        information than individual pixels do and can be characterized by not just spectral values and spectral derived information,
+        but also shape, texture, neighborhood or context. Therefore, object-based remote sensing with eCognition was used
+        in this research to classify the land use in Groningen.</p>
+      <p>Object-based image analysis is divided into two steps: (a) image segmentation and (b) image classification. The merged
+        satellite images were segmented into smaller image objects via multi-resolution segmentation, a bottom-up region
+        merging technique (Lillesand & Kiefer, 2015). The associated algorithm starts with considering each pixel of the
+        various input bands as an individual object. It searches for adjacent pixels that have a similar spectral values.
+        These are merged together into a bigger object, thus creating homogenous objects in an image. The homogeneity criterion
+        is based on a combination of spectral values and shape properties, which is split up into smoothness and compactness.
+        The segmented images were classified with a nearest neighbor supervised classification method by collecting 25 training
+        samples of each land use class: water bodies, forests, rangelands, agricultural lands, heathlands and barren lands,
+        and urban areas. The samples were selected via targeted sampling, due to the ease in data collections and so the
+        selected pixels would represent the range of variability within each class (Congalton & Green, 2008). Based on fuzzy
+        logic the nearest neighbor algorithm assigns a class to all the image objects that the objects belongs to the most.
+        The resulting classification was visually validated via topographic maps and manually corrected if needed in QGIS.
+        To ensure the urban area is consistent throughout the time series, the urban area of earlier years was harmonized
+        with later years. This is based on the assumption that once a cell is urbanized it will stay urbanized.</p>
+      <h4>Validation of classification</h4>
+      <p>The classification maps are not perfectly accurate and are bound to contain errors. Therefore, to conduct a meaningful
+        validation of predicted maps, an accuracy analysis of the observed maps is required to determine their credibility
+        and to provide reasonable explanation for possible estimates of errors. This is particularly true when the observed
+        maps are classified from remotely sensed data at a medium spatial resolution, where the measured classification accuracy
+        may only be lower due to the mixed pixel problem (Chaudhuri & Clarke, 2014). The mixed pixel problem refers to the
+        problems associates with the representation of multiple spectral classes in one pixel. Typically, each pixel contains
+        the average spectral value of several classes, due to emittance and reflectance of different types of material in
+        that pixel. Ordinarily this takes place along the edges of features where class transitions occur.</p>
+      <p>Consequently, the classification for the years 1973, 1984, 1990, 1998, 2006 and 2015 was validated via a confusion
+        matrix to assess the OA, the UA, the PA and the Kappa coefficient of agreement. The OA is the number of correctly
+        classified pixels divided by the total number of pixels. The US is a measure of the errors of commissions, which
+        are incorrectly included pixels to the class of interest, indicating the probability a pixel represents the same
+        category in the observed map. The PA is a measure of the errors of omissions, which are incorrectly excluded pixels
+        to the class of interest, indicating how well a certain area can be classified (Congalton & Green, 2008). Kappa measures
+        the agreement between the classification and the observed maps based on chance (Congalton, 1991). This is given by:</p>
+      <math id="equation-16" xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mover>
+          <mi>K</mi>
+          <mo>&Hat;</mo>
+        </mover>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mi>N</mi>
+            <mo>&CenterDot;</mo>
+            <mstyle displaystyle='true'>
+              <munderover>
+                <mo>&sum;</mo>
+                <mrow>
+                  <mi>i</mi>
+                  <mo>=</mo>
+                  <mn>1</mn>
+                </mrow>
+                <mi>J</mi>
+              </munderover>
+            </mstyle>
+            <msub>
+              <mi>X</mi>
+              <mrow>
+                <mn>ii</mn>
+              </mrow>
+            </msub>
+            <mo>-</mo>
+            <mstyle displaystyle='true'>
+              <munderover>
+                <mo>&sum;</mo>
+                <mrow>
+                  <mi>i</mi>
+                  <mo>=</mo>
+                  <mn>1</mn>
+                </mrow>
+                <mi>J</mi>
+              </munderover>
+            </mstyle>
+            <mfenced open="(" close=")">
+              <mrow>
+                <msub>
+                  <mi>X</mi>
+                  <mrow>
+                    <mn>i+</mn>
+                  </mrow>
+                </msub>
+                <mo>&CenterDot;</mo>
+                <msub>
+                  <mi>X</mi>
+                  <mrow>
+                    <mn>+i</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+            </mfenced>
+          </mrow>
+          <mrow>
+            <msup>
+              <mrow>N</mrow>
+              <mrow>2</mrow>
+            </msup>
+            <mo>-</mo>
+            <mstyle displaystyle='true'>
+              <munderover>
+                <mo>&sum;</mo>
+                <mrow>
+                  <mi>i</mi>
+                  <mo>=</mo>
+                  <mn>1</mn>
+                </mrow>
+                <mi>J</mi>
+              </munderover>
+            </mstyle>
+            <mfenced open="(" close=")">
+              <mrow>
+                <msub>
+                  <mi>X</mi>
+                  <mrow>
+                    <mn>i+</mn>
+                  </mrow>
+                </msub>
+                <mo>&CenterDot;</mo>
+                <msub>
+                  <mi>X</mi>
+                  <mrow>
+                    <mn>+i</mn>
+                  </mrow>
+                </msub>
+              </mrow>
+            </mfenced>
+          </mrow>
+        </mfrac>
+      </math>
+      <p>where J is the number of categories in the confusion matrix, x<sub>i</sub> is the number of observation in row i and
+        column i, x<sub>i+</sub> and x<sub>+i</sub> are the marginal totals of row i and column i, and N is the total number
+        of observations. Generally, Kappa can be interpreted in the following way: if Kappa equals 1, then the classification
+        is perfect; if Kappa is larger than 0, then the observed proportion correct is greater than the expected proportion
+        correct due to chance; if Kappa is equal to 0, then the observed proportion correct is equal to the expected proportion
+        correct due to chance; and if Kappa is smaller than 0, then the observed proportion correct is less than the expected
+        proportion correct due to chance. Based on Congalton (1991), who provided an indication for the amount</p>
+      <p>Based on Congalton (1991), who provided an indication for the amount of training pixels ought to be selected, for the
+        years 1973, 2006 and 2015, per class 60 training pixels were selected, resulting in a total of 360 training pixels.
+        For the years 1984, 1990 and 1998, per class 30 training pixels were selected, resulting in a total of 60 training
+        pixels. Samples were selected via stratified sampling, where the strata are the land use categories from the classification
+        map, and each stratum contained a minimum of 30 samples. Afterwards, the sample matrix was converted to a matrix
+        that represents the entire study area to compute unbiased summary statistics. This was done by multiplying the matrix
+        cell by its associated class size proportion given by the classified map (Pontius & Millones, 2011), based on the
+        assumption that the real class size proportions are similar to those in the classification map. The sample pixels
+        values were derived of image observations of satellite imagery.</p>
+      <p>The results show that the OA, PA, UA and Kappa statistic of the three observed maps is sufficient. (<a href="#table-05">Table 5</a>        and <a href="#table-06">Table 6</a>). The accuracy analysis of the year 1973 is the only one provided here, as this
+        is exemplar to the accuracy of the other classified years. What this shows is that due to the small class size of
+        category six (barren and heathlands), that the PA is much lower than for other categories. The other accuracy analyses,
+        for the years 2006 and 2015 can be found in <a href="appendix-a">Appendix A</a> and for 1984, 1990 and 1998 in
+        <a href="appendix-b">Appendix B</a>.</p>
+      <table id="table-05">
+        <caption>Table 5: The confusion matrix of the land use classification of 1973, and the errors of omission and commission,
+          producer’s and user’s accuracy are shown per class as well as the overall measures.</caption>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="6"><i>Reference</i></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td rowspan="2">Producer&rsquo;s accuracy</td>
+          <td rowspan="2">User&rsquo;s accuracy</td>
+        </tr>
+        <tr>
+          <td><i>Classified</i></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td><i>sum</i></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>0.025</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.001</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.026</td>
+          <td>&nbsp;</td>
+          <td>89.35%</td>
+          <td>95.08%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0.000</td>
+          <td>0.016</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.001</td>
+          <td>0.017</td>
+          <td>&nbsp;</td>
+          <td>30.29%</td>
+          <td>92.98%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>0.000</td>
+          <td>0.026</td>
+          <td>0.447</td>
+          <td>0.006</td>
+          <td>0.013</td>
+          <td>0.013</td>
+          <td>0.506</td>
+          <td>&nbsp;</td>
+          <td>98.91%</td>
+          <td>88.46%</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>0.003</td>
+          <td>0.001</td>
+          <td>0.000</td>
+          <td>0.097</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.101</td>
+          <td>&nbsp;</td>
+          <td>84.93%</td>
+          <td>95.59%</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>0.000</td>
+          <td>0.010</td>
+          <td>0.005</td>
+          <td>0.010</td>
+          <td>0.324</td>
+          <td>0.000</td>
+          <td>0.349</td>
+          <td>&nbsp;</td>
+          <td>95.95%</td>
+          <td>92.96%</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.000</td>
+          <td>0.001</td>
+          <td>0.001</td>
+          <td>&nbsp;</td>
+          <td>4.96%</td>
+          <td>100.00%</td>
+        </tr>
+        <tr>
+          <td><i>sum</i></td>
+          <td>0.028</td>
+          <td>0.053</td>
+          <td>0.452</td>
+          <td>0.114</td>
+          <td>0.338</td>
+          <td>0.015</td>
+          <td>1.000</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="6">Overall accuracy</td>
+          <td>91.01%</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="6">Overall producer&rsquo;s accuracy</td>
+          <td>67.40%</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="6">Overall user&rsquo;s accuracy</td>
+          <td>94.18%</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="6">Kappa</td>
+          <td>0.86</td>
+        </tr>
+      </table>
+      <p><i>Note</i>. The numbers in the confusion matrix represent the following classes, 1: water, 2: forest, 3: rangelands,
+        4: urban areas, 5: agricultural lands and 6: heathlands and barren lands. The amount of training pixels selected
+        for heathlands and barren lands is less than for the other classes, as this category is less common.</p>
+      <table id="table-06">
+        <caption>Table 6: The results of the accuracy analyses of the classifications of 1973, 1984, 1990, 1998, 2006 and 2015.</caption>
+        <tr>
+          <th></th>
+          <th>Overall accuracy</th>
+          <th>Producer's accuracy</th>
+          <th>User's accuracy</th>
+          <th>Kappa</th>
+        </tr>
+        <tr>
+          <td>1973</td>
+          <td>91.01%</td>
+          <td>67.40%</td>
+          <td>94.18%</td>
+          <td>0.86</td>
+        </tr>
+        <tr>
+          <td>1984</td>
+          <td>96.23%</td>
+          <td>87.91%</td>
+          <td>95.05%</td>
+          <td>0.82</td>
+        </tr>
+        <tr>
+          <td>1990</td>
+          <td>96.67%</td>
+          <td>89.45%</td>
+          <td>96.67%</td>
+          <td>0.85</td>
+        </tr>
+        <tr>
+          <td>1998</td>
+          <td>95.59%</td>
+          <td>89.76%</td>
+          <td>93.53%</td>
+          <td>0.83</td>
+        </tr>
+        <tr>
+          <td>2006</td>
+          <td>92.30%</td>
+          <td>62.69%</td>
+          <td>94.64%</td>
+          <td>0.84</td>
+        </tr>
+        <tr>
+          <td>2015</td>
+          <td>94.13%</td>
+          <td>77.82%</td>
+          <td>95.42%</td>
+          <td>0.89</td>
+        </tr>
+      </table>
     </section>
     <section id="42-input-data">
       <h3>4.2 Input Data</h3>
+      <p>The SLEUTH model requires several input data, as shown in <a href="#table-07">Table 7</a>, and conform specific specifications
+        as explained in <a href="#34-calibration">section 3.4</a> In the next section the various input layers and the topographic
+        maps used for validation will be discussed, and from where the data was accumulated. First, a brief explanation on
+        what data is required for SLEUTH.</p>
+      <p>The Slope layer uses elevation data with a percent slope and requires only one time period. The Land use layer is an
+        optional layer that uses any number of land use categories, as long as they are consistent. It requires two time
+        periods and is used to calculate a class-to-class transition probabilities matrix among the different land use categories.
+        The excluded layer defines the urban suitability from 0 (suitable) to 100 (unsuitable). The Urban layer consists
+        of a raster in which a cell is either urban or non-urban. In the original SLEUTH model this layer required at least
+        four periods to calculate goodness-of-fit statistics, in SLEUTH-3r only two periods are required due to the new goodness-of-fit
+        statistics. Lastly, the Transportation layer needs at least two time periods and has the option to include weighting
+        to represent the relative importance of roads and to determine the probability of urban development according to
+        accessibility of a location.</p>
+      <table id="table-07">
+        <caption>Table 7: A list of the sources of the model input data for SLEUTH.</caption>
+        <tr>
+          <th>Theme</th>
+          <th>Year</th>
+          <th>Source(s)</th>
+        </tr>
+        <tr>
+          <td>Slope and hillshade</td>
+          <td>&nbsp;</td>
+          <td>Derived from the AHN2 of 2009 for the years between 1973 and 2015.</td>
+        </tr>
+        <tr>
+          <td>Land use</td>
+          <td>1973</td>
+          <td>Classified from LS1 MSS for 1973, LS5 TM for 2006 and LS8 OLI for 2015. The urban class was further differentiated
+            with vector data from BBG for1989, 2006 and 2012 as well as topographic maps for 1970, 2005 and 2015.</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2006</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2015</td>
+        </tr>
+        <tr>
+          <td>Urban extent</td>
+          <td>1973</td>
+          <td>Classified from LS1 MSS for 1973, LS5 TM for 1984, 1990, 1998 for 2006 and LS8 OLI for 2015, with the help of topographic
+            maps for 1970, 1982, 1990, 1999, 2005 and 2015.</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1984</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1990</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1998</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2006</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2015</td>
+        </tr>
+        <tr>
+          <td>Transportation</td>
+          <td>1973</td>
+          <td>Classified from NWB for 2015, 2006 and 1998. 1973, 1984 and 1990 were digitized from topographic maps of 1970,
+            1982 and 1990.</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1984</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1990</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>1998</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2006</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>2015</td>
+        </tr>
+        <tr>
+          <td>Excluded</td>
+          <td>&nbsp;</td>
+          <td>Based on a MCE for1973, 2006 and 2015, water masks for 1973, 2006 and 2015, and policy zones of 1971, 1978, 1984,
+            1994, 2000 and 2015.
+          </td>
+        </tr>
+      </table>
+      <h4>Topographic maps</h4>
+      <p>Topographic maps were used to assist classification and to aid visual validation of the classification results. These
+        maps for 1970, 1982, 1990, 1999, 2005 and 2015 were gathered from the Kadaster (2016b). The maps were geo-referenced
+        to the situation of 2015, as this was presumably the most accurate with the most control points. The geo-referencing
+        of the topographic map for 2015 gave a root mean square error of 2.363 with a cell size of 2.5. This root mean square
+        error is sufficient, as the maps were only used for visual validation purposes. All subsequent maps, the years 1970,
+        1982, 1990, 1999 and 2005, were aligned with the 2015 image with a minimal root mean square error, lower than 0.01.
+        The corrected maps for the years 1970, 1990 and 2015 are shown in <a href="#figure-18">Figure 18</a>.</p>
+      <figure id="figure-18">
+        <img src="media/topographic.png" />
+        <figcaption>Figure 18: Three topographic maps of Groningen for the years 1970, 1990 and 2015.</figcaption>
+      </figure>
+      <h4>Slope and hillshade</h4>
+      <p>The Slope layer uses elevation data with a percent slope and requires only one time period. The Hillshade layer is
+        needed to give spatial context to the urban extent data and is only used for visualization purposes. Both layers
+        were derived from the AHN2 (AHN, 2013), which comes as a TIF-file of the ground level at 0.5 m<sup>2</sup>. The study
+        area was gathered in 2009 by airborne LiDAR, which is a technology that measures the surface elevation by illuminating
+        the surface with a laser light from an airplane. According to the specifications, the point density is between 6
+        and 10 per m<sup>2</sup>, with 95% of the data accurate up to 15 cm and positional accuracy up to 50 cm. Then, the
+        point cloud is filtered to only include ground level points and resampled to a 0.5 m<sup>2</sup> raster file by the
+        squared inverse distance weighting method.</p>
+      <p>All of this suggest that the data is highly accurate. In fact too accurate for the scale it was used for in this study.
+        First, the tiles of the TIF-file were interpolated to fill in gaps by the filtering of the ground level points, and
+        merged together to create a digital elevation map (DEM). Thereafter, to reduce the noise, the DEM was smoothened
+        by applying an unweighting average resampling method to a spatial resolution of 30m<sup>2</sup>. Subsequently, the
+        DEM was converted to slope in degrees to create the slope layer. The hillshade layer was derived of the DEM. The
+        results are shown in <a href="#figure-19">Figure 19</a>.</p>
+      <figure id="figure-19">
+        <img src="media/elevation.png" />
+        <figcaption>Figure 19: Visualization of the digital elevation map, slope in degrees and hillshade of the study area.</figcaption>
+      </figure>
     </section>
+    <h4>Land use</h4>
+    <p>As outlined in <a href="#1-introduction">Chapter 1</a>, this research focusses on the urban land cover change and not
+      land use change, hence the land use input data is not required. However, some MCE factors are based on the land use
+      data, such as distance to public facilities and distance and the exclusion of water bodies, and other important factors
+      of the MCE.</p>
+    <p>The land use input layer has been constructed from the remotely sensed classification as well as additional vector datasets:
+      the Bestand Bodemgebruik (BBG) from CBS (2008) for the years between 1989 and 2012 and the BAG (Kadaster, 2016a) and
+      the Top10NL (Kadaster, 2015) for 2015. All these large datasets were put in PostgreSQL databases to correctly relate
+      and select the areas of interest. Afterwards, the datasets were combined with the remotely sensed classification to
+      further validate the accuracy. See for the accuracy analyses of the land use classification maps, and <a href="#figure-20">Figure 20</a>      for the final results of the land use classification of 1973, 2006 and 2015. Before 2000, the BBG was based on topographic
+      maps of a 1:10,000 scale, after 2000 the data was based on aerial photography of 10cm accuracy and the Top10VECTOR
+      geometry, which is the predecessor of the Top10NL. All three datasets contain information on the land use, but the
+      difference is that the BBG describes the land cover classes and Top10NL and BAG describe the objects on the surface.
+      This implies that BBG is the most useful dataset for determining the land use classes, and the other two are merely
+      indicators and cannot be used on their own in this study. Furthermore, the CBS (2008) describes the relation of older
+      versions and newer versions of the BBG, since the definitions of the land use categories changed. In SLEUTH each pixel
+      can only contain one category, therefore, only the primary land use class was used as defined by the BBG.</p>
+    <figure id="figure-20">
+      <img src="media/landuse.png" />
+      <figcaption>Figure 20: The input data for the land use layer for the years 1973, 2006 and 2015.</figcaption>
+    </figure>
+    <h4>Urban extent</h4>
+    <p>The remotely sensed classification was transformed into a binary classification of urban and non-urban lands, which is
+      depicted in <a href="#figure-21">Figure 21</a>. In this research it was chosen to exclude roads and railways outside
+      of the cities and villages, and water bodies from the urban class. The reason for excluding these land use categories
+      from the urban layer is because these would disrupt the growth patterns and negatively influence the calibration phase.
+      This was concluded from testing the input data in SLEUTH.</p>
+    <p>After testing it was found that filtering individual pixels or small clusters of pixels from the urban layers increased
+      the calibration results of SLEUTH. Most of the small clusters of pixels represent large farms or a few houses that
+      are adjacent to each other. The growth rules applied by SLEUTH are generalized over the entire study area and since
+      the study area displays a rather dispersed urban growth pattern, these small clusters would incorrectly grow too rapidly.
+      Therefore, SLEUTH was not able to cope with these clusters correctly and the cluster measure seemed particularly sensitive
+      to these clusters of pixels.</p>
+    <figure id="figure-21">
+      <img src="media/urban.png" />
+      <figcaption>Figure 21: The input data for the urban layer for the years 1973, 1984, 1990, 1998, 2006 and 2015.</figcaption>
+    </figure>
+    <p>Via the excluded layer it is possible to divide the area into several zones that show more resistance to urbanization
+      and thus limit the amount of urban growth. However, even with zoning SLEUTH was not able to cope with these small clusters
+      correctly. Therefore, all urban clusters smaller than 12 were filtered out of the data, as this would maintain the
+      dispersed urban development pattern of the study area and improve SLEUTH’s calibration results. This was analyzed by
+      filtering the clusters of size up to 25 and using the filtered urban layers for calibration in SLEUTH. With the OSM,
+      PFD, CFD and visual interpretation a cluster filter size of 12 was found to be a fitting value. Each urban layer was
+      filtered individually ensuring small growing clusters that were persistent through the time series could still exist.
+      Subsequently, the land use layer was harmonized with the urban layers by converting the filtered urban pixels to rangelands
+      as this is the most common land cover class in the study area and seemed appropriate based on visual interpretation.</p>
+    <p><a href="#figure-22">Figure 22</a> shows the urban growth that has taken place in the study area between 1973 and 2015.
+      <a href="#table-08">Table 8</a> shows the amount of urban pixels and urban clusters of the input data for both the
+      original urban layer and the filtered urban layer. The amount of urban growth that has taken place in the study area
+      seems to be linear. The filtered urban layer contains less urban pixels and clusters, but also shows a similar linear
+      growth as the original urban layer, therefore the two layers seem to be comparable.</p>
+    <table id="table-08">
+      <caption>Table 8: Shows the amount of urban pixels and urban clusters in the input data.</caption>
+      <tr>
+        <td></td>
+        <td>Area</td>
+        <td>Area (filtered)</td>
+        <td>Clusters</td>
+        <td>Clusters (filtered)</td>
+      </tr>
+      <tr>
+        <td>1973</td>
+        <td>112,351</td>
+        <td>104,939</td>
+        <td>5,377</td>
+        <td>2307</td>
+      </tr>
+      <tr>
+        <td>1984</td>
+        <td>133,289</td>
+        <td>125,098</td>
+        <td>5,947</td>
+        <td>3018</td>
+      </tr>
+      <tr>
+        <td>1990</td>
+        <td>153,641</td>
+        <td>144,308</td>
+        <td>6,427</td>
+        <td>3666</td>
+      </tr>
+      <tr>
+        <td>1998</td>
+        <td>169,557</td>
+        <td>159,056</td>
+        <td>6,610</td>
+        <td>4059</td>
+      </tr>
+      <tr>
+        <td>2006</td>
+        <td>190,471</td>
+        <td>178,485</td>
+        <td>6,663</td>
+        <td>4420</td>
+      </tr>
+      <tr>
+        <td>2015</td>
+        <td>210,855</td>
+        <td>196,981</td>
+        <td>6,774</td>
+        <td>4432</td>
+      </tr>
+    </table>
+    <figure id="figure-22">
+      <img src="media/urban_growth.png">
+      <figcaption>Figure 22: The urban change for Groningen between the years 1973 and 2015.</figcaption>
+    </figure>
+    <h4>Transportation</h4>
+    <p>The transportation datasets were acquired from NWB (Rijksoverheid, 2013) for the years between 1995 and 2015 and Top10NL
+      for 2015 (Kadaster, 2015). The accuracy of the NWB is that 95% of the roads are within 5 m of the actual position of
+      the road, which seems sufficient considering the spatial resolution of 30 m used in this research. From these datasets,
+      the transportation layer was created for the years 1998, 2006 and 2015 and with the help of topographic maps the transportation
+      layers of earlier years were created by manually adjusting the transportation network.</p>
+    <p>For this layer, it was chosen to only include important infrastructural connections: the highways, regional roads, main
+      roads from the NWB, and the railways and airports from the Top10NL. The reasoning for including the airports in this
+      layer was because during the testing phase adjacent pixels would incorrectly be urbanized. Thus, the airport was excluded
+      from the urban layer and placed in the transportation layer, even though parts of the airports are in fact buildings.
+      Moreover, considering the procedure as described in <a href="#34-calibration">3.4</a>, the conversion of vector data
+      to raster data would in this case overestimate the amount of road pixels in the map. With a spatial resolution of 30
+      m, not every road would fit into that specification. However, due to the algorithms used in the road gravity coefficients,
+      it would be preferred to have continuity in the transportation network.</p>
+    <p>Furthermore, the transportation layer contains weight values to indicate their importance, 1 being the least important
+      and 100 the most important. Regional roads were set at 25, main roads at 50, railroads and airports were set at 75,
+      highways at 100 and all other pixels were set at 0. These estimates of parameter values were arbitrarily chosen and
+      based on other research that used similar values (Han, et al., 2015). It was found that testing and validating these
+      estimates was particularly difficult considering the road gravity coefficient does not seem to exhibit a relationship
+      to any fit statistic (Jantz & Goetz, 2005). Afterwards, this layer was harmonized with the land use classification
+      and urban layer, which means that the roads and airports in the land use layer are the same as in the transportation
+      layer.
+    </p>
+    <figure id="figure-23">
+      <img src="media/transportation.png">
+      <figcaption>Figure 23: The input data for the transportation layer for the years 1973, 1984, 1990, 1998, 2006 and 2015.</figcaption>
+    </figure>
     <section id="43-excluded-layer">
       <h3>4.3 Excluded Layer</h3>
+      <p>In the next section the various factors of the MCE, as mentioned in <a href="#33-sleuth">3.3 SLEUTH</a>, will be discussed,
+        on what data they were based and what type of data transformation techniques were used. All the factors are incorporated
+        in the MCE via fuzzy set theory, which requires a fuzzy set definition, a membership function and shape parameter.
+        All parameter values were based on literature and individual interpretations. By trial and error, these sets of parameter
+        values were calibrated and tested. As it turns out, this type of calibration with this many factors is rather time-consuming
+        in SLEUTH, since every set of parameter values needs to be calibrated and interpreted individually. Hence, the calibration
+        procedure regarding the MCE factors was rather coarse, by adjusting the control points and weighting scores by relatively
+        coarse incremental steps. Subsequently, the effects of the adjustments were recorded and compared to the regular
+        E0 excluded layer and other sets of parameter values. Over time, the records of sets of values grew and assessments
+        could be made on what factors were determined as more and what factors were less important and what the effects were
+        of higher and lower values for the control points of the fuzzy set definition.</p>
+      <p>The factors and constraints of the MCE are shown in <a href="#figure-24">Figure 24</a>. <a href="#table-09">Table 9</a>        shows all the included criteria of the MCE and their weighting scores and fuzzy membership functions. For the excluded
+        layers that include policy zones, the weights in <a href="#table-09">Table 9</a> are correct. However, E0 and E1
+        do not include a policy layer, therefore, their weights were calculated separately. E0 and E1 have the same relative
+        weights for each factor as compared to E2 and E3, but without the policy layer, i.e. the ratios between the factors
+        are the same yet the weighting scores are higher and still sum up to one. Further, the components of the biophysical
+        layer had the lowest weights and the transportation layer was found the most influential. From the criteria, the
+        proximity to the highway exits, regional shops and restaurants, regional public facilities and regional industrial
+        sites were found the most influential. All these weights characterize the importance of the city of Groningen in
+        the region, in an attempt to differentiate small villages from larger cities.</p>
+      <table id="table-09">
+        <caption>Table 9: Each factor of the MCE and its weighting score and the fuzzy membership functions.</caption>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Weighting score</th>
+          <th>Membership function</th>
+          <th>Control points</th>
+          <th>Criteria (resultant layer)</th>
+          <th>Weighting score</th>
+          <th>&nbsp;</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>A</td>
+          <td>B</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Ground water depth (m)</td>
+          <td>0.0145</td>
+          <td>S</td>
+          <td>-20</td>
+          <td>-1</td>
+          <td>Biophysical</td>
+          <td>0.0369</td>
+        </tr>
+        <tr>
+          <td>Elevation (m)</td>
+          <td>0.0103</td>
+          <td>S</td>
+          <td>-4</td>
+          <td>3</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Flooding</td>
+          <td>0.0061</td>
+          <td>User defined fuzzy values
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Soil type</td>
+          <td>0.0061</td>
+          <td>User defined fuzzy values
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Land use categories</td>
+          <td>0.0513</td>
+          <td>User defined fuzzy values
+          </td>
+          <td></td>
+          <td></td>
+          <td>Land use</td>
+          <td>0.0513</td>
+        </tr>
+        <tr>
+          <td>Policy zones</td>
+          <td>0.4193</td>
+          <td>User defined fuzzy values
+          </td>
+          <td></td>
+          <td></td>
+          <td>Policy</td>
+          <td>0.4193</td>
+        </tr>
+        <tr>
+          <td>Proximity to regional public facilities (m)</td>
+          <td>0.0734</td>
+          <td>Z</td>
+          <td>3000</td>
+          <td>10000</td>
+          <td>Public facilities</td>
+          <td>0.0978</td>
+        </tr>
+        <tr>
+          <td>Proximity to sub-regional public facilities (m)</td>
+          <td>0.0245</td>
+          <td>Z</td>
+          <td>2000</td>
+          <td>7500</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Proximity to regional shopping facilities and restaurants (m)</td>
+          <td>0.0675</td>
+          <td>Z</td>
+          <td>3000</td>
+          <td>10000</td>
+          <td>Shopping facilities</td>
+          <td>0.0900</td>
+        </tr>
+        <tr>
+          <td>Proximity to sub-regional shopping facilities and restaurants (m)</td>
+          <td>0.0225</td>
+          <td>Z</td>
+          <td>2000</td>
+          <td>7500</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Proximity to regional industrial sites (m)</td>
+          <td>0.0722</td>
+          <td>Z</td>
+          <td>2500</td>
+          <td>15000</td>
+          <td>Industrial facilities</td>
+          <td>0.0963</td>
+        </tr>
+        <tr>
+          <td>Proximity to local industrial sites (m)</td>
+          <td>0.0241</td>
+          <td>Z</td>
+          <td>1000</td>
+          <td>5000</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Proximity to Groningen's border (m)</td>
+          <td>0.0489</td>
+          <td>Z</td>
+          <td>0</td>
+          <td>10000</td>
+          <td>Borders</td>
+          <td>0.0652</td>
+        </tr>
+        <tr>
+          <td>Proximity to small cities' borders (m)</td>
+          <td>0.0163</td>
+          <td>Z</td>
+          <td>0</td>
+          <td>5000</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Proximity to intercity train station (m)</td>
+          <td>0.0495</td>
+          <td>Z</td>
+          <td>2500</td>
+          <td>10000</td>
+          <td>Transportation</td>
+          <td>0.1432</td>
+        </tr>
+        <tr>
+          <td>Proximity to stop train station (m)</td>
+          <td>0.0158</td>
+          <td>Z</td>
+          <td>1500</td>
+          <td>5000</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Proximity to highway exits (m)</td>
+          <td>0.0779</td>
+          <td>Z</td>
+          <td>2500</td>
+          <td>15000</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <figure id="figure-24">
+        <img src="media/mce_factors.png">
+        <figcaption>Figure 24: Shows the factors and constraint used in the MCE for 1973.</figcaption>
+      </figure>
+      <h4>Ground water depth</h4>
+      <p>The ground water depth was gathered from TNO (2016). This comes as a point cloud containing information on the water
+        depth at GPS locations in the study area, as well as in the adjacency of the study area from the 1950s onwards. The
+        points between 1965 and 1975, and 2005 and 2015 were averaged on the specific location and interpolated using a nearest
+        neighbor algorithm to create a raster of the ground water depth. The resulting layer was smoothened with the r.denoise
+        algorithm in GRASS. The control points for an S-shape fuzzy membership function were based on Biron (2004) who indicated
+        that anything above -1 m is not suitable for urban development, and it was assumed anything below minus 20 m would
+        not affect urban development. The results were two maps, one for 1973 and one for 2015, the latter was also used
+        for the validation time period from 2006 onwards.</p>
+      <h4>Elevation</h4>
+      <p>The DEM was used for the elevation layer. The layer was given an S-shape fuzzy membership function to indicate that
+        grounds below 3 m were negatively affected by elevation, with 4 m below sea level being the lowest point in the study
+        area. Grounds with an elevation above 3 m lost its beneficial effect. The resulting map was used for all calibration
+        and validation phases, as presumably the elevation did not change much over the last decades.</p>
+      <h4>Flooding</h4>
+      <p>The flooding data of the year 2015 was gathered from the Rijksoverheid (2015). It came as a vector dataset containing
+        zones that had a certain risk of flooding: flooding every 1000 years, flooding every 100 years, flooding every 10
+        years or no flooding. <a href="#equation-01">Equation 1</a> and <a href="#equation-02">Equation 2</a> calculated
+        the urban growth that has taken place inside the four flooding zones between 1973 and 2015, these were used as a
+        guide to understand how certain zones had potentially affected the urban growth. Accordingly, the fuzzy values were
+        derived from the urban growth resistance per zone through individual perception and interpretation. In this process
+        the zones, flooding every 1000 years and flooding every 100 years were merged into one zone as these were found to
+        be similar, and water was excluded and given a value of 0. The results are depicted in <a href="#table-10">Table 10</a>.</p>
+      <table id="table-10">
+        <caption>Table 10: Shows the user-defined fuzzy values of flooding chance.</caption>
+        <tr>
+          <th>Flooding chance</th>
+          <th>Fuzzy value</th>
+        </tr>
+        <tr>
+          <td>No flooding</td>
+          <td>1.00</td>
+        </tr>
+        <tr>
+          <td>Flooding every 100 years or more</td>
+          <td>0.93</td>
+        </tr>
+        <tr>
+          <td>Flooding every 10 years</td>
+          <td>0.57</td>
+        </tr>
+        <tr>
+          <td>Water</td>
+          <td>0.00</td>
+        </tr>
+      </table>
     </section>
     <section id="44-section-conclusions">
       <h3>4.4 Section Conclusions</h3>
