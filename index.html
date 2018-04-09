@@ -3759,22 +3759,240 @@
         (
         <a href="#table-12">Table 12</a>). Water and roads were excluded from urbanization by giving those a fuzzy value
         of 0. For the other land use categories <a href="#equation-01">Equation 1</a> and <a href="#equation-02">Equation 2</a>        were used to calculate the urban growth that has taken place in the five land use categories, from which the fuzzy
-        values were derived. The fuzzy values in <a href="#table-12">Table 12</a>) show that forests are less suitable and
+        values were derived. The fuzzy values in <a href="#table-12">Table 12</a> show that forests are less suitable and
         urban areas and rangelands would not resistance urbanization at all. These are not surprising results, since agricultural
         lands and heathlands would in reality pose some resistance to urbanization, more than rangelands and less than forest.</p>
+      <table id="table-12">
+        <caption>Table 12: Shows the user-defined fuzzy values of land use or land cover classes.</caption>
+        <tr>
+          <th>Land use or land cover</th>
+          <th>Fuzzy value</th>
+        </tr>
+        <tr>
+          <td>Water</td>
+          <td>0.00</td>
+        </tr>
+        <tr>
+          <td>Roads</td>
+          <td>0.00</td>
+        </tr>
+        <tr>
+          <td>Agricultural lands</td>
+          <td>0.59</td>
+        </tr>
+        <tr>
+          <td>Heathlands and barren lands</td>
+          <td>0.54</td>
+        </tr>
+        <tr>
+          <td>Forests</td>
+          <td>0.24</td>
+        </tr>
+        <tr>
+          <td>Rangelands</td>
+          <td>1.00</td>
+        </tr>
+        <tr>
+          <td>Urban areas</td>
+          <td>1.00</td>
+        </tr>
+      </table>
+      <h4>Policy</h4>
+      <p>The policy maps of between 1960 and 2000 were gathered via archival research. These maps were georeferenced with a
+        root mean square error between 3 and 5 with a cell size of 10. Maps after 2000 were gathered from geoportal of Drenthe
+        (2016) and Groningen (2016), see <a href="#figure-25">Figure 25</a> for an example of what these maps look like after
+        geo-referencing. Subsequently, the policy maps of the Provinces were vectorized and zoned into several categories.
+        For each category was checked how it has affected urban growth in the past based on <a href="#equation-01">Equation 1</a>        and <a href="#equation-02">Equation 2</a>. If the resistance of zones was relatively close to each other and believed
+        to be similar, the zones were merged. This results in five distinct categories: urban, urban expansion, agriculture,
+        agriculture with important natural components and nature. The fuzzy values for the five categories are shown in
+        <a href="#table-13">Table 13</a>. <a href="#table-12">Table 12</a> is based on the RS classification, thus it represents
+        the land cover class. Whereas <a href="#table-13">Table 13</a> is based on policy zones, which are not as strictly
+        delineated and comprises of more types of land cover classes than the agricultural class.</p>
+      <table id="table-13">
+        <caption>Table 13: Shows the user-defined fuzzy values of the five policy zones.</caption>
+        <tr>
+          <th>Policy zone</th>
+          <th>Fuzzy value</th>
+        </tr>
+        <tr>
+          <td>Urban</td>
+          <td>1.00</td>
+        </tr>
+        <tr>
+          <td>Urban expansion</td>
+          <td>0.76</td>
+        </tr>
+        <tr>
+          <td>Agriculture</td>
+          <td>0.14</td>
+        </tr>
+        <tr>
+          <td>Agriculture with nature</td>
+          <td>0.10</td>
+        </tr>
+        <tr>
+          <td>Nature</td>
+          <td>0.05</td>
+        </tr>
+      </table>
+      <figure id="figure-25">
+        <img src="media/policy.png">
+        <figcaption>Figure 25: Three examples of policy maps, for 1971, 1978 and 1984.</figcaption>
+      </figure>
+      <h4>Distance to public facilities, shopping facilities and restaurants, and industrial sties</h4>
+      <p>The location of public facilities, shopping facilities and restaurants, and industrial sites was extracted from the
+        land use maps of 1973, 2006 and 2015. Through individual interpretation the most important facilities and sites were
+        selected to better concentrate the urban growth. Raster maps were formed based on the Euclidean distance to the facilities
+        and sites and fuzzified with a Z-shape membership function. The control points were based on individual interpretation
+        and statistical analyses of where urban growth had taken place between 1973 and 2015 with regard to the facilities
+        and sites. The regional facilities, shops, restaurants and industrial sites have a larger influences then the more
+        local variants. It was found that industrial sites had a distinctly different sphere of influence than public facilities,
+        shops and restaurants. The regional industrial sites had a far larger influences than the regional facilities, shops
+        and restaurants, and the local industrial sites had a much smaller influence than sub-regional facilities, shops
+        and restaurants. Presumably, this is due to local industrial sites that were more dispersed than shops, restaurants
+        and facilities.</p>
+      <h4>Distance to borders</h4>
+      <p>The urban areas were extracted from the urban layers of 1973, 2006 and 2015. The layer was formed based on the Euclidean
+        distance to the borders of Groningen and medium-sized cities in the region. Medium-sized cities were defined as cities
+        with a population bigger than 5000 inhabitants. The control points of the Z-shape membership function were based
+        on individual interpretation and statistical analyses of where urban growth had taken place between 1973 and 2015
+        with regard to the distance to borders.</p>
+      <h4>Distance to highway exits</h4>
+      <p>The train stations were gathered from the GTFS by the Nationale Spoorwegen (2016). The highway exits were manually
+        created based on topographic maps. These points were converted to raster maps based on the Euclidean distance to
+        the stations and highway exits. The control points of the Z-shape membership function were based on individual interpretation
+        and statistical analyses of where urban growth had taken place between 1973 and 2015. It was found that the distance
+        to the highway exits was particularly important to the study area. When it was first incorporated in the MCE, calibration
+        was noticeably improved.</p>
+      <h4>Constraints</h4>
+      <p>The constraint layer included water bodies and road networks (Mahiny & Clarke, 2012) and protected natural areas based
+        on the Natura2000-areas. The reason to excluded these areas was due to calibration tests that showed higher goodness
+        of fit results, whilst excluded water bodies, road networks and natural areas. Also, water bodies, important regional
+        or national roads, and natural areas are for large part restricted from urbanization by policy in the Netherlands.
+        Subsequently, the constraint layers and MCE factors were combined by using <a href="equation-03">Equation 3</a>.
+        It was found that excluded natural areas and water bodies improved calibration drastically, whist acknowledge the
+        dangers of related to the bias of masking as mentioned in <a href="33-sleuth">section 3.3</a>.</p>
+      <h4>Excluded layers</h4>
+      <figure id="figure-26">
+        <img src="media/excluded_layers.png">
+        <figcaption>Figure 26: Shows the four excluded layers of 1973 used in calibration.</figcaption>
+      </figure>
+      <p><a href="#figure-26">Figure 26</a> shows the excluded layers: E0 the regular excluded layer, E1 the MCE excluded layer,
+        the E2 MCE and 1971 policy excluded layer and E3 the MCE and 1978 policy excluded layer. <a href="#figure-27">Figure 27</a>        shows the prediction scenarios: the S1 MCE excluded layer, the S2 MCE excluded layer including the policy of 2014,
+        and the S3 MCE excluded layer including a nature preservation policy.</p>
+      <figure id="figure-27">
+        <img src="media/prediction_layers.png">
+        <figcaption>Figure 27: Shows the three excluded layers of 2015 used in the prediction.</figcaption>
+      </figure>
     </section>
     <section id="44-section-conclusions">
       <h3>4.4 Section Conclusions</h3>
+      <p>The quality of the input data is one of the most important elements of modelling (Silva & Clarke, 2002). Therefore,
+        understanding the errors and uncertainties associated with the input data is a crucial component for a successful
+        simulation and interpretation of the modelling results (Yeh & Li, 2006). The input data was primarily derived from
+        a land use classification by RS, hence <a href="#41-satellite-data">Section 4.1</a> was dedicated to explaining precisely
+        what was done to the satellite data and what the accuracy of the final result was. The described corrections that
+        were made to the satellite data are key to be able to conduct a time-series analysis. The validation of the land
+        use classification showed that all time periods, 1973, 1984, 1990, 1998, 2006 and 2015, had an accuracy between 91.01%
+        and 96.67%, and a Kappa value between 0.82 and 0.89, thus, the accuracy of the land use classification was found
+        sufficient.
+      </p>
+      <p><a href="#42-input-data">Section 4.2</a> described how the various input data layers of SLEUTH were created: slope,
+        land use, excluded, urban, transportation and hillshade. If derived from external data, the accuracy of said data
+        was described. It showed that external data was often too accurate, i.e. it produced noise and negatively affected
+        SLEUTH simulation. Several methods were used for coarsening the input data. For example, small urban clusters and
+        cells were excluded from the urban data layer, only regional and national roads, airports and the railway were included
+        in the transportation layer, and the slope layer was smoothened by applying an unweighting average resampling method.
+        In the process of transforming input data conform SLEUTH specifications, spatial information got lost (Yeh & Li,
+        2006). Simplification of input data is inherent to current urban models and should be acknowledged, yet not considered
+        as a negative factor, since making simplifications is inherent to urban modelling.</p>
+      <p><a href="#43-excluded-layer">Section 4.3</a> was dedicated to the excluded layer, which adopted an urbanization-suitability
+        layer based on an MCE. This layer is crucial to a successful application of SLEUTH in this study area, as it plays
+        a key role in accommodating for the dispersed urban growth patterns in Groningen. During the construction of the
+        urbanization-suitability layer various assumptions were made regarding the fuzzy set definition, factor weights,
+        what factors to include and what constraints to include. Also for the input data of the factors themselves, the level
+        of aggregation and representation. This uncertainty was reduced as much as possible by statistical analyses in Python
+        and testing sets of parameter values in SLEUTH.</p>
     </section>
   </section>
 
   <section id="5-modelling-results">
     <h2>5. Modelling Results</h2>
+    <p>This chapter will present an overview of the modelling results regarding calibration in <a href="#51-calibration">section 5.1</a>,
+      the validation in <a href="#52-validation">section 5.2</a> and the prediction <a href="#53-predictions">section 5.3</a>.
+      The first section assesses the goodness of fit of the model with four different excluded layer and follows the same
+      structure as outlined in <a href="#34-calibration">section 3.4</a> verification, pre-calibration and calibration. Validation
+      provides an assessments of accuracy, this study used a variety of validation techniques to objectively compare the
+      predicted maps to the observed map: three-map comparison, budgets of components of agreement and disagreement, and
+      multiple resolution comparison. Finally, prediction which is based on a set of best-fit estimates of parameter values
+      derived from calibration and validation, under three different scenarios.</p>
     <section id="51-calibration">
       <h3>5.1 Calibration</h3>
+      <h4>Model verification</h4>
+      <p>During model testing, the SLEUTH-3r code was slightly modified, as stated in <a href="#appendix-c">Appendix C</a>.
+        Subsequently, the model was tested to check whether the input data was compatible with the model specifications,
+        and to confirm the model works correctly with the modified code. Both the input data as the model performed according
+        to specifications.</p>
+      <h4>Pre-calibration</h4>
+      <p>The first phase of pre-calibration was to determine an initial auxiliary diffusion multiplier. SLEUTH-3r’s growth coefficients
+        were set to produce the maximum level of spontaneous growth (i.e. the diffusion coefficient was set to 100 and all
+        other coefficients were set to 0). With 25 Monte Carlo iterations several simulations were performed to determine
+        a fitting multiplier value. The PFD and CFD were used so that the model would slightly over-estimate the amount of
+        urban clusters (Jantz, et al., 2010). The starting point was the default value of 0.005 as a baseline to compare
+        to other results, from there the value was altered by increments of 0.0005. This resulted in an auxiliary diffusion
+        multiplier of 0.0025 for this study area. A lower auxiliary diffusion multiplier leads to less diffusive growth,
+        thus less pixels are randomly selected for urbanization during spontaneous growth. Afterwards, the model was run
+        with the growth coefficients set to maximum to determine the maximum amount of growth the model could predict. This
+        was to confirm whether SLEUTH-3r was still able to predict sufficient amounts of urban growth with the new diffusion
+        coefficient multiplier, which it could.</p>
+      <p>The second phase of pre-calibration was to determine appropriate values for the self-modification module. This calibration
+        was particularly difficult for the study area. The default values would put the study area in a constant boom-cycle
+        as the urban growth rate would always exceed the threshold value. This would in turn decrease the slope resistance
+        and increase the values of other growth coefficients, which was not fitting. Moreover, the urban growth between 1973
+        and 2006 was close to linear growth for most of the period, therefore the self-modification would presumably not
+        add much value. This was based on the assumption that, without prior knowledge about the future growth rate, a growth
+        rate based on the recent past, i.e. linear growth, was the best estimate. While self-modification adds an important
+        dynamic component to the SLEUTH modelling system, it also introduces another layer of complexity during calibration.
+        Therefore, the self-modification module was disabled by setting the threshold values to unrealistic limits, so the
+        urban growth would never enter a boom- or bust-cycle.</p>
+      <h4>Road gravity and slope coefficient</h4>
+      <p>During calibration the road gravity coefficient varied greatly and did not converge to a specific range of values.
+        Previous studies have shown a similar result, that unlike the other four growth coefficients, the road gravity coefficient
+        does not seem to exhibit a relationship to any fit statistic (Jantz & Goetz, 2005). This is mainly due to road-influenced
+        growth always being applied last in the growth cycle and the significant impact on road-influenced growth by the
+        breed and dispersion coefficients, as was explained in <a href="#34-calibration">Section 3.4</a>. In this study area
+        road influence growth would only account for approximately 275 to 500 growth pixels, which would be up to 0.33% of
+        total urban growth. Therefore, the other types of growth accounted for most of the urban growth. Consequently, the
+        goodness-of-fit statistics produced by SLEUTH were significantly influenced by the other four growth coefficients
+        and not directly by the road gravity coefficient. This resulted in best-fit statistics with a road gravity coefficient
+        value that ‘happened to coincide’ with the other growth coefficients.</p>
+      <p>This does not mean this type of growth is irrelevant. Road-influenced growth would presumably urbanize cells that would
+        otherwise be unlikely candidates for urbanization. Furthermore, future growth that originated from that road-influenced
+        growth cell is also not contributed to road-influenced growth, even though the road-influenced growth cell may be
+        the initiator. It could be argued that either the relationship between urban growth that originated from road-influenced
+        growth and the road gravity coefficient is not defined well enough, or the best-fit statistics used in this study
+        were not appropriate for evaluating the road gravity coefficient. Either way, it resulted in an instable coefficient
+        according to best-fit statistics as used in this study. Due to its instability, this coefficient was fixed during
+        both calibration, validation and prediction phases of the model to 50. Only main roads and highways were included
+        in the transportation layer and this value would presumably best allow the transportation network to influence the
+        urbanization along it.</p>
+      <p>Similarly, in the study area, slope resistance is not a relevant factor as the area is practically flat. However, this
+        is not necessarily reflected in the best-fit statistics, as these would consistently overestimate its influence.
+        A part of this can be explained. In the Netherlands roads and urban development is often elevated to reduce the vulnerability
+        to flooding. On a DEM it can clearly be seen that this leads to slopes around these constructions. Even though the
+        input data for slope is much coarser, i.e. 30 m resolution, than the original data, the effects were still present
+        in the slope input data. This leads to a slope resistance coefficient that is difficult to interpret correctly from
+        best-fit statistics. However, from visual interpretation of several calibration tests this coefficient did actually
+        not influence the urban growth as much as the best-fit statistics reported, and changing it from 1 to 100 gave similar
+        results. Therefore, the slope coefficient was fixed to 25.</p>
     </section>
     <section id="52-validation">
       <h3>5.2 Validation</h3>
+      <p>The four excluded layers yielded different estimates of the growth coefficient values (Table 14; Appendix D). Table
+        14 shows the final calibration results of each calibration process and which of them yielded the highest goodness
+        of fit scores, based on OSM, PFD, CFD and EFD. The OSM is a composite score based on seven different measures, and
+        the PFD, CFD and EFD are fractional difference measures based on population, clusters and edges. The values of the
+        growth coefficients for slope and road gravity are left out, as these were fixed to respectively 25 and 50.</p>
     </section>
     <section id="53-predictions">
       <h3>5.3 Prediction</h3>
@@ -3798,7 +4016,8 @@
     <h2>Bibliography</h2>
     <p class="biblio"><span>AHN. (2013). <i>Actueel Hoogtebestand Nederland.</i></span>
       <span>Retrieved February 10, 2016, from Kwaliteitsdocument AHN2: 
-      <a href="http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf">http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf</a></span></p>
+      <a href="http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf">http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf</a></span>
+    </p>
   </section>
 
   <section id="appendices">
