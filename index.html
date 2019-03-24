@@ -102,14 +102,14 @@
           <li class="tocline"><a href="#54-section-conclusions" class="tocxref"><span class="secno">5.4 </span>Section Conclusions</a></li>
         </ol>
       </li>
-      <li class="tocline"><a href="#6-conclusions" class="tocxref"><span class="secno">5. </span>Modelling Results</a>
+      <li class="tocline"><a href="#6-conclusions" class="tocxref"><span class="secno">5. </span>Conclusions</a>
         <ol class="toc">
           <li class="tocline"><a href="#61-conclusions" class="tocxref"><span class="secno">6.1 </span>Conclusions</a></li>
           <li class="tocline"><a href="#62-discussions" class="tocxref"><span class="secno">6.2 </span>Discussions</a></li>
         </ol>
       </li>
       <li class="tocline"><a href="#bibliography" class="tocxref">Bibliography</a></li>
-      <li class="tocline"><a href="appendices" class="tocxref">Appendices</a>
+      <li class="tocline"><a href="#appendices" class="tocxref">Appendices</a>
         <ol class="toc">
           <li class="tocline"><a href="#appendix-a" class="tocxref">Appendix A</a></li>
           <li class="tocline"><a href="#appendix-b" class="tocxref">Appendix B</a></li>
@@ -3985,39 +3985,613 @@
         best-fit statistics. However, from visual interpretation of several calibration tests this coefficient did actually
         not influence the urban growth as much as the best-fit statistics reported, and changing it from 1 to 100 gave similar
         results. Therefore, the slope coefficient was fixed to 25.</p>
+      <h4>Calibration</h4>
+      <p>The four excluded layers yielded different estimates of the growth coefficient values (<a href="#table-14">Table 14</a>; <a href="#appendix-d">Appendix D</a>). Table 14 shows the final calibration results of each calibration process and which of them yielded the highest goodness of fit scores, based on OSM, PFD, CFD and EFD. The OSM is a composite score based on seven different measures, and the PFD, CFD and EFD are fractional difference measures based on population, clusters and edges. The values of the growth coefficients for slope and road gravity are left out, as these were fixed to respectively 25 and 50.</p>
+      <table id="table-14">
+        <caption>Table 14: Calibration results of the four excluded layers.</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>OSM</th>
+            <th>PFD</th>
+            <th>CFD</th>
+            <th>EFD</th>
+            <th>Diffusion</th>
+            <th>Breed</th>
+            <th>Spread</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>E0</td>
+            <td>0.008</td>
+            <td>4.139</td>
+            <td>-0.540</td>
+            <td>-0.033</td>
+            <td>97</td>
+            <td>58</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>E1</td>
+            <td>0.160</td>
+            <td>0.485</td>
+            <td>1.054</td>
+            <td>0.258</td>
+            <td>3</td>
+            <td>57</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>E2</td>
+            <td>0.405</td>
+            <td>0.126</td>
+            <td>1.668</td>
+            <td>0.149</td>
+            <td>62</td>
+            <td>22</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>E3</td>
+            <td>0.361</td>
+            <td>0.200</td>
+            <td>2.258</td>
+            <td>0.288</td>
+            <td>72</td>
+            <td>95</td>
+            <td>42</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Judging from the OSM statistic, the excluded layers E0 performed below acceptable and E1 should be considered a questionable result, as compared to other application of SLEUTH using OSM (Onsted & Chowdhury, 2014; Chaudhuri & Clarke, 2013a; Bihamta, et al., 2015; Mahiny & Clarke, 2012). The E0 excluded layer achieved the lowest fit-score, which is the regular excluded layer only incorporating constraints. And the excluded layers incorporating policies (E2 and E3) achieved the highest fit-score. Since it is difficult to evaluate the goodness of fit based on a composite metric, it is important to examine what the OSM is composed of, as shown in <a href="#appendix-d">Appendix D</a>. What this shows, is that the r2-X-mean and r2-Y-mean are two metrics that were difficult to fit under these conditions. Accordingly, this suggests that the gravity of urban growth was modelled in the wrong areas. Most of the other constituent metrics are above 0.9, indicating the success of calibration (Mahiny & Clarke, 2012). In addition, the r2-edges, r2-clusters and Lee-Sallee metric are three metrics that capture important components of the shape, for the E0-layer these were rather low, thus suggesting that the model parameters were not adjusted properly to capture these components. For the E1, E2 and E3-layers, these r2-statistics achieved high fit-score sufficiently, suggesting the model parameters were adjusted properly to capture the shape and form of urbanization.</p>
+      <p>All excluded layers overestimated the amount of urban pixels, and all but E0, overestimated the amount of urban clusters. The PFD of E0 shows a large fractional difference in population, however, this is not necessarily reflected as dramatically in the r2-population score, as shown in <a href="#appendix-d">Appendix D</a>, but is in the r2-compare score. The reason for this is due to the r2-population score taking in urban persistence and r2-compare only compares the simulated pixels. Each layer failed to simulate the correct amount of clusters, hence the CFD score always under- or overestimated. This suggests, contrary to what the r2-clusters showed, that these parameter settings failed to capture the dispersed character of the study area. However, this is no cause for alarm since these statistics do not specify the cause of this disagreement. Presumably this is due to diffusive growth, so the disagreement could be caused by single pixels.</p>
+      <p>The estimates of the growth coefficients seem to vary substantially between the excluded layers. This demonstrates that simulation on this scale, the study area shows strong sensitivity to the various excluded layers. Only the spread coefficient, whilst excluding E0, seems to converge to values between 40 and 50. Interestingly, this is also the largest contributor to urban growth in this study area. Based on accumulated growth over all MC iterations, a typical distribution of growth would be: approximately 2% diffusive growth, less than 1,5% breed growth, less than 0,5% road influenced growth and approximately 96% spread growth. </p>
+      <p>Initially, during several calibration tests, the various fit-metrics varied substantially and did not always narrow down to a specific range of values. Whilst examining the top 50 OSM results of several tests, the OSM scores and its constituent metrics, dropped rapidly when going further down the top results. It was found that this type of behavior was a strong indicator of poor calibration results. Conversely, when best scoring fit-metrics narrowed down to a range of values and more than just ‘a few’ sets of coefficients were able to achieve high fit scores, this was found as a strong indicator of proper calibration. Additionally, sometimes the top scoring set of coefficients had substantially higher OSM score than the runner-up. After investigations, in all cases this was due to the r2-X-mean and r2-Y-mean being much higher than with other sets of coefficients. Presumably, this was due to the stochastic nature of SLEUTH, whereby a set of values would happen to more accurately fit the r2-X-mean and r2-Y-mean. This also emphasizes the importance of a robust calibration, whereby, for each of calibration phases, the top five best-fit results were run in test-mode with 25 Monte Carlo iterations in order to validate the best-fit score visually and statistically, as this would be sufficient for quantifying the spatial variability resulting from the random processes (Jantz, et al., 2010; Clarke, et al., 1996).</p>
+      <p>Jantz and Goetz (2005) found that any gains in performance achieved by testing additional growth coefficient values beyond coarse calibration (i.e. increments of 25) were minimal, particularly given the substantial increase in computing time. Especially, during the coarse and fine calibration in this study, estimates of the growth coefficients narrowed down much further. Indicating at least fine calibration does add value. Furthermore, what should not be underestimated is the added value of increasing the MC iterations during the three calibration phases. In an early application of SLEUTH (Clarke, et al., 1996), the model-users calibrated with 100 MC iterations during their extensive calibration phase. This number was reduced due to computational requirements. Goldstein et al. (2005) have shown that one would need between 10 and 25 MC iterations for the optimal variation in the calibration process. Perhaps, with current computing power and capabilities, such as parallel-processing, the amount of MC iterations could be increased.</p>
     </section>
     <section id="52-validation">
       <h3>5.2 Validation</h3>
-      <p>The four excluded layers yielded different estimates of the growth coefficient values (Table 14; Appendix D). Table
+      <p>The four excluded layers yielded different estimates of the growth coefficient values (<a href="#table-14">Table 14</a>; <a href="#appendix-d">Appendix D</a>). Table
         14 shows the final calibration results of each calibration process and which of them yielded the highest goodness
         of fit scores, based on OSM, PFD, CFD and EFD. The OSM is a composite score based on seven different measures, and
         the PFD, CFD and EFD are fractional difference measures based on population, clusters and edges. The values of the
         growth coefficients for slope and road gravity are left out, as these were fixed to respectively 25 and 50.</p>
+      <h4>Quantity and allocation disagreement</h4>
+      <p>The quantity and allocation disagreement are two measures that differentiate the sources of error due to difference in the relative category size between the observed map and the predicted map, and the error due to a difference in the spatial allocation of the category given the category sizes. These two disagreements provide the model-user with information on where the simulation is falling short.</p>
+      <figure id="figure-28">
+        <img src="media/validation-1.png"></img>
+        <figcaption>Figure 28: The quantity and allocation disagreement between the observed map and the predicted map of 2015.</figcaption>
+      </figure>
+      <p><a href="#figure-28">Figure 28</a> shows the quantity and allocation disagreement between the observed map of 2015 and the predicted map of 2015 for all excluded layers. It shows that E0 achieved low fit-scores, and E2 and E3 performed similarly and could be considered as reasonably accurate predictors of future urban change in the study area, solely based on <a href="#figure-28">Figure 28</a>. Moreover, it shows that E0 has a large quantity disagreement and most of its allocation disagreement can be attributed to near allocation disagreement. Compared to the other three excluded layers, E0 does not achieve high fit-scores, which aligns with goodness of fit statistics reported in calibration. Similarly, E1 has a large quantity disagreement, which means that E1 was not able to accurately predict the class sizes either. The large quantity disagreement in E0 and E1, is the main difference with E2 and E3. This type of disagreement could occur when (a) the model is not predicting enough growth, or (b) the model is predicting too much growth. <a href="#table-14">Table 14</a> depicted that both layers overestimated the amount of urban growth, thus now it becomes clear how the r2-statistics translate to percent of disagreement of the landscape. In all layers most of the allocation disagreement is resolved at a resolution of 64 times the original pixel side. Finally, <a href="#figure-28">Figure 28</a> suggests that E1, E2 and E3 seem to predict with sufficient accuracy and E0 is not capable of predicting land cover change accurately.</p>
+      <h4>Three-map comparison</h4>
+      <p>The three-map comparison method considers the overlay of three maps: (a) the reference map of time one, (b) the reference map of time two, and (c) the prediction map of time two (Pontius, et al., 2008; Pontius et al., 2011). This map comparison method allows the model-user to differentiate pixels that are correct due to persistence vs. the pixels that are correct due to change. This is a useful comparison method as it focuses on the amount of correctly predicted changed pixels.</p>
+      <p>The first statistic, the FOM is a statistic that measures the ratio of the correctly predicted observed change to the union of the observed change and the predicted change. It shows that E3 and E2 achieved the highest accuracy and the E0 – random the lowest. For none of the excluded layers, the amount of correctly predicted change is larger than the sum of the various types of error, i.e. 50%. In fact, the highest overall FOM is only 25%, showing SLEUTH had difficulties in accurately simulating under these circumstances. Furthermore, for this statistic, what would be expected is that each excluded layer would achieve higher fit-scores than its random counterpart, and that each excluded layer would achieved higher fit-scores than the null map. The first is the case for all excluded layers, and the latter only for E1, E2 and E3, showing again that E0 was not able to accurately predict under these circumstances. Moreover, it may be tempting to expect each excluded layer to outperform each of the random maps, however, the random map is based on the class sizes of its associated excluded layer. Since E2 and E3 experienced much less growth than E0, the quantity disagreement is different and accordingly so is the class size. Subsequently, the random map allocated less growth cells randomly across the map, leading to less error.</p>
+      <figure id="figure-29">
+          <img src="media/validation-2.png"></img>
+          <figcaption>Figure 29: Shows the accuracy of the predicted maps of 2015 as compared a null map and a random map for each excluded layer.</figcaption>
+        </figure>
+      <p>
+        <a href="#figure-29">Figure 29</a> also shows that the error due to the observed change predicted as persistence accounts for most the error in E2 and E3. In E0 and E1, most error is due to observed persistence predicted as change. This is reflected in a higher UA for E2 and E3, and a higher PA in E0 and E1. Another peculiarity is the high percentage of PA in E0, which can be explained by the high amount of growth produced in E0. The PA takes into account the percent correctly simulated as change and the observed change that was missed in prediction. The first is relatively large and the latter relatively small. Conversely, the UA looks at map accuracy from the opposite perspective, the percent correctly simulated as change and the simulated change that never occurred in the observed map, therefore, the UA is much lower. This also occurs in E1, albeit less pronounced. E2 and E3 have a UA that is higher than 50%, indicating the proportion of pixels that the model predicts accurately as change, is the majority of the pixels predicted as change by the prediction map. Thus, the minority of the predicted change in E2 and E3 could be classified as overestimated urban change. 
+      </p>
+      <p>Pontius et al. (2008) performed a similar analysis for thirteen study areas based on multiple CA. Even though a comparison to that research is difficult to make, as the application used different spatial resolutions, some included land use categories and the simulation time period is different. Nonetheless, if the top three results, E1, E2 and E3, are compared to this list, all three would score mediocre and E0 would be in the bottom five. This does not explain if the results are good or bad, it merely emphasizes that other model applications with similar FOM values, were found sufficiently accurate by the model-users.</p>
+      <figure id="figure-30">
+        <img src="media/validation-3.jpg"></img>
+        <figcaption>Figure 30: Validation results for the time period from 2006 up to 2015.</figcaption>
+      </figure>
+      <p>The main reason why E0 does not perform well, is a result of the large error due to persistence being predicted as change. In other words, the simulation has changed too many cells from non-urban to urban, when in reality these cells remained non-urban. Accordingly, <a href="#figure-30">Figure 30</a> shows how these statistics are allocated on a map. E0 shows that existing urban area, from each hamlet to the larger cities, all experienced equal growth. In reality, these hamlets have had little to no growth, which is why <a href="#figure-29">Figure 29</a> shows a large error due to persistence being predicted as change for E0. Moreover, since E0 simulated this many urban pixels, it also predicted more urban change correctly. A similar situation occurred in E1, where there was too much growth predicted in the rural areas, albeit much less than in E0. E2 and E3 performed rather well in the rural areas, which can be attributed to the policy layers that were included and more capable of differentiating rural, natural and urban areas. Between E2 and E3 there is not much difference in the allocation of correctly predicted change, even though these two policy layers were rather different in where urban expansion areas were, i.e. what are were more attractive for urbanization. Surprisingly, this could be argued for all maps, E1 and to some extent E0. What this implies is that the urban expansion areas in E2 and E3 did not influence the prediction results as much as was expected. One would expect these areas to steer the model in the right direction, but this was not that pronounced in the final maps. Further, based on these four predictions maps, as stated previously, it seems that the more resistance in the more rural areas, the higher the FOM.</p>
+      <p><a href="#figure-30">Figure 30</a> also shows that all maps contain the same black areas, the error due to the observed change predicted as persistence. Or in other words, the observed urban change was not predicted. Therefore, all excluded layers seemed to have difficulties in accurately predicting urban change under these conditions.</p>
+      <h4>Multiple resolution comparison</h4>
+      <p>The multiple resolution comparison method is a complementary method to three-map comparison and types of disagreement. For this, the observed and predicted maps were rescaled by coarsening the spatial resolution. Therefrom, the multiple scale was applied to the three-map comparison and types of agreement and disagreement to assess the accuracy of the predicted on multiple scales. This method will be able to deal with the scale sensitivity of the prediction map, as opposed to when a pixel-by-pixel comparison is performed.</p>
+      <p><a href="#figure-31">Figure 31</a> and <a href="#figure-32">Figure 32</a> show the budgets of components of agreement and disagreement across multiple resolutions on a base 2-logaritmic scale. The vertical scale stays constant throughout the graphs and emphasizes the difference in agreement and disagreement between the graphs. The horizontal axis portrays the resolution multiplied by the cell side, thus eventually the entire area becomes one pixel. Because of only two land use categories, the agreement due to chance is the largest component of agreement, at a resolution of 1 it accounts for 50% of the landscape. It illustrates that the quantity disagreement is independent of the spatial resolution as it relates to the class sizes and not the allocation. The allocation agreement and disagreement resolve at coarser scales, suggesting that SLEUTH is able to provide good expression of neighborhood relationship at coarser scales.</p>
+      <figure id="figure-31">
+        <img src="media/validation-4.png" width="311"></img>
+        <img src="media/validation-5.png" width="483"></img>
+        <figcaption>Figure 31: Multiple-resolution budget for components of agreement and disagreement between: (left) E0-predicted map of 2015 and the reference map of 2015; (right) E1-predicted map of 2015 and the reference map of 2015.</figcaption>
+      </figure>
+      <figure id="figure-32">
+        <img src="media/validation-6.png" width="311"></img>
+        <img src="media/validation-7.png" width="483"></img>
+        <figcaption>Figure 32: Multiple-resolution budget for components of agreement and disagreement between: (left) E2-predicted map of 2015 and the reference map of 2015; (right) E3-predicted map of 2015 and the reference map of 2015.</figcaption>
+      </figure>
+      <figure id="figure-33">
+        <img src="media/validation-8.png" width="311"></img>
+        <img src="media/validation-9.png" width="483"></img>
+        <figcaption>Figure 33: Budgets of components of the three-map comparison at multiple resolutions for (left) E0 and (right) E1.</figcaption>
+      </figure>
+      <figure id="figure-34">
+        <img src="media/validation-10.png" width="311"></img>
+        <img src="media/validation-11.png" width="483"></img>
+        <figcaption>Figure 34: Budgets of components of the three-map comparison at multiple resolutions for (left) E2 and (right) E3.</figcaption>
+      </figure>
+      <p><a href="#figure-33">Figure 33</a> and <a href="#figure-34">Figure 34</a> show the three-map comparison components at multiple scales. The horizontal axis zooms in to the area of interest, thus visually comparing the graphs is not practical. These graphs portray that most of the agreement is due persistence and that this agreement becomes larger at coarser spatial resolutions. The error due to persistence predicted as change, did not resolve at coarser resolutions, due to the quantity disagreement. In each graph, the error due to change predicted as persistence became either correct due to persistence or due to predicted correctly. Furthermore, <a href="#figure-34">Figure 34</a> shows how similar E2 and E3 are, even though the excluded layers were different. For all layers the FOM increases as the resolution coarsens, E2 and E3 in fact were able to achieve a FOM of over 40% at a resolution of 128 times the cell side.</p>
+      <figure id="figure-35">
+        <img src="media/validation-12.png" width="311" height="336"></img>
+        <img src="media/validation-13.png" width="483" height="336"></img>
+        <figcaption>Figure 35: (left) percent correct between the reference map of 2015 vs. three other maps (a) null map, (b) E0-predicted map of 2015 and (c) random map; (right) percent correct between the reference map of 2015 vs. three other maps (a) null map, (b) E1-predicted map of 2015 and (c) random map.</figcaption>
+      </figure>
+      <figure id="figure-36">
+        <img src="media/validation-14.png" width="311" height="336"></img>
+        <img src="media/validation-15.png" width="483" height="336"></img>
+        <figcaption>Figure 36: (left) percent correct between the reference map of 2015 vs. three other maps (a) null map, (b) E3-predicted map of 2015 and (c) random map; (right) percent correct between the reference map of 2015 vs. three other maps (a) null map, (b) E3-predicted map of 2015 and (c) random map.</figcaption>
+      </figure>
+      <p><a href="#figure-35">Figure 35</a> and <a href="#figure-36">Figure 36</a> could be considered ‘concluding graphs’ and show the percent correct of E0, E1, E2 and E3, as compared to a random map with the same class sizes and the null map. What all graphs show, and both the components of agreement and disagreement and three-map comparison illustrated that as the resolution becomes coarser, the agreement becomes higher. If the quantity and allocation disagreement is considered, as shown in <a href="#figure-28">Figure 28</a>, the graphs depict that the allocation disagreement resolved completely at coarser resolutions, given the quantity disagreement. <a href="#figure-28">Figure 28</a> already showed that most of the allocation disagreement was due to a near location disagreement. <a href="#figure-35">Figure 35</a> and <a href="#figure-36">Figure 36</a> emphasize this and show how this affected the overall agreement between the observed map of 2015 and the predicted maps at various resolutions. It is important to note that a similar trend can be observed for the random map, as it too resolved the allocation disagreement. As previously stated, E2 and E3 were able to achieve a FOM of over 40% at a resolution of 128 times the cell side. However at this spatial resolution the E2 and E3 were not able to outperform the random map, as shown in <a href="#figure-35">Figure 35</a> and <a href="#figure-36">Figure 36</a>. There seems to be a specific range at which the map outperformed the null map and the random map, between 8 and 64 times the spatial resolution. At 8 times the cell side, E2 and E3 were only slightly more accurate, and at 64 times the cell side, the random map is almost as accurate as E3. Therefore, the optimal spatial resolution for E3 seems to be either 16 or 32 given the original cell size of 30 m, based on a base 2-logaritmic scale and the geometric progression algorithm that was used for coarsening the resolution. At a resolution of 16 and 32, the FOM rises to respectively, 28% and 30% and E2 and E3.</p>
+      <p>All excluded layers performed better than their random counterpart. However, as can clearly be seen, the E0 standard excluded layer has a much lower percent correct than the null map has at its finest resolution. Also, it does not exceed the null map accuracy at any resolution. Consequently, this implies that having a map of 2006, is a better predictor of future urban growth up to 2015 than E0. The E1 excluded layer also performed below the null map, albeit much better than E0. In both cases the excluded layers overestimated the amount of urban growth, thus resulting in a higher quantity disagreement, as was shown in <a href="#figure-28">Figure 28</a>. Only the two MCE excluded layers that included spatial policies, E2 and E3, were able to achieve higher accuracy than the null map, both surpass the null map at a resolution of approximately eight times the cell side length, hence, at a resolution coarser than eight times the cell side length, or roughly 240 m, E2 and E3 achieved higher accuracy than the null map. What this shows is that none of the excluded layers are able to perform better than the null map at the finest resolution. Further, it suggests that in this study, coarsening the resolution is a necessary step to increase the accuracy and add value to the prediction maps.</p>
+      <figure id="figure-37">
+        <img src="media/validation-16.jpg" width="400"></img>
+        <figcaption>Figure 37: Visualization of disagreement at coarser scales.</figcaption>
+      </figure>
+      <p>To elaborate this concept of coarsening the spatial resolutions and how it the allocation difference, <a href="#figure-37">Figure 37</a> is used. It portrays an observed map and a simulated map of the same spatial extent, both four by four cells. The observed map contains eight urban cells and eight non-urban cells, the simulated map contains nine urban cells and seven non-urban cells. Imagine a pixel-by-pixel comparison is made of these two maps, the quantity disagreement would be one cell or 0.06 and the allocation disagreement would be six cells or 0.38, given the class size. Therefore, the agreement would be 9 out of 16 cells or 0.56. If the resolution of the maps were coarsened by four times the cell side length, the entire map would become one pixel. Subsequently, with fuzzy membership, the observed map would be a fuzzy member of urban by 0.5 and non-urban by 0.5, and the simulated map would become a fuzzy member of urban by 0.56 and non-urban by 0.44. Therefore, at this coarser resolution the agreement between the two maps would be 0.94, the remaining 0.06 is due to the quantity disagreement. This shows that the quantity disagreement does not resolve at coarser resolutions and the allocation disagreement does, given the class sizes. A similar situation occurs in <a href="#figure-38">Figure 38</a>.</p>
+      <p><a href="#figure-36">Figure 36</a> illustrates that between a spatial resolutions of 8 to 64 times the cell side, E3 is more accurate than both the random and null map. As previously stated, the optimal spatial resolution for E3 seems to be either 16 or 32 given the original cell size of 30 m, based on a base 2-logaritmic scale and the geometric progression algorithm that was used for coarsening the resolution. Of those two, 16 times the cell side is the finer resolution, thus this was used. <a href="#figure-38">Figure 38</a> displays the results of E3 mapped at the resolution of 16 times the cell side, or roughly 480 m. The maps on the right still disagree to a certain extent. Conversely, it can be seen that in the more rural areas the maps are fairly similar. However, the maps on the right still show some areas, ‘bright white’ pixels, that the prediction was not able to forecast, even at a coarser scale. So, the question becomes, what kind of areas are these ‘bright white spots’?</p>
+      <figure id="figure-38">
+        <img src="media/validation-17.jpg"></img>
+        <figcaption>Figure 38: Shows the change from non-urban to urban at a 16 times coarser resolution.</figcaption>
+      </figure>
+      <p><a href="#figure-39">Figure 39</a> shows the quantity disagreement between the E3 predicted map of 2015 and the observed map of 2015. It shows a sequence wherein the study area is disaggregated, thus it narrows down to the areas that have the highest quantity disagreement, essentially those ‘bright white’ areas. The images are called ‘blocks’ and are comprised of pixels, they show the total quantity disagreement across all pixels in one block. A block in this context is referring to the amount of groups the pixels were aggregated into, by dividing the study area into equal-sized groups. The top 5 ‘mismatch’ shows the numerical disagreement in the areas with the highest disagreement, which accounts for 20% of the total quantity disagreement. With the r2-X-mean and r2-Y-mean disagreement in mind of the calibration phase, the ‘4 blocks’ does not show a large disagreement, however, the ‘16 blocks’ does. In fact, the Top 5 ‘mismatch’ clearly shows what area has the high disagreement, namely -814 pixels. Interestingly enough, each of the top 5 is related to underestimating urban growth, hence the ‘-‘, and the first area to overestimate was ninth on that list, with 168 pixels. Although, the maps do not explicitly portray this, most of the top overestimating areas touch the border of the city of Groningen, the main city in the study area.</p>
+      <figure id="figure-39">
+        <img src="media/validation-18.jpg"></img>
+        <figcaption>Figure 39: Visualization of the quantity disagreement between E3 predicted map and the observed map of 2015.</figcaption>
+      </figure>
+      <figure id="figure-40">
+        <img src="media/validation-19.jpg"></img>
+        <figcaption>Figure 40: Two maps zoomed in on two ‘mismatch’ areas: (left) the observed map of 2006 and (right) the observed map of 2015.</figcaption>
+      </figure>
+      <p><a href="#figure-40">Figure 40</a> zoomed in on two areas, as defined by the ‘256 blocks’ map in <a href="#figure-39">Figure 39</a>. The northern area delineated by red underestimated urban growth by 269 pixels (242,100 m2), and the southern area delineated by red underestimated urban growth by 814 pixels (732,600 m2). The background is the LS5 for 2006 and the LS8 for 2015 as used in this study, hence the resolution (30 m) is the same. Due to the band combination used here, the urban area becomes pink/purple and rangelands becomes green. The reason to zoom in on these two areas is to emphasize what is happening in the ‘bright white’ areas and why SLEUTH is not able to capture this growth under these conditions.</p>
+      <p>As can be seen, especially in the southern area, is that between 2006 and 2015 a new neighborhood was built. With the SLEUTH mechanism in mind from <a href="#23-urban-models">section 2.3</a>, what would SLEUTH be able to predict in this area in nine years? The most growth comes from: diffusion, breed and spread growth. Based on <a href="#equation-4">Equation 4</a> in <a href="#34-calibration">section 3.4</a> and based on <a href="#appendix-d">Appendix D</a>, diffusion was set at 76, therefore, each year SLEUTH would attempt randomly select 217 cells to urbanize across the entire study area. The study area contains 1,312,500 cells, even the southern delineated area, one of 256 blocks, contains more than 5,000 cells, and the newly constructed neighbor is approximately 750 cells. The breed mechanism is entirely dependent on diffusion, as it only grows around the cell urbanized from diffusive growth. What are the odds that these two growth mechanisms would correctly urbanize cells in this particular area? So, it comes down to spread. Spread will not be able to fill up that area within nine time steps, from 2006 to 2015, as it only urbanizes in a neighborhood of 3 by 3. In a close to perfect simulation, this would presumably still take SLEUTH 20 to 25 years, not accounting for slope resistance or the excluded layer.</p>
+      <p>The follow-up question becomes, why were these areas constructed here? ‘Oostindie’ is a residential neighborhood and was constructed to the south of the city of Leek. The primary cause for the construction was the demand for extra housing up to the year 2020 due to the expected changes in the regional population, which is expressed in the regional policy by Groningen-Assen. It states that the region requires an additional 6,000 residential dwellings in a village-type of living environment. The area to the north is ‘Leeksterveld’, which is an industrial area, this too was driven by a regional demand and policy of Groningen-Assen. The reason why both developments were directed by the region, is due to the expected population decline in the rural areas and the expected population rise in the city of Groningen. To avoid competition amongst the villages and cities, since they all want their share of the population growth in the city of Groningen, regional policies are constructed wherein the demand for industrial and residential terrains is closely monitored and allocated to subregions. The reason why those specific sites were chosen within the subregion, was largely due to land properties and whether the city of Leek was able to acquire those lands. Further, the proximity to the city and its facilities was an important factor for Oostindie, and the proximity to the highway exits, public transit stops and the availability of cycling paths, i.e. accessibility to the city of Leek and the region, for Leeksterveld (Gemeente Leek, 2007).</p>
+      <p>This example is paradigmatic for how the cities and villages grow in the study area. A large portion of the disagreement is due to areas such as these. Interestingly, as has been shown and suggested numerously, a coarser spatial resolution is capable of dealing with these areas. Although, as shown in <a href="#figure-38">Figure 38</a>, these areas still exist, but are less pronounced. Furthermore, it also expressed the link to regional demands and changed in demographics that are important factors to urban development in the study area, implying the need for supplementary methods during model prediction such as model coupling.</p>
     </section>
     <section id="53-predictions">
       <h3>5.3 Prediction</h3>
+      <p>In this section the prediction results are shown, which are based on the best estimates of growth coefficient values, as shown in <a href="#appendix-d">Appendix D</a>. The study area was used for prediction under three scenarios: the S1 MCE excluded layer, the S2 MCE excluded layer including the policy of 2014, and the S3 MCE excluded layer including a nature preservation policy. The prediction time period is 30 years, from 2015 up to 2045.</p>
+      <p>Ordinarily, the default setting for prediction is that only cells are displayed that were urbanized more than 50% during accumulated MC iterations. However, using this data and comparing it on a pixel-by-pixel basis is impractical, and based on validation would presumably not add much value over a null map. Also, validation has shown that the optimal spatial resolution for E2 and E3 seems to be either 16 or 32 times the cell side, based on a base 2-logaritmic scale and the geometric progression algorithm that was used for coarsening the resolution. Therefore, to handle fuzzy membership at coarser resolutions, a geometric progression procedure was used, as given by Pontius et al. (2004) and Pontius et al. (2011). The observed map of 2015 was subtracted from predicted map of 2045, to come to a map showing the predicted change.<a href="#figure-42">Figure 42</a>, <a href="#figure-43">Figure 43</a> and <a href="#figure-44">Figure 44</a> show the prediction results of the three scenarios: S1, S2 and S3. <a href="#figure-41">Figure 41</a> shows the amount of urban pixels forecasted under each scenario. <a href="#figure-45">Figure 45</a> shows the historical urban growth and the predicted maps of 2030 and 2045 for all three scenarios.</p>
+      <figure id="figure-41">
+        <img src="media/prediction-1.png"></img>
+        <figcaption>Figure 41: Graph showing the projected amount of urban pixels of 2045 for S1, S2 and S3.</figcaption>
+      </figure>
+      <figure id="figure-42">
+        <img src="media/prediction-2.jpg"></img>
+        <figcaption>Figure 42: Prediction of 2045 using the S1 excluded layer.</figcaption>
+      </figure>
+      <figure id="figure-43">
+        <img src="media/prediction-3.jpg"></img>
+        <figcaption>Figure 43: Prediction of 2045 using the S2 excluded layer.</figcaption>
+      </figure>
+      <figure id="figure-44">
+        <img src="media/prediction-4.jpg"></img>
+        <figcaption>Figure 44: Prediction of 2045 using the S3 excluded layer.</figcaption>
+      </figure>
+      <p>The predictions show that S1 predicts the most urban change, and S2 the least. <a href="#figure-41">Figure 41</a> shows a linear growth trend, as the self-modification module was not invoked. In <a href="#figure-42">Figure 42</a>, <a href="#figure-43">Figure 43</a> and <a href="#figure-44">Figure 44</a>, it can clearly be seen that S2 and S3 contain much less growth in the rural areas than S1. In all three scenarios most of the urban growth occurs along the border of the city of Groningen. S1 predicts more growth in the smaller cities and villages in the south than S2 and S3. Instead, S2 shows more growth in the south-east corner and S3 more directly south and south-west of the city of Groningen. S3 is based on a nature preservation policy, which did not define all the areas in this study area. Hence, in the S3 excluded layer not all areas were defined by the policy layer, some were neutral and only subject to the MCE factors. In the map this results in more urban growth in S3 than S2. Further, the maps have similarities. For example, all three predict urban growth directly east and west of Groningen, admitting, more noticeable and more clearly delineated in S2 and S3.</p>
+      <figure id="figure-45">
+        <img src="media/prediction-5.jpg"></img>
+        <figcaption>Figure 45: Visualization of the historical urban growth and the predicted urban growth of S1, S2 and S3.</figcaption>
+      </figure>
+      <p>First and foremost, these predictions ought to be put into perspective. During verification and transformation of input data, various accuracy assessments were made. The most important one is the accuracy of the land use classification, which showed that the accuracy was between 93% and 95%. Prior to calibration the data already contained various uncertainties. Even though it is difficult to identify where these uncertainties are located and, if and how they evolve during calibration, it is good to consider the accuracy of the input data.</p>
+      <p>During validation, E2 and E3 were the best predictors of urban change out of the four excluded layers used in this study. For none of the excluded layers, the amount of correctly predicted change was larger than the sum of the various types of error, i.e. 50%. In fact, the highest overall FOM is only 25%. Even though, <a href="#figure-36">Figure 36</a> showed that E2 and E3 were able predict more accurately than the null map at a resolution of 8 times the cell side, the FOM is still mediocre at best. <a href="#figure-30">Figure 30</a> showed that E2 and E3 were able to cope with the rural areas in the study area with sufficient accuracy. However, they failed at predicting the larger planned urban areas, which is perhaps not that surprising.</p>
+      <p>Further, what has not been researched during validation is the temporal accuracy. As stated in <a href="#1-introduction">Chapter 1</a>, the drawbacks of this type of research approach was the use of RS and MCE and that data acquisition would be time-consuming, thus only a static temporal and spatial change between defined intervals was recorded. This emphasizes the difficulties in conducting a temporal sensitivity analysis of the simulation results and the difficulties in underpinning the growth process in the study area. Temporal comparison as suggested by Wu et al. (2009) and as done by Chaudhuri and Clarke (2014), is important to a validation procedure. Comparing the simulation results over various time periods provides insight into the temporal accuracy of the model application. What other research has shown is that prediction beyond 10 years becomes increasingly uncertain, but could stay well within acceptable norms (Chaudhuri & Clarke, 2014).The validation time period was nine years. In those nine years, as shown in previous sections, some predictions already became mediocre (E2 and E3) and other questionable (E1). How this accuracy would evolve beyond nine years is uncertain, but the trend is that the accuracy declines as the predication time period increases.</p>
+      <p>Given all this information, E2 and E3 were better at predicting the right amount of urban pixels, and E1 was overestimating this amount. For E2 and E3 the largest error in the three-map comparison was due to the observed change predicted as persistence, and for E1 this was the error due to persistence predicted as change. Also, all three layers showed sensitivity to the spatial resolution, hence a prediction at the finest resolution would probably not be a good predictor of urban change. Lastly, none of the excluded layers were capable of coping with the planned urban areas that appeared frequently across the study area.</p>
+      <p>Withal, if validation is a predictor of the accuracy of S1, S2 and S3, then S1 would have overestimate the urban growth, and S2 and S3 would be closer to the true amount of urban pixels. S1 would probably have the lowest accuracy, and S2 and S3, at this spatial resolution, could potentially achieve higher accuracy than a null map. All three predictions would have over- or underestimated the amount of clusters, implying they would not have captured the dispersed character of the study area. Implying, that S2 and S3 may have some value with regard to forecasting, whilst bearing in mind that during validation similar maps only achieved a FOM of 28% at a spatial resolution 16 times the cell side, and would probably much lower in 2030 and 2045.</p>
     </section>
     <section id="54-section-conclusions">
       <h3>5.4 Section Conclusions</h3>
+      <p>In this chapter, the calibration, validation and prediction results were discussed. <a href="#51-calibration">Section 5.1</a> focused on calibration. It showed poor calibration results for E0, questionable calibration results for E1, and good calibration results of E2 and E3. Since it is difficult to evaluate the goodness of fit based on one composite metric, it is important to examine the constituent metrics of OSM. What this depicted, is that the r2-X-mean and r2-Y-mean were two metrics that were difficult to fit under these conditions. Most of the other constituent metrics were above 0.9, indicating the success of calibration.</p>
+      <p>Furthermore, calibration was a time-consuming process in this study, due to the calibration of auxiliary coefficient values, the self-modification parameters (which was unsuccessful), the weights and fuzzy membership function of the MCE factor. The calibration related to the MCE factors was especially time-consuming, since the effects of the factors had to be tested by trial and error. A variety of sets of parameter values needed to be tested with coarse calibration, thus rescaling the input data to a 60 m (625 by 525 pixels) and 150 m (250 by 210 pixels) spatial resolution, was found helpful since it required less computer power. Scale influences the growth coefficients differently in the model (Jantz & Goetz, 2005; Candau, 2002; Dietzel & Clarke, 2004b), therefore to avoid inaccuracies resulting from cell size sensitivity, the highest spatial resolution of 30 m still as tested with the various sets of parameter values.</p>
+      <p>The choice of the goodness of fit statistics was crucial to the outcome of calibration. Due to the amount of successful calibrations with the OSM, this statistic was primarily used (Onsted & Chowdhury, 2014; Chaudhuri & Clarke, 2013a; Bihamta, et al., 2015; Mahiny & Clarke, 2012). However, Jantz et al. (2010) noted the potential difficulty in evaluating the fit of the model using a composite score, thus the OSM was complemented the PFD, CFD and EFD, which were used to evaluate the best-fit scores in terms of over- and underestimating. Neither the r2-statistics nor the OSM account for over- and underestimating and most of the r2-statistics include persistence, which makes the OSM and r2-statisics difficult to interpret and sometimes misleading. Two additional approaches were used for this: additional testing with 25 MC iterations (Goldstein, Dietzel, & Clarke, 2005; Jantz, et al., 2010; Clarke, et al., 1996), and visual interpretation. Once the OSM scores were listed to form a top 25, the top 5 results were tested by using 25 MC iterations. Ordinarily, after testing the OSM scores would be lower, and of these five, the best fitting sets of parameter values could be used to narrow down the growth coefficient. After the 25 MC iterations were performed, the model was set to produce an accumulated growth image, which was a useful tool for visual interpretation.  For example, during early testing and calibration, a set of parameter values produced high OSM, PFD, CFD and EFD results, based on statistics this calibration was found successful. After testing with 25 MC, the image experienced close to no growth, hence the calibration was in fact unsuccessful. This type of procedure was found to be a robust calibration process that reduced spatial variability as well as successfully interpreted the goodness of fit results.</p>
+      <p><a href="#52-validation">Section 5.2</a> discussed the validation. In order to provide assessments of accuracy beyond the goodness of fit measures calculated by SLEUTH, an additional accuracy assessment was performed. The techniques used in this study were: the budget of components of agreement and disagreement, three-map comparison and multiple resolution comparison. They were used to (a) quantify the budgets of error, (b) compare to a null map, (c), compare to a random map, and (d) perform the analyses at multiple scales. Intuitively, these three techniques are more easily understood than statistics that covers the entire study area, such as r2-statistics or OSM from calibration.</p>
+      <p>After the best-fit parameters were identified, the model was initialized in 2006 and run to predict the situation of 2015 with 100 Monte Carlo iterations. The quantity and allocation disagreement between the observed map of 2015 and the predicted map of 2015 showed that E0 performed the worst, E1 mediocre and E2 and E3 performed similarly and achieved the highest accuracy, solely based on the quantity and allocation disagreement. In all layers most of the allocation disagreement is resolved at a resolution of 64 times the original pixel side. The three-map comparison showed that all excluded layers achieved higher fit-score than their random counterpart, and only E1, E2 and E3 achieved higher fit-scores than the null map. For none of the excluded layers, the amount of correctly predicted change is larger than the sum of the various types of error, i.e. a FOM of 50%. In fact, the highest overall FOM was only 25%, showing SLEUTH had difficulties in accurately simulating under these circumstances. Although, at a resolution of 16 or 32 times the cell side, E2 and E3 achieved a FOM over up to 30%, given the original cell size of 30 m. Therefore, based on validation and compared to the FOM of other applications (Pontius, et al., 2008), E2 and E3 could be classified as reasonably accurate, E0 had a low accuracy and E1 had mediocre accuracy at best.</p>
+      <p>Further, based on visual interpretation of the three-map comparison, E0 produced unrealistic results as each hamlet to the larger cities, all experienced equal growth. Whilst in reality, these hamlets have had little to no growth. A similar situation occurred in E1, where there was too much growth predicted in the rural areas, albeit much less than in E0. E2 and E3 performed rather well in the rural areas, which can be attributed to the policy layers that were included. All predicted maps were unable to predict the planned urban areas that are frequently found in the study area. Surprisingly, the urban expansion areas in the policy layers, areas that encouraged urbanization, did not influence the model as much as expected. </p>
+      <p>The multiple resolution comparison method showed that the allocation disagreement resolved at coarser spatial resolutions and that only E2 and E3 were able to achieve higher accuracy than the null map. Both surpassed the null map at a resolution of approximately eight times the cell side length. </p>
+      <p>Afterwards, an in-depth analysis was conducted to a paradigmatic error that occurred throughout the prediction maps. A large portion of the disagreement is due to areas that were planned based on local policies. Interestingly, as has been suggested numerously, a coarser spatial resolution was found capable of dealing with these areas to some extent. This paradigmatic error also suggested that other factors may be important for this study area, such as a regional housing and real-estate demand, which are allocated to subregions based on regional policies, implying the need for supplementary methods during model prediction such as model coupling.  </p>
     </section>
   </section>
 
   <section id="6-conclusions">
     <h2>6. Conclusions</h2>
+    <p>In this chapter the modelling results and findings of this research will be presented. The conclusion will be bestowed as the answer to the main research question, and rejection or confirmation of its hypotheses as described in <a href="#1-introduction">Chapter 1</a>. Therefrom, the outcomes of the model will be concluded and the practicality and usefulness of the model will be discussed. <a href="#62-discussions">Section 6.2</a> discusses three additional topics: the policy maps, the self-modification module and the spatial resolution.</p>
     <section id="61-conclusions">
       <h3>6.1 Conclusions</h3>
+      <h4>From the main research question…</h4>
+      <p>The research objectives are briefly mentioned again to discuss what this research had contributed. Which goals were accomplished, and to what extent this research has added value to the field of urban modelling and to local decision-makers. This study reports on three main research objectives: (a) calibrating and validating a UGM to suit the Groningen’s context; (b) simulating and understanding the urban growth patterns produced by the calibration phase; and (c) predicting the future urban dynamics, spatially and temporally, using Groningen. Accordingly, this led to the following research question: “What will be the land cover change of Groningen in 2045 compared to 2015 based on three different scenarios, to explore Groningen’s future urban dynamics?”</p>
+      <p>The concise answer to the main research question is: it is unclear, since none of the excluded layers were capable of capturing the dispersed urban growth patterns in the study area during calibration and validation. Hence, the assumption was made that the scenarios used for predicting, would not be able to produce accurate urban growth patterns, as these were based on the same principles. In that light, three remarks ought to be made.</p>
+      <p>(a) At coarser spatial resolutions, SLEUTH was better capable of coping with various uncertainties and produced more accurate validation results. It has been suggested that, given the original cell size of 30 m, the optimal spatial resolution for this study area, under these conditions, would be either 16 or 32 times the cell side (480 m or 960 m). At these resolutions, the excluded layers that included policy maps in the MCE (E2 and E3) were able to achieve higher accuracy than both a random map and a null map (i.e. no change). However, for none of the excluded layers, the amount of correctly predicted change was larger than the sum of the various types of error, i.e. a figure of merit (FOM) of 50% (0% there being no overlap and 100% equals a perfect match). In fact, the highest FOM value was only 25%. At the coarser resolutions of 16 and 32 times the cell side, this could rise up to approximately 30% for both E2 and E3. Pontius et al. (2008) performed a similar analysis of thirteen studies based on multiple urban modelling application by others. Even though a comparison to that research is difficult, as the studies used different spatial resolutions, some included land use categories and the simulation time period was different. Nonetheless, E2 and E3 would score mediocre compared to those studies, based on the FOM. This does not explain if the results of E2 and E3 are fitting or not, it merely emphasizes that other model applications with similar FOM values, were found sufficiently accurate by the model-users.</p>
+      <p>(b) As stated in <a href="#1-introduction">Chapter 1</a>, the drawbacks of the approach adopted by this research, i.e. using remote sensing for data acquisition and a multicriteria evaluation method, are that data acquisition and calibration were time-consuming and only a static temporal and spatial change between defined intervals was recorded. Given this, a temporal sensitivity analysis during validation was not conducted, therefore simulation and prediction results could not be put into a temporal perspective regarding accuracy. This emphasizes the difficulties in properly assessing the accuracy of the prediction maps. From 2006 to 2015, in nine years during validation, the FOM accuracy declined to approximately 30%, under the optimal conditions, thus suggesting the FOM accuracy declined rapidly in just nine years. What other research has shown is that prediction beyond 10 years becomes increasingly uncertain (Chaudhuri & Clarke, 2014). The decline in accuracy in the first nine years emphasizes the need for a quantitative analysis regarding the temporal accuracy, especially when the prediction maps are used for supporting local planners and long-term decision-making.</p>
+      <p>(c) As previously mentioned, the excluded layers E2 and E3 included policy maps in the MCE, in addition to other factors of the MCE, such as proximity to public facilities, soil type and proximity to highway exits. E0 only comprised of constraints, such as water bodies and natural areas and E1 consisted of an MCE without policy maps. Onsted and Chowdhury (2014) showed that it is feasible to include policy maps and may produce better results. This research produced a similar result, since E2 and E3 achieved the highest goodness of fit score, and the highest accuracy during validation. Notwithstanding, it can be a dangerous practice to mask out areas or restrict urbanization in zones (Akın, et al., 2014; Pontius, et al., 2004), as this could lead to bias when modelling or forecasting. By restricting or encouraging urbanization in particular zones that are based on policies for future urban development, the model would be biased into urbanizing those areas first and achieving higher goodness of fit results. In <a href="#1-introduction">Chapter 1</a> it was stated that the societal relevance comes from providing insight into future urban dynamics of Groningen, which is of great importance to local urban planners and decision-makers. Notwithstanding, if the prediction maps E2 and E3 are based on the policies of said local decision-makers, given the accuracy concerns as expressed previously, the added value of these predictions becomes limited.</p>
+      <p>Given these insights, to address the second main objective: “understanding the urban growth patterns”. The historical overview in <a href="#31-study-area">section 3.1</a>, the goodness of fit metrics, visual interpretation, the excluded layer and an in-depth analysis of two areas in <a href="#52-validation">section 5.2</a>, provided some insight into understanding the growth patterns in Groningen. The MCE showed that the policy maps, the proximity to the highway exits, proximity to regional public facilities, proximity to regional shops and restaurants, proximity to regional industrial sites and to some extent the proximity to the intercity train station, were meaningful factors in the MCE. In addition, excluding the water bodies and rivers, and the natural areas, were considered decisive constraints. The validation showed that the rural areas did not experience much growth and most growth was adjacent to the larger villages and cities. Furthermore, an in-depth analysis was conducted and a large amount of urban growth occurred in planned areas. These examples were considered paradigmatic for how the cities and villages grow in the study area, which SLEUTH was not able to capture during simulation.</p>
+      <p>Withal, in order to draw further conclusions on the urban growth process of the study area, further studies would be required. For example, Herold et al. (2003) proposed to use pattern analysis to research the urban patterns and structure, which others have used (Wu, et al., 2009; Sakieh, et al., 2015b; Mahiny & Clarke, 2012; Chaudhuri & Clarke, 2013a; Goldstein, et al. 2004). These statistics measure the entire area and are thus generalized over the entire area. Therefore, a qualitative approach in addition to such quantitative analyses seems desirable, as has been argued by Sitte (1889) over a century ago, e.g. by conducting in-depth analyses of paradigmatic errors in the study area.</p>
+      <h4>… to a new research question</h4>
+      <p>Given the aforementioned concerns, the main research question should become: “Why is SLEUTH not capable of simulating the urban dynamics in Groningen?” This question should be put into perspective by considering the scientific relevance of this research, which was argued to come from applying SLEUTH to the Dutch context and assessing the feasibility of applying SLEUTH to Groningen, an area that experience modest absolute growth rates and adopted a compact city policy. This was done with an integrated application of: Geographical Information Systems (GIS), remote sensing (RS), multicriteria evaluation (MCE) and an urban growth model (UGM). Hence, the hypotheses were that: (a) it is possible to calibrate a UGM to Groningen’s context by combining separate tools (i.e. GIS, RS, MCE and UGM) and forecast future urban dynamics under different planning scenarios that fit into the context of Groningen, and (b) that other relevant factors that influence the urban development in Groningen could be incorporated in the UGM with an urbanization-suitability layer based on an MCE.</p>
+      <p>(a) Firstly, the integrated application of GIS, RS, MCE and SLEUTH, the UGM. GIS and RS, via Landsat data, was able to reveal the urban land cover and land use for the years 1973, 1984, 1990, 1998, 2006 and 2015, which in itself is a valuable resource. Both calibration and validation, showed (much) higher goodness of fit and (much) higher accuracy for the excluded layers that incorporated an urbanization-suitability layer based on an MCE (E1, E2 and E3), as compared to the excluded layer that did not (E0). This illustrates that the integrated approach of GIS, RS, MCE and SLEUTH was successful and that SLEUTH can be improved by including an MCE. It could be argued that an MCE or a different method to include an assessment of the urban suitability, is in fact necessary to capture the urban growth patterns of this study area. To come back to the hypotheses, this research shows that it is possible to include other relevant factors that influence the urban development in Groningen, by using an urbanization-suitability layer based on an MCE. Conversely, this research has not definitively shown that it is possible to calibrate a UGM to Groningen using these tools due to the mediocre accuracy results. Perhaps, there are other relevant factor that could be included in the MCE, and the fuzzy membership definition and factor weights could be further explored. Whether this would improve the simulation with SLEUTH, ought to be approached with certain skepticism.</p>
+      <p>(b) Secondly, as has been hinted in <a href="#24-section-conclusions">section 2.4</a> and <a href="#52-validation">section 5.2</a>, SLEUTH lacks certain mechanics as compared to other urban models. As portrayed in the in-depth analysis in <a href="#52-validation">section 5.2</a>, SLEUTH failed to predict urban change in areas that were planned, which were considered paradigmatic to the urban growth patterns in Groningen. This analysis showed that a coarser spatial resolution is capable of dealing with these areas. It also expressed the link to regional demands regarding real-estate and changes in demographics that are important factors to urban development in the study area, implying the need for supplementary methods for a successful prediction.</p>
+      <p>Other have attempted to include other relevant factors via the self-modification module to include socio-economic or demographic factors Liu et al. (2012) or incorporated demographics and employment to the excluded layer (Jantz, et al., 2014). However, including dynamic factors into static modules seems ineffective. For example, there can only be one excluded layer in SLEUTH. Ordinarily this layer aligns with the start date and subsequently SLEUTH has no mechanism to update the values in this layer, and probably should not either. The excluded layer ought to be used for exogenous, static or slowly changing factors, such as soil type or elevation. Other urban models do include tools to include dynamic factors in a type of excluded layer. Dinamica EGO differentiates between a dynamic layer that is based on endogenous variables and can update itself throughout the simulation period, and a static layer that consists of static or slowly changing factors. Or Metronamica where it is possible to add a temporal component for up to three time periods, which could be seen as the equivalent of having three excluded layer for three predefined years. UrbanSim has the option to include user-specific events at specific times. Other options would be to couple SLEUTH with models that can forecast socio-economic or demographic variables, a similar approach to Metronamica and CLUE, or activity-based models that can simulate the movement of the population. In fact, it has been argued that it would be preferred to use submodels, such as Rienow and Goetzke (2015) and Silva et al. (2008), to address complex issues than to include extra MCE factors in the excluded layer (Chaudhuri & Clarke, 2013a), and presumably, than to insert additional factors in the self-modification module.</p>
+      <p>Additionally, the study area could benefit from a multi-scale or multi-resolution approach, such as applied in Metronamica or CLUE. As has been argued numerously, SLEUTH was found able to provide good expression of neighborhood relationship at coarser scales. The in-depth analysis in <a href="#52-validation">section 5.2</a> illustrated that the regional demand in the study area is distributed over multiple subregions, based on various criteria. SLEUTH could benefit from modelling approaches such as Metronamica, which incorporates a dynamic gravity based model based on various variables which account for regional differences resulting in certain regions being more attractive than others. Or CLUE, which uses two resolution scales, a coarse and fine scale. The coarse scale is used for general trends and relationships between land use and its driving factors, whilst the fine scale is to identify variability within regions by fuzzy membership.</p>
+      <p>Withal, this research showed that including an urbanization-suitability layer in SLEUTH can improve modelling results in this study area. However, critical remarks ought to be made as to what factors are appropriate to include in an urbanization-suitability layer. Perhaps the right approach would be to couple SLEUTH to other models, or adopt a different urban model that holds more sophisticated mechanics.</p>
     </section>
     <section id="62-discussions">
       <h3>6.2 Discussions</h3>
+      <p>In this section three discussion points are elaborated. Which are: the inclusion of policy as a factor in the MCE; the calibration of the self-modification module and the spatial resolution.</p>
+      <h4>Policy maps</h4>
+      <p>In <a href="#1-introduction">Chapter 1</a>, additional research aims were to apply SLEUTH to a dispersed urban area that is relatively small with a slow absolute urban growth compared to study areas SLEUTH is commonly applied to (García, et al., 2012), and attempted to assess the feasibility of applying SLEUTH to a city with a clear spatial policy to remain compact and minimize urban growth. This was attempted by using an MCE based on an urbanization-suitability layer as an excluded layer. It becomes evident that none of the excluded layers were able to capture the actual urban dynamics that have taken place in the study area. As none of the excluded layers seem to be able to capture the dispersed urban growth pattern of the study area. The core of the issue is that the growth coefficient values are uniformly applied over the entire study area, even though these values are not appropriate to capture the urban dynamics in the rural areas. Due to the mechanics in SLEUTH and the excluded layer, the study area is not discerned into regions that experience similar types of urban growth, hence its inability to capture the urban dynamics. In reality the urban growth was focused around Groningen and not dispersed equally across the entire study area.</p>
+      <p>In an attempt to solve this, the excluded layer was based on an urbanization-suitability layer. The MCE achieved higher fit-scores, as becomes evident by comparing E0 to E1. However, it was still not able to properly discern the study area into regions that experienced the same type of growth. One way to include these distinct zones and allocate appropriate amounts of growth to these areas, would be by including policy maps in the suitability layer. Goetz, Jantz, Bockstael and Towe (2007) have pointed to the lack of policy variables in SLEUTH. Poelmans and Van Rompaey (2009) have suggested that it is impossible to take in local policy and other local conditions during the modelling efforts. Withal, Onsted and Chowdhury (2014) showed that it is feasible and may produce better results. It can be a dangerous practice to mask out areas or restrict urbanization in zones (Akın, et al., 2014; Pontius, et al., 2004), which could lead to bias when modelling or forecasting. Nonetheless, the opposite could also be argued, that policy is a decisive factor in the study area and that these zones should be included. In fact, the excluded layer may be the only way to incorporate policies in SLEUTH (Chaudhuri & Clarke, 2013a).</p>
+      <p>The calibration showed that including the policy layer had a positive effect on the goodness of fit, and the validation showed that these layers achieved higher accuracy scores. It was found that in this study, the areas marked as ‘urban expansion’, areas where urbanization is encouraged, did not affect the modelling results as much as expected and resisting urbanization in the rural areas, did. Considering the bias of masking and the policy layer that was included as an MCE factor, this study area seems to require zoning. Natural areas and agricultural lands ought to be separated from urban lands, since the two experienced different growth patterns. Whether this should be based on policy layers or explicitly defined by other relevant factors in an MCE, is the question. There ought to be a boundary between zones, whether this is a discrete boundary or a fuzzy boundary, presumably both could work. Besides adjusting the MCE, it could also be achieved by changing the spatial extent of the study area. Either by zooming in on a specific area, or masking areas that are too different in terms of urban growth patterns.</p>
+      <p>The primary cause, and why it was found that policy areas needed to be included, was due to small clusters experiencing the same growth as large cities, i.e. uniformly applied growth rules. In essence, this comes down to (a) hierarchy and (b) scale, or in other words Zipf’s ranksize rule (Batty, 2005). This rule is based on the notion that the size of cities scales according to the size of the largest city and is consistent with the internal physical morphology of cities as evidenced in their fractal structure (Batty & Longley, 1994). With this power law, it could be possible to rank the clusters in a hierarchy and subsequently scale the amount of growth in relation to the largest cluster, presumably the city of Groningen, and scale the amount of growth that can be invoked by pixels that are a member of smaller cluster. </p>
+      <h4>Self-modification</h4>
+      <p>When reading other articles, most if not all, mention the self-modification module of SLEUTH. This optional phase is often recognized as an important component of SLEUTH, as it would allow SLEUTH to simulate dynamic growth rates over time, so that growth rates replicate the typical S-curve of urbanization and population growth (Silva & Clarke, 2002). The original application of SLEUTH wherein self-modification was calibrated to the San Francisco Bay Area by Clarke et al. (1997). The default self-modification values are inherited from this application, of an earlier SLEUTH version applied to a different study area (Clarke, et al., 1997). Additionally, it may be likely that due to changes made in the transition rules in the newer versions of SLEUTH and SLEUTH-3r, the default self-modification values may not always be fitting. Candau (2002) reports extensively on the self-modification module, all its different parameters and what they do. She suggests that the self-modification module ought to have its own calibration procedure, as at that point it did not. Therefrom, self-modification and calibration are only briefly mentioned, e.g. Jantz et al. (2014) and Liu et al. (2012) who both altered the parameter settings in their attempt to improve modelling results. Liu et al. (2012) state: “These additional parameters also contribute to the model accuracy, and the significance of their influence, determine that a method to calibrate them is required”.</p>
+      <p><a href="#4-data-pre-processing">Chapter 4</a> stated that the second phase of pre-calibration was to determine the appropriate values for the self-modification module. This calibration was particularly difficult for the study area. The default values would put the study area in a constant boom-cycle as the urban growth rate would always exceed the threshold value. Therefore, under these conditions, due to the lack of a calibration procedure and lack of explicit literature that addresses this issue, the calibration of the self-modification was unsuccessful. Whilst self-modification adds an important dynamic component to SLEUTH, it also introduces another layer of complexity during calibration. A layer of complexity that is often overlooked. As has been stated by others, this module requires an automated calibration procedure. Whether current fit-statistics are appropriate for evaluating the goodness of fit of the self-modification module, and whether this calibration should be executed before or after estimates of growth coefficient values are produced, ought to be researched. Using the default values is presumably not a valid procedure for the self-modification module, and neither is arbitrarily choosing parameter settings.</p>
+      <h4>Spatial resolution</h4>
+      <p>Silva and Clarke (2002) compared a SLEUTH application to Porto and to Lisbon and noticed better calibration results in Porto. They noted that this may be due to the spatial resolution in the data, since Porto used coarser input data than Lisbon. “… the question should be: by increasing the spatial resolution of the data in the case of Porto, could it be easier to capture detail and therefore narrow down the values to the local characteristics?” (p. 546). Even though, they discussed the calibration procedure, a similar point could be made in general about SLEUTH. Does coarser input data procedure higher fit results?</p>
+      <p>This research shows, for this study area, that the various excluded layers higher accuracy at coarser resolutions. This is inevitable, as allocation disagreement resolves at coarser resolutions. Accordingly, E2 and E3 were able to outperform the null map, both surpass the null map at a resolution of approximately eight times the cell side length. However, this result should not alarm the model-user, as it merely indicates that resolution of the input data is finer than SLEUTH’s ability to predict urban dynamics. Moreover, it also depends on the goal of the research. If the goal is to predict the urban dynamics at a coarser resolution, than these results may be acceptable. In this case, 16 or 132 times the length of the cell side, respectively, 480 m or 960 m. To support local planners and decision-makers operating on a spatial extent such as applied in this research, this could provide a rough possible indication of land cover change (Timmermans, 2003).</p>
+      <p>So, does this suggest that input data ought to be coarser? The key argument to be made here is that, this only occurred under specific conditions, i.e. the application of fuzzy set theory whilst coarsening the resolution. This led to more agreement between comparing clusters of cells as opposed to cell-by-cell comparison. Therefore, in this study, this became only possible due to the availability of finer data, whence the coarser data came from. Also, due to the stochastic mechanisms in SLEUTH, pixels are randomly selected during the various growth cycles. This is the case for all of the four growth types. Imagine an existing village observed urban growth shaped as a chessboard pattern, and SLEUTH would have predicted that same chessboard pattern during simulation, just one row or one column off. Validating the simulation results would produce zero percent agreement, whilst a human visually checking the data would be inclined to argue SLEUTH did an excellent job. The reason this happens could partly be attributed to SLEUTH’s stochastic mechanisms that is randomly selecting pixels to urbanize in the correct area, albeit on the wrong location. One way to deal with this is coarsening the spatial resolution via fuzzy set theory. Subsequently, the agreement would be perfect if the resolution would be two times the cell side length. However, if input data would have been coarser to begin with, additional coarsening would be required to resolve nearby allocation disagreement and the question becomes, does this coarser resolution fit within the research objectives, e.g. is it useable to support local planners and decision-makers?</p>
+      <p>Given all this, does this suggest that in this research the filtering of small urban clusters was a valid procedure, since at coarser resolution the disagreement caused by these pixels would be resolved? Again, this depends on the goal of the research. Presumably, local planners and decision-makers would not require to know about those individual pixels, or the urban change of the large farms or a few clustered houses. Moreover, this related to the schism between calibration and validation, as calibration is optimized before validating the simulation results, which should be seen as two distinct procedures. In this case, the filtered pixels could have drastically influenced the urban extent during calibration, since these pixels were often close to larger cities and villages. As these cities and villages expand horizontally, they would annex the individual pixels and small clusters, thus, producing different urban growth patterns due to the mechanism incorporated in SLEUTH. In that context, it could be argued that these individual pixels and small clusters are noise, thus filtering them was valid.</p>
     </section>
   </section>
 
   <section id="bibliography">
     <h2>Bibliography</h2>
-    <p class="biblio"><span>AHN. (2013). <i>Actueel Hoogtebestand Nederland.</i></span>
-      <span>Retrieved February 10, 2016, from Kwaliteitsdocument AHN2: 
-      <a href="http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf">http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf</a></span>
+    <p class="biblio"><span>AHN. (2013). <em>Actueel Hoogtebestand Nederland.</em> Retrieved February 10, 2016, from Kwaliteitsdocument AHN2: http://www.ahn.nl/binaries/content/assets/hwh---ahn/common/wat+is+het+ahn/kwaliteitsdocument_ahn_versie_1_3.pdf</span>
     </p>
+    <p class="biblio"><span>Ak&#305;n, A., Clarke, K., &amp; Berberoglu, S. (2014). The impact of historical exclusion on the calibration of the SLEUTH urban growth model. <em>International Journal of Applied Earth Observation and Geoinformation, 27</em>(Part B), 156-168. doi:10.1016/j.jag.2013.10.002</span>
+    </p>
+    <p class="biblio"><span>Alexander, C. (1964). <em>Notes on the synthesis of form.</em> Cambridge: Harvard University Press.</span>
+    </p>
+    <p class="biblio"><span>Alonso, J., &amp; Lamata, M. (2006). Consistency in the analytical hierarchy process: a new approach. <em>International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems, 14</em>(4), 445-459. doi:10.1142/S0218488506004114</span>
+    </p>
+    <p class="biblio"><span>Al-shalabi, M., Billa, L., Pradhan, B., Mansor, S., &amp; Al-Sharif, A. (2013). Modelling urban growth evolution and land-use changes using GIS based cellular automata and SLEUTH models: the case of Sana's metropolitan city Yemen. <em>Environmental Earth Sciences, 70</em>(1), 425-437. doi:10.1007/s12665-012-2137-6</span>
+    </p>
+    <p class="biblio"><span>Alterra. (2006). <em>Grondsoortenkaart</em>. Retrieved February 11, 2016, from http://www.wageningenur.nl/nl/show/Grondsoortenkaart.htm</span>
+    </p>
+    <p class="biblio"><span>Alterra. (2012). <em>BOFEK2012, de nieuwe, bodemfysische schematisatie van Nederland</em>. Retrieved February 11, 2016, from content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf</span>
+    </p>
+    <p class="biblio"><span>Arentze, T., &amp; Timmermans, H. (2000). <em>ALBATROSS: a learning based transportation oriented simulation system.</em> Retrieved November 12, 2015, from http://www.nctcog.org/trans/modeling/nextgeneration/Albatross.pdf.</span>
+    </p>
+    <p class="biblio"><span>Batty, M. (1976). <em>Urban Modeling.</em> Cambridge: Cambridge University Press. Retrieved July 7, 2015, from http://www.casa.ucl.ac.uk/urbanmodelling/UrbanModelling.pdf</span>
+    </p>
+    <p class="biblio"><span>Batty, M. (2005). <em>Cities and complexity: understanding cities with cellular automata, agent-based models, and fractals.</em> Cambridge: The M.I.T. Press.</span>
+    </p>
+    <p class="biblio"><span>Batty, M. (2009). <em>Urban Modeling.</em> Retrieved September 25, 2015, from Centre for Advanced Spatial Analysis (CASA): http://www.casa.ucl.ac.uk/rits/BATTY-Urban-Modelling-2009.pdf</span>
+    </p>
+    <p class="biblio"><span>Batty, M. (2014). <em>The new science of cities.</em> Cambridge: The M.I.T. Press.</span>
+    </p>
+    <p class="biblio"><span>Batty, M., &amp; Longley, P. (1994). <em>Fractal cities.</em> London: Harcourt Brace &amp; Company Publishers.</span>
+    </p>
+    <p class="biblio"><span>Batty, M., &amp; Marshall, S. (2009). The evolution of cities: Geddes, Abercrombie and the new physicalism. <em>The Planning Review, 80</em>(6), 551-574. doi:10.3828/tpr.2009.12</span>
+    </p>
+    <p class="biblio"><span>Batty, M., &amp; Xie, Y. (1994). From cells to cities. <em>Environment and Planning B, 21</em>(7), 31-48. doi:10.1068/b21S031</span>
+    </p>
+    <p class="biblio"><span>Batty, M., &amp; Xie, Y. (1999). Self-organized criticality and urban development. <em>Discrete Dynamics in Nature and Society, 3</em>(2-3), 109-124. doi:10.1155/S1026022699000151</span>
+    </p>
+    <p class="biblio"><span>Benenson, I. (2007). Warning! The scale of land-use CA is changing! <em>Computers, Environment, 31</em>(2), 107-113. doi:10.1016/j.compenvurbsys.2007.01.001</span>
+    </p>
+    <p class="biblio"><span>Benenson, I., &amp; Torrens, P. M. (2004). <em>Geosimulation: Automata-based modeling of urban penomena.</em> London: John WIley. doi:10.1002/0470020997</span>
+    </p>
+    <p class="biblio"><span>Benjamin, W. (1935). <em>Paris. Die Hauptstadts des XIX. Jahrhunderts.</em></span>
+    </p>
+    <p class="biblio"><span>Bihamta, N., Soffianian, A., Fakheran, S., &amp; Gholamalifard, M. (2015). Using the SLEUTH urban growth model to simulate future urban expansion of the Isfahan Metropolitan Area, Iran. <em>Journal of the Indian Society of Remote Sensing, 43</em>(2), 407-414. doi:10.1007/s12524-014-0402-8</span>
+    </p>
+    <p class="biblio"><span>Biron, D. (2004). <em>Beter bouw- en woonrijp maken: een verkennend onderzoek naar het bouw- en woonrijp maken in de Nederlandse praktijk en de problematiek rondom wateroverlast op de bouwplaats.</em> Retrieved May 25, 2016, from www.citg.tudelft.nl/fileadmin/Faculteit/CiTG/Over_de_faculteit/Afdelingen/Afdeling_watermanagement/Secties/waterhuishouding/Leerstoelen/Waterbeheer/onderzoek/Projects/Msc_Research/Completed/600_2000-2004/doc/BRM2004.pdf</span>
+    </p>
+    <p class="biblio"><span>Borzacchiello, M., Nijkamp, P., &amp; Koomen, E. (2010). Accessibility and urban development: A grid-based comparative statistical analysis of Dutch cities. <em>Environment and Planning B, 37</em>(1), 148-169. doi:10.1068/b34126</span>
+    </p>
+    <p class="biblio"><span>Broitman, S., &amp; Koomen, E. (2015). Residential density change: Densification and urban expansion. <em>Computers, Environment and Urban Systems, 54</em>, 32-46. doi:10.1016/j.compenvurbsys.2015.05.006</span>
+    </p>
+    <p class="biblio"><span>Bura, S., Gu&#233;rin-Pace, F., Mathian, H., Pumain, D., &amp; Sanders, L. (1996). Multi-agents system and the dynamics of a settlement system. <em>Geographical Analysis, 28</em>(2), 161-178. doi:10.1111/j.1538-4632.1996.tb00927.x</span>
+    </p>
+    <p class="biblio"><span>Burgess, E. (1924). The growth of the city: an Introduction to a research project. <em>Publications of the American Sociological Society</em>, 47-62. doi:10.1007/978-0-387-73412-5_5</span>
+    </p>
+    <p class="biblio"><span>Candau, J. (2002). <em>Temporal calibration sensitivity of the SLEUTH urban growth model, master's thesis.</em> Santa Barbara: Department of Geography, University of California.</span>
+    </p>
+    <p class="biblio"><span>CBS. (2008). <em>Bestand Bodemgebruik Productomschrijving</em>. Retrieved January 25, 2016, from https://www.cbs.nl/NR/rdonlyres/5B353A4E-6B56-4756-A19C-4BF6AA520C65/0/BestandBodemgebruikProductbeschrijving.pdf</span>
+    </p>
+    <p class="biblio"><span>CBS. (2016). <em>StatLine</em>. Retrieved January 7, 2016, from http://statline.cbs.nl/Statweb/</span>
+    </p>
+    <p class="biblio"><span>Chander, G., Markhem, B., &amp; Helder, D. (2009). Summary of current radiometric calibration coefficients for Landsat MSS, TM, ETM+, and EO-1 ALI sensors. <em>Remote Sensing of Environment, 113</em>(5), 893-903. doi:10.1016/j.rse.2009.01.007</span>
+    </p>
+    <p class="biblio"><span>Chapman, C., &amp; Fenyon, G. (Directors). (1963). <em>Lewis Mumford on the City, Part 3: The City and Its Region</em> [Motion Picture]. Retrieved March 12, 2016, from https://www.nfb.ca/film/lewis_mumford_on_the_city_part_3/</span>
+    </p>
+    <p class="biblio"><span>Chaudhuri, G., &amp; Clarke, K. (2013a). How does land use policy modify urban growth A case study of the Italo-Slovenian border. <em>Journal of Land Use Science, 8</em>(4), 443-465. doi:10.1080/1747423X.2012.679748</span>
+    </p>
+    <p class="biblio"><span>Chaudhuri, G., &amp; Clarke, K. (2013b). <em>The SLEUTH land use change model: A review.</em> Retrieved November 3, 2015, from Researchgate: http://www.researchgate.net/publication/237052846</span>
+    </p>
+    <p class="biblio"><span>Chaudhuri, G., &amp; Clarke, K. (2014). Temporal accuracy in urban growth forecasting: a study using the SLEUTH model. <em>Transactions in GIS, 18</em>(2), 302-320. doi:10.1111/tgis.12047</span>
+    </p>
+    <p class="biblio"><span>Chavez, P. R. (1996). Image-Based Atmospheric Corrections - Revisited and Improved. <em>Photogrammetric Engineering and Remote Sensing, 62</em>(9), 1025-1036.</span>
+    </p>
+    <p class="biblio"><span>Christaller, W. (1933). <em>Die zentralen Orte in S&#252;ddeutschland. Eine &#246;konomisch-geographische Untersuchung &#252;ber die Gesetzm&#228;ssigkeit der Verbreitung und Entwicklung der Siedlungen mit st&#228;dtischen Funktionen.</em> Jena: Gustav Fischer.</span>
+    </p>
+    <p class="biblio"><span>Clarke, K. (1997). <em>Land transition modeling with Deltatrons</em>. Retrieved November 16, 2015, from UCSB Geography: http://www.geog.ucsb.edu/~kclarke/Papers/deltatron.html</span>
+    </p>
+    <p class="biblio"><span>Clarke, K. (2014). Why simulate cities? <em>GeoJournal, 79</em>(2), 129-136. doi:10.1007/s10708-013-9499-5</span>
+    </p>
+    <p class="biblio"><span>Clarke, K., &amp; Candau, J. (2000). <em>Probabilistic land cover modeling using deltatrons.</em> Retrieved from UCSB Geography: http://www.ncgia.ucsb.edu/projects/gig/Repository/references/Santa_Barbara_CA/candau_clarke_2000.pdf</span>
+    </p>
+    <p class="biblio"><span>Clarke, K., &amp; Gaydos, L. (1998). Loose-coupling a cellular automaton model and GIS: long-term urban growth prediction for San Francisco and Washington/Baltimore. <em>International Journal of Geographical Information Science, 12</em>(7), 699-714. doi:10.1080/136588198241617</span>
+    </p>
+    <p class="biblio"><span>Clarke, K., Hoppen, S., &amp; Gaydos, L. (1996). Methods and techniques for rigorous calibration of cellular automaton model of urban growth. <em>Third International Conference/Workshop on Integrating GIS and Environmental Modeling.</em> Sante Fe, New Mexico. Retrieved October 5, 2015, from http://ncgia.ucsb.edu/projects/gig/Pub/pubs.htm</span>
+    </p>
+    <p class="biblio"><span>Clarke, K., Hoppen, S., &amp; Gaydos, L. (1997). A self-modifying cellular automaton model of historical urbanization in the San Fransisco Bay area. <em>Environment and Planning B: Planning and Design, 24</em>, 247-261. doi:10.1068/b240247</span>
+    </p>
+    <p class="biblio"><span>Clarke-Lauer, M. D., &amp; Clarke, K. C. (2011). Evolving simulation modeling: calibrating SLEUTH using a genetic algorithm. Retrieved November 11, 2015, from www.geocomputation.org/2011/papers/clarke-lauer.pdf</span>
+    </p>
+    <p class="biblio"><span>Congalton, R. (1991). A review of assessing the accuracy of classifications of remotely sensed data. <em>Remote Sensing of Environment, 37</em>(1), 35-46. doi:10.1016/0034-4257(91)90048-B</span>
+    </p>
+    <p class="biblio"><span>Congalton, R., &amp; Green, K. (2008). <em>Assessing the accuracy of remotely sensed data: principles and practices.</em> Boca Raton, Florida: CRC Press, Taylor &amp; Francis Group.</span>
+    </p>
+    <p class="biblio"><span>Couclelis, H. (1985). Cellular worlds: a framework for modeling micro-macro dynamics. <em>Environment and Planning A, 17</em>(5), 585-596. doi:10.1068/a170585</span>
+    </p>
+    <p class="biblio"><span>Couclelis, H. (1989). Macrostructure and microbehavior in a metropolitan area. <em>Environment and Planning B: Planning and Design, 16</em>(2), 141-145. doi:10.1068/b160141</span>
+    </p>
+    <p class="biblio"><span>Couclelis, H. (1997). From cellular automata to urban models: new principles for model development and implementation. <em>Environment and Planning B, 24</em>(2), 165-174. doi:10.1068/b240165</span>
+    </p>
+    <p class="biblio"><span>Couclelis, H. (2000). Modeling frameworks, paradigms, and approaches. In K. Clarke, B. Parks, &amp; M. Crane (Eds.), <em>Geographic Information Systems and Environmental Modeling.</em> New York: Longman &amp; Co.</span>
+    </p>
+    <p class="biblio"><span>Crols, T., White, R., Uljee, I., Engelen, G., Poelmans, L., &amp; Canters, F. (2015). A travel time-based variable grid approach for an activity-based cellular automata model. <em>International Journal of Geographical Information Science, 29</em>(10), 1757-1781. doi:10.1080/13658816.2015.1047838</span>
+    </p>
+    <p class="biblio"><span>Dendrinos, D., &amp; Sonis, M. (1990). <em>Chaos and socio-spatial dynamics.</em> New York: Springer-Verlag.</span>
+    </p>
+    <p class="biblio"><span>Dezhkam, S., Amiri, B., Darvishsefat, A., &amp; Sakieh, Y. (2013). Simulating the urban growth dimensions and scenario prediction through SLEUTH model: A case study of Rasht County, Guilan, Iran. <em>GeoJournal, 79</em>(5), 591-604. doi:10.1007/s10708-013-9515-9</span>
+    </p>
+    <p class="biblio"><span>Dietzel, C., &amp; Clarke, K. (2004a). Replication of spatio-temporal land-use patterns at three levels of aggregation by an urban cellular automata. <em>Lecture Notes in Computer Science, 3305</em>, 523-532. doi:10.1007/978-3-540-30479-1_54</span>
+    </p>
+    <p class="biblio"><span>Dietzel, C., &amp; Clarke, K. (2004b). Spatial differences in multi-resolution urban automata modeling. <em>Transactions in GIS, 8</em>(4), 479-492. doi:10.1111/j.1467-9671.2004.00197.x</span>
+    </p>
+    <p class="biblio"><span>Dietzel, C., &amp; Clarke, K. (2006). The effect of disaggregating land use categories in cellular automata during model calibration and forecasting. <em>Computers, Environment and Urban Systems, 30</em>, 78-101. doi:10.1016/j.compenvurbsys.2005.04.001</span>
+    </p>
+    <p class="biblio"><span>Dietzel, C., &amp; Clarke, K. (2007). Toward optimal calibration of the SLEUTH land use change model. <em>Transactions in GIS, 11</em>(1), 29-45. doi:10.1111/j.1467-9671.2007.01031.x</span>
+    </p>
+    <p class="biblio"><span>DINAMICA. (2016). <em>DINAMICA EGO</em>. Retrieved June 26, 2016, from http://csr.ufmg.br/dinamica/</span>
+    </p>
+    <p class="biblio"><span>Faludi, A., &amp; van der Valk, A. (1994). <em>Rule and order dutch planning doctrine in the twentieth century.</em> Dordrecht: Kluwer Academic Publishers.</span>
+    </p>
+    <p class="biblio"><span>Fawcett, C. (1922). British Conurbations in 1921. <em>The Sociological Review</em>, 111-122.</span>
+    </p>
+    <p class="biblio"><span>Feng, Y., Liu, Y., &amp; Batty, M. (2015). Modeling urban growth with GIS based cellular automata and least squares SVM rules: a case study in Qingpu&#8211;Songjiang area of Shanghai, China. doi:10.1007/s00477-015-1128-z</span>
+    </p>
+    <p class="biblio"><span>Ferreira, B., Soares-Filho, B., &amp; Pereira, F. (2015). The Dinamica Virtual Machine for Geosciences. In A. Pardo, &amp; S. Swierstra (Eds.), <em>Lecture Notes in Computer Science</em> (pp. 44-58). Springer International Publishing. doi:10.1007/978-3-319-24012-1_4</span>
+    </p>
+    <p class="biblio"><span>Franklin, S., &amp; Graesser, A. (1997). Is It an agent, or just a program?: A taxonomy for autonomous agents. In J. M&#252;ller, M. Wooldridge, &amp; N. Jennings (Red.), <em>Intelligent agents III agent theories, architectures, and languages</em> (Vol. 1193, pp. 21-35). Springer Berlin Heidelberg. doi:10.1007/BFb0013570</span>
+    </p>
+    <p class="biblio"><span>Fujita, M., Krugman, P., &amp; Venables, A. (2001). <em>The spatial economy: cities, regions, and international trade.</em> Cambridge, Massachusetts: the MIT Press.</span>
+    </p>
+    <p class="biblio"><span>Garc&#237;a, A. M., Sant&#233;, I., Boull&#243;n, M., &amp; Crecente, R. (2012). A comparative analysis of cellular automata models for simulation of small urban areas in Galicia, NW Spain. <em>Computers, Environment and Urban Systems</em>(36), 291-301. doi:10.1016/j.compenvurbsys.2012.01.001</span>
+    </p>
+    <p class="biblio"><span>Gardner, M. (1970). Mathematical Games: The fantastic combinations of John Conway's new solitaire game 'life'. <em>Scientific America</em>(223), 120-123.</span>
+    </p>
+    <p class="biblio"><span>Geddes, P. (1915). <em>Cities in evolution: an introduction to the town planning movement and to the study of civics.</em> London: Williams.</span>
+    </p>
+    <p class="biblio"><span>Gemeente Leek. (2007). <em>Bestemmingsplan Oostindie.</em> Retrieved July 6, 2016, from https://www.leek.nl/fileadmin/user_upload/pdf/bestemmingsplannen/oostindie/bp_oostindie_toelichting.pdf.</span>
+    </p>
+    <p class="biblio"><span>Goetz, S., Jantz, C., Bockstael, N., &amp; Towe, C. (2007). Modeling the urbanization process across Maryland in the context of Chesapeake Bay restoration. <em>Conference Paper 06.</em> Washington: Resources for the future. Retrieved November 11, 2015, from https://www.researchgate.net/publication/230720067_Modeling_the_urbanization_process_across_Maryland_in_the_context_of_Chesapeake_Bay_restoration</span>
+    </p>
+    <p class="biblio"><span>Goldstein, N. (2005). Brains vs. brawn: comparative strategies for the calibration of a cellular automata-based urban growth model. In P. Atkinson, G. Foody, S. Darby, &amp; F. Wu (Eds.), <em>GeoDynamics</em> (pp. 249-272). Boca Raton, Florida: CRC Press.</span>
+    </p>
+    <p class="biblio"><span>Goldstein, N., Candau, J., &amp; Clarke, K. (2004). Approaches to simulating the &#8216;&#8216;March of bricks and mortar". <em>Computers, Environment and Urban Systems, 28</em>(1-2), 125-147. doi:10.1016/S0198-9715(02)00046-7</span>
+    </p>
+    <p class="biblio"><span>Goldstein, N., Dietzel, C., &amp; Clarke, K. (2005). <em>Don&#8217;t stop &#8216;til you get enough - sensitivity testing of Monte Carlo iterations for model calibration.</em> Retrieved October 5, 2016, from https://www.researchgate.net/publication/229040620_Don't_stop_'til_you_get_enough-sensitivity_testing_of_Monte_Carlo_iterations_for_model_calibration</span>
+    </p>
+    <p class="biblio"><span>Hagen, A. (2002). Multi-method assessment of map similarity. <em>Proceedings of the Fifth AGILE Conference of Geographic Information Science</em>, (pp. 171-182). Palma, Spain. Retrieved March 17, 2016, from https://www.researchgate.net/publication/228862291_Multi-method_assessment_of_map_similarity</span>
+    </p>
+    <p class="biblio"><span>Hagen-Zanker, A., &amp; Martens, P. (2008). Map comparison methods for comprehensive assessment of geosimulation models. In M. Karimipour, M. Delavar, &amp; A. Frank (Eds.), <em>Computational Science and Its Applications: ICCSA 2008</em> (pp. 194-209). Berlin: Springer Lecture Notes in Computer Science. doi:10.1007/978-3-540-69839-5_15</span>
+    </p>
+    <p class="biblio"><span>Hall, P. (1996). <em>Cities of tomorrow: An intellectual history of urban planning and design in the twentieth century.</em> Oxford: Blackwell Publishers Ltd.</span>
+    </p>
+    <p class="biblio"><span>Han, H., Hwang, Y., Ha, S., &amp; Kim, B. (2015). Modeling future land use scenarios in South Korea: applying the IPCC special report on emissions scenarios and the SLEUTH model on a local scale. <em>Environmental Management, 55</em>(5), 1064-1079. doi:10.1007/s00267-015-0446-8</span>
+    </p>
+    <p class="biblio"><span>Harris, C., &amp; Ullman, E. (1945). The nature of cities. <em>Annals of the American Academy of Political Science, 18</em>(1), 7-17. doi:10.2747/0272-3638.18.1.7</span>
+    </p>
+    <p class="biblio"><span>Heppenstall, A., Crooks, A., See, L., &amp; Batty, M. (Eds.). (2012). <em>Agent-based models of geographical systems.</em> Springer Netherlands. doi:10.1007/978-90-481-8927-4</span>
+    </p>
+    <p class="biblio"><span>Herold, M., Goldstein, N., &amp; Clarke, K. (2003). The spatiotemporal form of urban growth: Measurement, analysis and modeling. <em>Remote Sensing of Environment, 86</em>(3), 286-302. doi:10.1016/S0034-4257(03)00075-0</span>
+    </p>
+    <p class="biblio"><span>Howard, E. (1902). <em>Garden cities of tomorrow.</em> Charleston: BiblioBazaar.</span>
+    </p>
+    <p class="biblio"><span>Irwin, E., &amp; Bockstael, N. (2004). Land use externalities, open space preservation, and urban sprawl. <em>Regional Science and Urban Economics, 34</em>(6), 705-725. doi:10.1016/j.regsciurbeco.2004.03.002</span>
+    </p>
+    <p class="biblio"><span>Isard, W. (1960). <em>Methods of regional analysis: An Introduction to Regional Science.</em> Cambridge: Technology Press of the Massachusetts Institute of Technology.</span>
+    </p>
+    <p class="biblio"><span>Itami, R. (1994). Simulating spatial dynamics: Cellular automata theory. <em>Landscape and Urban Planning, 30</em>(1-2), 27-47. doi:10.1016/0169-2046(94)90065-5</span>
+    </p>
+    <p class="biblio"><span>Jacobs, J. (1961). <em>The death and life of great american cities.</em> New York: McGraw-Hill.</span>
+    </p>
+    <p class="biblio"><span>Jantz, C., &amp; Goetz, S. (2005). Analysis of scale dependencies in an urban land-use change model. <em>International Journal of Geographical Information Science, 19</em>(2), 217-241. doi:10.1080/13658810410001713425</span>
+    </p>
+    <p class="biblio"><span>Jantz, C., Drzyzga, S., &amp; Maret, M. (2014). Calibrating and validating a simulation model to identify drivers of urban land cover change in the Baltimore, MD Metropolitan Region. <em>Land, 3</em>(3), 1158-1179. doi:10.3390/land3031158</span>
+    </p>
+    <p class="biblio"><span>Jantz, C., Goetz, S., Donato, D., &amp; Clagget, P. (2010). Designing and implementing a regional urban modeling system using the SLEUTH cellular model. <em>Computers, Environment and Urban Systems, 34</em>, 1-16. doi:10.1016/j.compenvurbsys.2009.08.003</span>
+    </p>
+    <p class="biblio"><span>Jawarneh, R., Julian, J., &amp; Lookingbill, T. (2015). The influence of physiography on historical and future land development changes: a case study of Central Arkansas. <em>Landscape and Urban Planning, 143</em>, 76-89. doi:10.1016/j.landurbplan.2015.06.010</span>
+    </p>
+    <p class="biblio"><span>Kadaster. (2015). Top10NL: Digitaal topografisch basisbestand. Retrieved January 4, 2016, from http://www.kadaster.nl/web/artikel/producten/TOP10NL.htm</span>
+    </p>
+    <p class="biblio"><span>Kadaster. (2016a). Basisregistratie Adressen en Gebouwen. Retrieved January 10, 2016, from http://www.kadaster.nl/web/Themas/Registraties/BAG.htm</span>
+    </p>
+    <p class="biblio"><span>Kadaster. (2016b). <em>Tijdreis over 200 jaar topografie</em>. Retrieved March 9, 2016, from http://www.topotijdreis.nl/</span>
+    </p>
+    <p class="biblio"><span>KantaKumar, L., Sawant, N., &amp; Kuma, S. (2011). Forecasting urban growth based on GIS, RS and SLEUTH model in Pune metropolitan area. <em>Internation Journal of Geomatics and Geosciences, 2</em>(2). doi:10.1.1.421.9021</span>
+    </p>
+    <p class="biblio"><span>Koomen, E., &amp; Borsboom, J. (2011). <em>Land-use modeling in planning pratice</em> (Vol. 101). Springer Netherlands. doi:10.1007/978-94-007-1822-7</span>
+    </p>
+    <p class="biblio"><span>Koomen, E., Rietveld, P., &amp; de Nijs, T. (2008). Modelling land-use change for spatial planning support. <em>The Annals of Regional Science, 42</em>(1), 1-10. doi:10.1007/s00168-007-0155-1</span>
+    </p>
+    <p class="biblio"><span>Koopmans, C., Rietveld, P., &amp; Huijg, A. (2012). An accessibility approach to railways and municipal population growth, 1840&#8211;1930. <em>Journal of Transport Geography, 25</em>, 98-104. doi:10.1016/j.jtrangeo.2012.01.031</span>
+    </p>
+    <p class="biblio"><span>Kuhn, A. (1976). <em>The logic of social systems.</em> San Francisco: Jossey-Bass Publishers.</span>
+    </p>
+    <p class="biblio"><span>Leao, S., Bishop, I., &amp; Evans, D. (2004). Spatial&#8211;temporal model for demand and allocation of waste landfills in growing urban regions. <em>Computers, Environment and Urban Systems, 28</em>(4), 353-385. doi:10.1016/S0198-9715(03)00043-7</span>
+    </p>
+    <p class="biblio"><span>Lefebvre, H. (1974). <em>La production de l'espace.</em> Paris: Anthropos.</span>
+    </p>
+    <p class="biblio"><span>Lefebvre, H. (2014). Dissolving City, Planetary Metamorphosis. <em>Environment and Planning D, 32</em>(2), 203-205. doi:10.1068/d3202tra</span>
+    </p>
+    <p class="biblio"><span>Ligtenberg, A., Bregt, A., &amp; Van Lammeren, R. (2001). Multi-actor-based land use modelling: spatial planning using agents. <em>Landscape and Urban Planning, 56</em>(1-2), 21-33. doi:10.1016/S0169-2046(01)00162-1</span>
+    </p>
+    <p class="biblio"><span>Lillesand, T., &amp; Kiefer, R. (2015). <em>Remote sensing and image interpretation.</em> New Jersey: John Wiley &amp; Sons Inc.</span>
+    </p>
+    <p class="biblio"><span>Liu, X., Sun, R., Yang, Q., Su, G., &amp; Qi, W. (2012). <em>Simulating urban expansion using an improved SLEUTH model.</em></span>
+    </p>
+    <p class="biblio"><span>Longley, P., Goodchild, M., Maguire, D., &amp; Rhind, D. (2010). <em>Geographic Information Systems.</em> New York: John Wiley &amp; Sons, Inc.</span>
+    </p>
+    <p class="biblio"><span>L&#246;sch, A. (1940). <em>Die r&#228;umliche Ordnung der Wirtschaft: Eine Untersuchung &#252;ber Standort, Wirtschaftsgebiete und internationalen Handel.</em> Jena: Gustav Fischer.</span>
+    </p>
+    <p class="biblio"><span>Lowry, I. (1961). <em>A short course in model design.</em> Retrieved July 7, 2015, from Centre for Advanced Spatial Analysis (CASA): http://www.casa.ucl.ac.uk/rits/Lowry-Short-Course.pdf</span>
+    </p>
+    <p class="biblio"><span>Lowry, I. (1964). <em>A model of metropolis.</em> Rand Corporation. Retrieved Juli 8, 2015, from http://www.casa.ucl.ac.uk/rits/lowry.pdf</span>
+    </p>
+    <p class="biblio"><span>Mahiny, A., &amp; Clarke, K. (2012). Guiding SLEUTH land-use/land-cover change modeling using multicriteria evaluation: towards dynamic sustainable land-use planning. <em>Environment and Planning B: Planning and Design, 39</em>, 925-944. doi:10.1068/b37092</span>
+    </p>
+    <p class="biblio"><span>Mandelbrot, B. (1983). <em>The fractal geometry of nature.</em> San Francisco: W. H. Freeman and Company.</span>
+    </p>
+    <p class="biblio"><span>Miller, E., &amp; Roorda, M. (2003). Prototype Model of Household Activity/Travel Scheduling. <em>Transportation Research Record, Journal of the Transportation Research Board</em>(1831), 114-121.</span>
+    </p>
+    <p class="biblio"><span>Mitchell, R., &amp; Rapkin, C. (1954). Urban traffic: a function of land use. <em>National Municipal Review, 43</em>(11), 608-609. doi:10.1002/ncr.4110431114</span>
+    </p>
+    <p class="biblio"><span>Moran, M., Jackson, R., Slater, P., &amp; Teillet, P. (1992). Evaluation of simplified procedures for retrieval of land surface reflectance factors from satellite sensor output. <em>Remote Sensing of Environment, 41</em>(2-3), 169-184. doi:10.1016/0034-4257(92)90076-V</span>
+    </p>
+    <p class="biblio"><span>Mumford, L. (1938). <em>The culture of cities.</em> London: George Routledge and Sons.</span>
+    </p>
+    <p class="biblio"><span>Nationale Spoorwegen. (2016). <em>GTFS.</em> Retrieved February 12, 2016, from http://gtfs.ovapi.nl/</span>
+    </p>
+    <p class="biblio"><span>Ogashawara, L., &amp; Bastos, V. (2012). &#8220;A quantitative approach for analyzing the relationship between urban heat islands and lan cover. <em>Remote Sensing, 11</em>(4), 3596-3618. doi:10.3390/rs4113596</span>
+    </p>
+    <p class="biblio"><span>Onsted, J., &amp; Chowdhury, R. (2014). Does zoning matter? A comparative analysis of landscape change in Redland, Florida using cellular automata. <em>Landscape and Urban Planning, 121</em>, 1-18. doi:10.1016/j.landurbplan.2013.09.007</span>
+    </p>
+    <p class="biblio"><span>Onsted, J., &amp; Clarke, K. (2012). The inclusion of differentially assessed lands inurban growth model calibration: a comparison of two approaches using SLEUTH. <em>International Journal of Geographical Information Science, 26</em>(5), 881-898. doi:10.1080/13658816.2011.617305</span>
+    </p>
+    <p class="biblio"><span>Parker, D., Manson, S., Janssen, M., Hoffmann, M., &amp; Deadman, P. (2003). Multi-agent systems for the simulation of land-ase and land-cover change: a review. <em>Annals of the Association of American Geographers, 93</em>(2), 314-337. doi:10.1111/1467-8306.9302004</span>
+    </p>
+    <p class="biblio"><span>Pettit, C. (2005). Use of a collaborative GIS-based planning-support system to assist in formulating a sustainable-development scenario for Hervey Bay, Australia. <em>Environment and Planning B: Planning and Design, 32</em>(4), 523-545. doi:10.1068/b31109</span>
+    </p>
+    <p class="biblio"><span>Poelmans, L., &amp; van Rompaey, A. (2009). Detecting and modelling spatial patterns of urban sprawl in highly fragmented areas: A case study in the Flanders&#8211;Brussels region. <em>Landscape and Urban Planning, 93</em>(1), 10-19. doi:10.1016/j.landurbplan.2009.05.018</span>
+    </p>
+    <p class="biblio"><span>Pontius, R., &amp; Millones, M. (2011). Death to Kappa: birth of quantity disagreement and allocation disagreement for accuracy assessment. <em>International Journal of Remote Sensing, 32</em>(15), 4407-4429. doi:10.1080/01431161.2011.552923</span>
+    </p>
+    <p class="biblio"><span>Pontius, R., Boersma, W., Castella, J., Clarke, K., de Nijs, T., Dietzel, C., . . . Verburg, P. (2008). Comparing the input, output, and validation maps for several models of land change. <em>The Annals of Regional Science, 42</em>(1), 11-37. doi:10.1007/s00168-007-0138-2</span>
+    </p>
+    <p class="biblio"><span>Pontius, R., Huffaker, D., &amp; Denman, K. (2004). Useful techniques of validation for spatially explicit land-change models. <em>Ecological Modelling, 179</em>(4), 445-461. doi:10.1016/j.ecolmodel.2004.05.010</span>
+    </p>
+    <p class="biblio"><span>Pontius, R., Peethambaram, S., &amp; Castella, J. (2011). Comparison of three maps at multiple resolutions: a case study of land change simulation in Cho Don District, Vietnam. <em>Annals of the Association of American Geographers, 101</em>(1), 45-62. doi:10.1080/00045608.2010.517742</span>
+    </p>
+    <p class="biblio"><span>Provincie Drenthe. (2016). <em>Geoportaal van de provincie Drenthe</em>. Retrieved May 4, 2016, from http://www.drenthe.info/kaarten/website/geoportaal/index.php</span>
+    </p>
+    <p class="biblio"><span>Provincie Groningen. (2016). <em>Kaarten</em>. Retrieved May 4, 2016, from http://www.provinciegroningen.nl/loket/kaarten/</span>
+    </p>
+    <p class="biblio"><span>Pumain, D. (2012). Multi-agent system modelling for urban systems: the series of SIMPOP models. In A. Heppenstall, A. Crooks, L. See, &amp; M. Batty (Red.), <em>Agent-based models of geographical systems</em> (pp. 721-738). Springer Netherlands. doi:10.1007/978-90-481-8927-4_36</span>
+    </p>
+    <p class="biblio"><span>Qi, L. (2012). <em>Urban land expansion model based on SLEUTH, a case study in Dongguan City, China.</em> Retrieved September 19, 2015, from https://lup.lub.lu.se/search/publication/4529796</span>
+    </p>
+    <p class="biblio"><span>RHC Groninger Archieven. (2016). <em>1000 jaar Groningen: Stad en Lande(n)</em>. Retrieved March 12, 2016, from Regionaal Historisch Centrum Groninger Archieven: https://www.groningerarchieven.nl/historie/1000-jaar-groningen</span>
+    </p>
+    <p class="biblio"><span>Rienow, A., &amp; Goetzke, R. (2015). Supporting SLEUTH &#8211; Enhancing a cellular automaton with support vector machines for urban growth modeling. <em>Computers, Environment and Urban Systems</em>(49), 66-81. doi:10.1016/j.compenvurbsys.2014.05.001</span>
+    </p>
+    <p class="biblio"><span>Rienow, A., &amp; Stenger, D. (2013). Geosimulation of urban growth and demographic decline in the Ruhr: a case study for 2025 using the artificial intelligence of cells and agents. <em>Journal of Geographical Systems</em>(16), 311-342. doi:10.1007/s10109-014-0196-9</span>
+    </p>
+    <p class="biblio"><span>Rijksoverheid. (2013). <em>Handleiding Nationaal Wegenbestand - NWB</em>. Retrieved January 1, 2016, from http://www.ndw.nu/downloaddocument/c48e4fc8756f5b803b203b5f2837ea88/Handleiding%20Nationaal%20Wegenbestand_v3%200%20(2013-08).pdf</span>
+    </p>
+    <p class="biblio"><span>Rijksoverheid. (2015). <em>Risicokaart</em>. Retrieved February 11, 2016, from http://www.risicokaart.nl/</span>
+    </p>
+    <p class="biblio"><span>RIKS. (2005). <em>Metronamica: a dynamics spatial land use model.</em> Retrieved March 3, 2016, from http://www.riks.nl/resources/papers/Metronamica_Brochure.pdf</span>
+    </p>
+    <p class="biblio"><span>Roy, D., Kovalskyy, V., Zhang, H., Yan, L., &amp; Kommareddy, I. (2015). The utility of Landsat data for global long term terrestial monitoring. In C. Keunzer, S. Dech, &amp; W. Wagner, <em>Remote Sensing Time Series</em> (Vol. 22, pp. 289-305). Switzerland: Springer International Publishing. doi:10.1007/978-3-319-15967-6_14</span>
+    </p>
+    <p class="biblio"><span>Saaty, T. (1980). <em>The analytical hierarchy process: planning, priority setting, resource allocation.</em> New York: McGraw Hill.</span>
+    </p>
+    <p class="biblio"><span>Sakieh, Y., Amiri, B., Danekar, A., Feghhi, J., &amp; Dezhkam, S. (2015a). Simulating urban expansion and scenario prediction using a cellular automata urban growth model, SLEUTH, through a case study of Karaj City, Iran. <em>J Hous and the Built Environ</em>(30), 591-611. doi:10.1007/s10901-014-9432-3</span>
+    </p>
+    <p class="biblio"><span>Sakieh, Y., Salmanmahiny, A., Jafarnezhad, J., Mehri, A., Kamyab, H., &amp; Galdavi, S. (2015b). Evaluating the strategy of decentralized urban land-use planning in a developing region. <em>Land Use Policy, 48</em>, 534-551. doi:10.1016/j.landusepol.2015.07.004</span>
+    </p>
+    <p class="biblio"><span>Sante, L., Garcia, A. M., Miranda, D., &amp; Crecente, R. (2010). Cellular automata models for the simulation of real-world urban processes: a review and analysis. <em>Landscape and Urban Planning</em>(96), 108-122. doi:10.1016/j.landurbplan.2010.03.001</span>
+    </p>
+    <p class="biblio"><span>Schroor, M. (2009). <em>Historische atlas van de stad Groningen: van esdorp tot moderne kennisstad.</em> Amsterdam: Uitgeverij SUN.</span>
+    </p>
+    <p class="biblio"><span>Silva, E., &amp; Clarke, K. (2002). Calibration of SLEUTH urban growth model for Lisbon and Porto, Portugal. <em>Computer, Environment and Urban Systems</em>(26), 525-552. doi:10.1016/S0198-9715(01)00014-X</span>
+    </p>
+    <p class="biblio"><span>Silva, E., Ahern, J., &amp; Wileden, J. (2008). Strategies for landscape ecology: an application using cellular automata models. <em>Progress in Planning, 70</em>(4), 133-177. doi:10.1016/j.progress.2008.05.002</span>
+    </p>
+    <p class="biblio"><span>Simmel, G. (1903). Die Gro&#223;st&#228;dte und das Geistesleben. <em>Jahrbuch der Gehe-Stiftung</em>.</span>
+    </p>
+    <p class="biblio"><span>Sitte, C. (1889). City planning according to artistic principles. In G. Collins, &amp; C. Crasemann Collins, <em>The birth of modern city planning</em> (pp. 129-332). New York: Dover Publications, Inc.</span>
+    </p>
+    <p class="biblio"><span>Soares-Filho, B., Cerqueira, G., &amp; Pennachin, C. (2002). DINAMICA: a stochastic cellular automata model designed to simulate the landscape dynamics in an Amazonian colonization frontier. <em>Ecological Modelling, 154</em>(3), 217-235. doi:10.1016/S0304-3800(02)00059-5</span>
+    </p>
+    <p class="biblio"><span>Soria y Puig, A. (1999). <em>Cerda&#769; : The five bases of the general theory of urbanization.</em> Madrid: Sociedad Editorial Electa Espana, S.A.</span>
+    </p>
+    <p class="biblio"><span>Timmermans, H. (2003). The saga of integrated land use-transport modeling: How many more dreams before we wake up? <em>International Conference on Travel Behaviour Research (IATBR).</em> Luzern, Germany.</span>
+    </p>
+    <p class="biblio"><span>Timmermans, H. (2006). Modeling land use and transportation dynamics: methodological issues, state-of-art, and applications in developing countries. <em>Discussion Paper Series, 2006-06</em>.</span>
+    </p>
+    <p class="biblio"><span>Timmermans, H., Arentze, T., &amp; Joh, C. (2002). Analysing space-time behaviour: new approaches to old problems. <em>Progress in Human Geography, 26</em>(2), 175-190. doi:10.1191/0309132502ph363ra</span>
+    </p>
+    <p class="biblio"><span>TNO. (2016). <em>DINOloket Data en informatie van de Nederlandse ondergrond</em>. Retrieved February 11, 2016, from https://www.dinoloket.nl/</span>
+    </p>
+    <p class="biblio"><span>Tobler, W. (1979). Cellular geography. <em>Theory and Decision Library, 20</em>, 379-386. doi:10.1007/978-94-009-9394-5_18</span>
+    </p>
+    <p class="biblio"><span>Tordoir, P., Poorthuis, A., &amp; Renooy, P. (2015). <em>De veranderende geografie van Nederland: De opgaven op mesoniveau.</em> Retrieved February 2, 2016, from Rijksoverheid: https://www.rijksoverheid.nl/documenten/rapporten/2015/03/18/de-veranderende-geografie-van-nederland</span>
+    </p>
+    <p class="biblio"><span>Torrens, P. M. (2001). <em>Can geosimulation save urban simulation? Throw some agents into the mixture, simmer and wait ...</em> London: Centre for Advanced Spatial Analysis (CASA). Retrieved January 4, 2016, from https://www.bartlett.ucl.ac.uk/casa/pdf/paper32.pdf</span>
+    </p>
+    <p class="biblio"><span>Ulam, S. (1962). On some mathematical problems connected with petterns of growth of figures. <em>Proceedings of Symposia in Applied Mathemetics</em>(14), 215-224.</span>
+    </p>
+    <p class="biblio"><span>UN, U. (2014). <em>World Urbanization prospects 2014 revision.</em> Retrieved February 1, 2016, from http://esa.un.org/unpd/wup/Publications/Files/WUP2014-Report.pdf</span>
+    </p>
+    <p class="biblio"><span>US Department of Transportation. (2015). <em>TRANSIMS</em>. Retrieved July 28, 2016, from https://www.fhwa.dot.gov/planning/tmip/resources/transims/</span>
+    </p>
+    <p class="biblio"><span>USGS. (2016a). <em>Landsat Missions</em>. Retrieved January 2, 2016, from http://landsat.usgs.gov/</span>
+    </p>
+    <p class="biblio"><span>USGS. (2016b). <em>Landsat 8 (L8) Data Users Handbook.</em> Retrieved February 2, 2016, from landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf</span>
+    </p>
+    <p class="biblio"><span>Van Vliet, J., Bregt, A., &amp; Hagen-Zanker, A. (2011). Revisiting Kappa to account for change in the accuracyassessment of land-use change models. <em>Ecological Modelling, 222</em>(8), 1367-1375. doi:10.1016/j.ecolmodel.2011.01.017</span>
+    </p>
+    <p class="biblio"><span>Van Vliet, J., Bregt, A., Brown, D., Van Delden, H., Heckbert, S., &amp; Verburg, P. (2016). A review of current calibration and validation practices in land-change. <em>Environmental Modelling &amp; Software, 82</em>, 174-182. doi:10.1016/j.envsoft.2016.04.017</span>
+    </p>
+    <p class="biblio"><span>Veerbeek, W., Pathirana, A., Ashley, R., &amp; Zevenbergen, C. (2015). Enhancing the calibration of an urban growth model using a memetic. <em>Computers, Environment and Urban Systems, 50</em>, 53-65. doi:10.1016/j.compenvurbsys.2014.11.003</span>
+    </p>
+    <p class="biblio"><span>Veldkamp, A., &amp; Fresco, L. (1996). CLUE-CR: An integrated multi-scale model to simulate land use change scenarios in Costa Rica. <em>Ecological Modelling, 91</em>(1-3), 231-248. doi:10.1016/0304-3800(95)00158-1</span>
+    </p>
+    <p class="biblio"><span>Verburg, P., &amp; Overmars, K. (2009). Combining top-down and bottom-up dynamics in land use modeling: exploring the future of abandoned farmlands in Europe with the Dyna-CLUE model. <em>Landscape Ecology, 24</em>, 1167-1181. doi:10.1007/s10980-009-9355-7</span>
+    </p>
+    <p class="biblio"><span>Verburg, P., Ritsema van Eck, J., de Nijs, T., Dijst, M., &amp; Schot, P. (2004). Determinants of land-use change patterns in the Netherlands. <em>Environment and Planning B: Planning and Design, 31</em>(1), 125-150.</span>
+    </p>
+    <p class="biblio"><span>Verburg, P., Veldkamp, A., &amp; Fresco, L. (1999). Simulation of changes in the spatial pattern of land use in China. <em>Applied Geography, 19</em>(3), 211-233. doi:10.1016/S0143-6228(99)00003-X</span>
+    </p>
+    <p class="biblio"><span>Von Bertalanffy, L. (1928). <em>Kritische Theorie der Formbildung.</em> Berlin: Gebru&#776;der Borntraeger.</span>
+    </p>
+    <p class="biblio"><span>Von Neumann, J. (1966). <em>Theory of self-reproducing automata.</em> Urbana: University of Illinois Press.</span>
+    </p>
+    <p class="biblio"><span>Waddell, P. (2000). A behavioral simulation model for metropolitan policy analysis and planning: residential location and housing market components of urbansim. <em>Environment and Planning B: Planning and Design, 27</em>(2), 247-263. doi:10.1068/b2627</span>
+    </p>
+    <p class="biblio"><span>Waddell, P., Noth, M., Borning, A., Freier, N., Becke, M., &amp; Ulfarsson, G. (2014). Microsimulation of urban development and location choices: design and implementation of UrbanSim. <em>Networks and Spatial Economics, 3</em>(1), 43-67. doi:10.1023/A:1022049000877</span>
+    </p>
+    <p class="biblio"><span>White, R., &amp; Engelen, G. (1993). Cellular dynamics and GIS: modeling spatial complexity. <em>Journal of Geographical Systems, 1</em>(3), 237-253. doi:10.2307/1587033</span>
+    </p>
+    <p class="biblio"><span>White, R., Engelen, G., &amp; Uljee, I. (1997). The use of constrained cellular automata for high-resolution modeling of urban land-use dynamics. <em>Environment and Planning B, 24</em>, 323-343. doi:10.1068/b240323</span>
+    </p>
+    <p class="biblio"><span>White, R., Uljee, I., &amp; Engelen, G. (2012). Integrated modelling of population, employment and land-use change with a multiple activity-based variable grid cellular automaton. <em>International Journal of Geographical Information Science, 26</em>(7), 1251-1280. doi:10.1080/13658816.2011.635146</span>
+    </p>
+    <p class="biblio"><span>Wiener, N. (1948). <em>Cybernetics: or control and communication in the animal and the machine.</em> Cambridge: The M.I.T. Press.</span>
+    </p>
+    <p class="biblio"><span>Wolfram, S. (1984a). Computer software in science and mathematics. <em>Scientific American, 237</em>(9), 184-203.</span>
+    </p>
+    <p class="biblio"><span>Wolfram, S. (1984b). Cellular automata as models of complexity. <em>Nature, 311</em>(5985), 419-424. doi:10.1038/311419a0</span>
+    </p>
+    <p class="biblio"><span>Wright, F. L. (1901). The art and craft of the machine. <em>Catalogue of the Fourteenth Annual Exibition of the Chicago Architectural Club</em>, 58-69.</span>
+    </p>
+    <p class="biblio"><span>Wu, J., &amp; Li, H. (2006). Concepts of scale and scaling. In J. Wu, K. B. Jones, H. Li, &amp; O. L. Loucks, <em>Scaling and uncertainty analysis in ecology: methods and application</em> (pp. 3-15). New York: Springer. doi:10.1007/1-4020-4663-4</span>
+    </p>
+    <p class="biblio"><span>Wu, N., &amp; Silva, E. (2010). Artificial Intelligence solutions for urban land dynamics: a review. <em>Journal of Planning Literature, 24</em>(3), 246-265. doi:10.1177/0885412210361571</span>
+    </p>
+    <p class="biblio"><span>Wu, X., Hu, Y., He, H., Bu, R., Onsted, J., &amp; Xi, F. (2009). Performance evaluation of the SLEUTH model in the Shenyang Metropolitan Area of Northeastern China. <em>Environmental Modeling &amp; Assessment, 14</em>(2), 221-230. doi:10.1007/s10666-008-9154-6</span>
+    </p>
+    <p class="biblio"><span>Xiang, W., &amp; Clarke, K. (2003). The use of scenarios in land-use planning. <em>Environment and Planning B: Planning and Design, 30</em>(6), 885-909. doi:10.1068/b2945</span>
+    </p>
+    <p class="biblio"><span>Yang, X., &amp; Lo, C. (2006). Modeling urban growth and landscape change in the Atlanta metropolitan area. <em>International Journal of Geographical Information Science, 17</em>(5), 463-488. doi:10.1080/1365881031000086965</span>
+    </p>
+    <p class="biblio"><span>Yeh, A., &amp; Li, X. (2006). Errors and uncertainties in urban cellular automata. <em>Computers, Environment and Urban Systems, 30</em>(1), 10-28. doi:10.1016/j.compenvurbsys.2004.05.007</span>
+    </p>
+    <p class="biblio"><span>Zadeh, L. A. (1965). Fuzzy sets. <em>Information and Control, 8</em>(3), 338-353. doi:10.1016/S0019-9958(65)90241-X</span>
+    </p>
+    <p class="biblio"><span>Zha, Y., Gao, J., &amp; Ni, S. (2003). Use of normalized difference built-up index in automatically mapping urban areas from TM imagery. <em>International Journal of Remote Sensing , 24</em>(4), 583-594. doi:10.1080/01431160304987</span>
+    </p>
+    <p class="biblio"><span>Zhang, Q., Ban, Y., Liu, J., &amp; Hu, Y. (2011). Simulation and analysis of urban growth scenarios for the Greater Shanghai Area, China. <em>Computers, Environment and Urban Systems, 35</em>, 126-139. doi:10.1016/j.compenvurbsys.2010.12.002</span>
+    </p>
+    <p class="biblio"><span>Zonneveld, W. (1991). <em>Tussen droom en retoriek: de conceptualisering van ruimte in the nederlands planning.</em> Rotterdam: NAi Uitgevers.</span></p>    
   </section>
 
   <section id="appendices">
@@ -4030,9 +4604,20 @@
     </section>
     <section id="appendix-c">
       <h3>Appendix C</h3>
+      <p>In the file ‘color_obj.c’-line 246 was changed to ‘color_table_landuse_ptr->color[index].red = (color_val & RED_MASK) >> 16;’; line 247 was changed to ‘color_table_landuse_ptr->color[index].green = (color_val & GREEN_MASK) >> 8;’; and line 248 was changed to ‘color_table_landuse_ptr->color[index].blue = color_val & BLUE_MASK;’. These lines were changed as the index was wrong and overwriting the probability color table.</p>
+      <p>In the ‘ugm_defines.h’-file, line 68 was changed to ’#define BYTES_PER_WORD sizeof(PIXEL)’, so it would correctly define the size of a long integer.</p>
+      <p>In the ‘main.c’-file line 463 was changed to replace ‘WORD_BIT’  with ‘BYTES_PER_WORD*8’. This change removed the reference to WORD_BIT and prints the size of a long integer (in bits) to the log file. 
+        In the ‘memory_obj.c’-file line 431 ‘fprintf (memlog_fp, “WORD_BIT = %u\n”, WORD_BIT);’ was removed. The removal of line 376 is needed since WORD_BIT may not be defined, also this line was only printing to the log file and therefore not necessary. Line 630 ‘(WORD_BIT / 8)’ was replaced with ‘BYTES_PER_WORD’. This change ensured that the proper amount of memory is allocated given the size of a long integer in the system architecture.
+        </p>
+      <p>In the scenario-file WRITE_MEMORY_MAP was changed to yes, as SLEUTH-3r attempted to close the memory log file whether it was requested to write it or not. </p>
     </section>
     <section id="appendix-d">
       <h3>Appendix D</h3>
+      <p>This appendix shows the calibration results for the four variants of the excluded layer: E0 the standard excluded layer, E1 the excluded layer based on an MCE and the excluded layers based on an MCE that includes the policies for the years E2 1971 and E3 1978. Each section shows two tables, the first table displays the calibration settings for each calibration phase: coarse, fine and final. The second is displaying the top three results for each calibration phase: coarse, fine and final.</p>
+      <h4>Excluded E0 - Standard</h4>
+      <h4>Excluded E1 - MCE</h4>
+      <h4>Excluded E2 – Policy 1971</h4>
+      <h4>Excluded E3 – Policy 1978</h4>
     </section>
   </section>
 
