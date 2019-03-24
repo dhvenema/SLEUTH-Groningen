@@ -1,2 +1,8 @@
 fix_table.py
 table.html
+Report
+Report/*
+*.docx
+.ipynb_checkpoints/
+Biblio.ipynb
+output.html
